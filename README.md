@@ -1,2 +1,2 @@
 # PartyWorld
-A object-oriented front desk reservation application created in Object-Oriented Application Development in a team of four.
+A object-oriented front desk reservation application created in our university's Object-Oriented Application Development course in a team of four.
