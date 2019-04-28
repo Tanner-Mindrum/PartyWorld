@@ -1,3 +1,5 @@
+package AquaWorld;
+
 public class PartyGoer {
     private String name;
     private String phoneNum;
@@ -5,6 +7,7 @@ public class PartyGoer {
     private String address;
     private String creditCardInfo;
     private String roomType;
+    private String date;
 
     public String getName() {
         return name;
@@ -53,4 +56,12 @@ public class PartyGoer {
     public void setRoomType(String roomType) {
         this.roomType = roomType;
     }
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
 }

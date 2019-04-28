@@ -1,9 +1,11 @@
+package AquaWorld;
+
 public abstract class PartyRoom {
     private String description; //description of what room has e.g. party tables, chairs
     private int capacity; //capacity how much people room can fit
     private double cost; //cost per hour to rent room
     private String upgrades; //available upgrades for room
-    //private MealPlan meals;
+    private MealPlan meals;
     private PartyGoer partyGoerInfo;
     private boolean reservationMade;
 
@@ -16,7 +18,7 @@ public abstract class PartyRoom {
         this.capacity = 0;
         this.cost = 0;
         this.upgrades = "N/A";
-        this.partyGoerInfo = null;
+        this.setPartyGoerInfo(null);
         this.reservationMade = false;
     }
 
@@ -87,6 +89,7 @@ public abstract class PartyRoom {
     public void cancelReservation(PartyGoer currentPartyGoer) {
 
     }
+    
 
     public String notifyPartyGoer() {
         //Notifying whether they set or cancel
@@ -100,4 +103,20 @@ public abstract class PartyRoom {
     }
 
     public abstract double calculateCost();
+
+	public MealPlan getMeals() {
+		return meals;
+	}
+
+	public void setMeals(MealPlan meals) {
+		this.meals = meals;
+	}
+
+	public PartyGoer getPartyGoerInfo() {
+		return partyGoerInfo;
+	}
+
+	public void setPartyGoerInfo(PartyGoer partyGoerInfo) {
+		this.partyGoerInfo = partyGoerInfo;
+	}
 }
