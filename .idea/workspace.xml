@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee306aef-c2d3-4018-922a-08c8d2610ea8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AquaWorld/AdultBilliardsLounge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AquaWorld/AdultBilliardsLounge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AquaWorld/PartyRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AquaWorld/PartyRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AquaWorld/PartyRoomFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AquaWorld/PartyRoomFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AquaWorld/smallPartyRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AquaWorld/smallPartyRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AquaWorld/karaokeLounge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AquaWorld/karaokeLounge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AquaWorld/mediumPartyRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AquaWorld/mediumPartyRoom.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,6 +40,32 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AquaWorld/mediumPartyRoom.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+              <folding>
+                <element signature="e#196#197#0" expanded="true" />
+                <element signature="e#218#219#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AquaWorld/karaokeLounge.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+              <folding>
+                <element signature="e#159#160#0" expanded="true" />
+                <element signature="e#177#178#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AquaWorld/AdultBilliardsLounge.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
@@ -73,24 +96,6 @@
                 <element signature="e#266#267#0" expanded="true" />
                 <element signature="e#284#285#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AquaWorld/GarlicChicken.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AquaWorld/TowelRentals.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -144,6 +149,8 @@
         <option value="$PROJECT_DIR$/src/AquaWorld/smallPartyRoom.java" />
         <option value="$PROJECT_DIR$/src/AquaWorld/AdultBilliardsLounge.java" />
         <option value="$PROJECT_DIR$/src/AquaWorld/AquaWorldRoom.java" />
+        <option value="$PROJECT_DIR$/src/AquaWorld/mediumPartyRoom.java" />
+        <option value="$PROJECT_DIR$/src/AquaWorld/karaokeLounge.java" />
       </list>
     </option>
   </component>
@@ -235,12 +242,12 @@
       <workItem from="1556217736295" duration="5330000" />
       <workItem from="1556414202535" duration="3437000" />
       <workItem from="1556424568551" duration="625000" />
-      <workItem from="1556651096698" duration="2736000" />
+      <workItem from="1556651096698" duration="3315000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12128000" />
+    <option name="totallyTimeSpent" value="12707000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -310,13 +317,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AquaWorld/IceCream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AquaWorld/karaokeLounge.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -474,6 +474,28 @@
           <folding>
             <element signature="e#160#161#0" expanded="true" />
             <element signature="e#178#179#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AquaWorld/mediumPartyRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#196#197#0" expanded="true" />
+            <element signature="e#218#219#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AquaWorld/karaokeLounge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#159#160#0" expanded="true" />
+            <element signature="e#177#178#0" expanded="true" />
           </folding>
         </state>
       </provider>
