@@ -8,6 +8,20 @@ public class PartyGoer {
     private String creditCardInfo;
     private String roomType;
     private String date;
+    private PartyRoom partyRoom;
+    private PartyGoer partyGoer;
+
+    public PartyGoer() {
+        name = "N/A";
+        phoneNum = "N/A";
+        email = "N/A";
+        address = "N/A";
+        creditCardInfo = "N/A";
+        roomType = "N/A";
+        date = "N/A";
+        partyRoom = null;
+        partyGoer = null;
+    }
 
     public String getName() {
         return name;
@@ -64,4 +78,8 @@ public class PartyGoer {
 	public void setDate(String date) {
 		this.date = date;
 	}
+
+	public void Update() {
+        partyRoom.getReservation(partyGoer);
+    }
 }

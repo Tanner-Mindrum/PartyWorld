@@ -8,11 +8,6 @@ public abstract class PartyRoom {
     private MealPlan meals;
     private PartyGoer partyGoerInfo;
     private boolean reservationMade;
-//    private smallPartyRoom smallRoom;
-//    private mediumPartyRoom mediumRoom;
-//    private karaokeLounge karaokeRoom;
-//    private AdultBilliardsLounge adultRoom;
-//    private AquaWorldRoom aquaRoom;
 
 
     /**
@@ -25,11 +20,6 @@ public abstract class PartyRoom {
         this.upgrades = "N/A";
         this.setPartyGoerInfo(null);
         this.reservationMade = false;
-//        smallRoom = null;
-//        mediumRoom = null;
-//        karaokeRoom = null;
-//        adultRoom = null;
-//        aquaRoom = null;
     }
 
     /**
@@ -96,20 +86,19 @@ public abstract class PartyRoom {
 
     }
 
-    public void cancelReservation(PartyGoer currentPartyGoer) {
-
-    }
-    
-
-    public String notifyPartyGoer() {
+    public void getReservation(PartyGoer currentPartyGoer) {
         //Notifying whether they set or cancel
         if (reservationMade) {
             //if room is full, add to wait list
-            return "Your reservation has been set!";
+            System.out.println("Your reservation has been set!");
         }
         else {
-            return "Your reservation has been cancelled.";
+            System.out.println("Your reservation has been cancelled.");
         }
+    }
+
+    public void cancelReservation(PartyGoer currentPartyGoer) {
+        
     }
 
     public abstract double calculateCost();
@@ -132,23 +121,5 @@ public abstract class PartyRoom {
 
 	public abstract PartyRoom reserveRoom();
 
-//	public smallPartyRoom reserveSmallRoom() {
-//	    return smallRoom;
-//    }
-//
-//    public mediumPartyRoom reserveMediumRoom() {
-//	    return mediumRoom;
-//    }
-//
-//    public karaokeLounge reserveKaraokeRoom() {
-//        return karaokeRoom;
-//    }
-//
-//    public AdultBilliardsLounge reserveAdultRoom() {
-//        return adultRoom;
-//    }
-//
-//    public AquaWorldRoom reserveAquaRoom() {
-//	    return aquaRoom;
-//    }
+
 }
