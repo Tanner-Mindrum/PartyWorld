@@ -1,11 +1,16 @@
 package AquaWorld;
 
+import java.util.ArrayList;
+
 public class AquaWorldRoom extends PartyRoom{
 	private String restrictions;
 	private static AquaWorldRoom singleInstance = null; 
-
+	private String description;
+	private ArrayList<PartyGoer> waitList = new ArrayList<PartyGoer>();
+	
 	private AquaWorldRoom() {
-		restrictions = "Nothing";
+		restrictions = "To access water facilities, bathing suits must be worn at all times.";
+		description = "Olympic-sized pool with water slide, kiddie pool, and large jacuzzi";
 	}
 
 	public static AquaWorldRoom getInstance() {
@@ -14,6 +19,11 @@ public class AquaWorldRoom extends PartyRoom{
 		}
 		
 		return singleInstance;
+	}
+	public void addWaitList(PartyGoer partyGoer) {
+		
+		waitList.add(partyGoer);
+	
 	}
 	
 	public void addRestrictions(String newRestriction) {
