@@ -1,5 +1,7 @@
 package AquaWorld;
 
+import java.util.ArrayList;
+
 public abstract class PartyRoom {
     private String description; //description of what room has e.g. party tables, chairs
     private int capacity; //capacity how much people room can fit
@@ -119,7 +121,7 @@ public abstract class PartyRoom {
 		this.partyGoerInfo = partyGoerInfo;
 	}
 
-	public abstract PartyRoom reserveRoom();
+	public abstract ArrayList<PartyGoer> reserveRoom();
 
 
 }

@@ -11,7 +11,9 @@ public class mediumPartyRoom extends PartyRoom{
 	public double calculateCost() {
 		return 0;
 	}
-	
+	public void setDescription(String description) {
+		Description = description;
+	}
 	public void addWaitList(PartyGoer partyGoer) {
 		waitList.add(partyGoer);
 	}

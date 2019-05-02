@@ -15,10 +15,6 @@ public class PartyRoomFactory {
 	private AquaWorldRoom aquaRoom; 
 	
 	public PartyRoomFactory() {
-		smallRoom = new smallPartyRoom(); 
-		mediumRoom = new mediumPartyRoom();
-		karaokeRoom = new karaokeLounge();
-		adultRoom = new AdultBilliardsLounge();
 		aquaRoom = AquaWorldRoom.getInstance();
 	}
 //	public PartyRoom factoryRoom(){
@@ -34,7 +30,7 @@ public class PartyRoomFactory {
 		else {
 			
 			numSmallRooms--;
-			return smallRoom;
+			return new smallPartyRoom();
 		}
 		
 	}
@@ -46,7 +42,7 @@ public class PartyRoomFactory {
 		else { 
 
 			numMedRooms--;
-			return mediumRoom;
+			return new mediumPartyRoom();
 		}
 		 
 	}
@@ -58,7 +54,7 @@ public class PartyRoomFactory {
 		else {
 
 			numKaraokeRooms--;
-			return karaokeRoom;
+			return new karaokeLounge();
 		}	
 	}
 
@@ -70,7 +66,7 @@ public class PartyRoomFactory {
 		else {
 
 			numAdultLounge--;
-			return adultRoom; 
+			return new AdultBilliardsLounge(); 
 		}
 	}
 	
