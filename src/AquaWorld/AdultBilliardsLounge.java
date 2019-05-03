@@ -7,9 +7,10 @@ public class AdultBilliardsLounge extends PartyRoom {
 	private AdultBilliardsLounge partyRoom;
 	private String Description = "Enclosed lounge with pool table";
 	ArrayList<PartyGoer> waitList = new ArrayList<PartyGoer>();
-	
+	ArrayList<PartyGoer> reserveList = new ArrayList<>();
 
-	
+
+
 	public String getDescription() {
 		return Description; 
 	}
@@ -27,8 +28,8 @@ public class AdultBilliardsLounge extends PartyRoom {
 	}
 
 	@Override
-	public PartyRoom reserveRoom() {
-		return partyRoom;
+	public ArrayList<PartyGoer> reserveRoom() {
+		return reserveList;
 	}
 
 }

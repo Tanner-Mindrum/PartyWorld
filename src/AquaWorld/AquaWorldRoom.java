@@ -7,7 +7,8 @@ public class AquaWorldRoom extends PartyRoom{
 	private static AquaWorldRoom singleInstance = null; 
 	private String description;
 	private ArrayList<PartyGoer> waitList = new ArrayList<PartyGoer>();
-	
+	ArrayList<PartyGoer> reserveList = new ArrayList<>();
+
 	private AquaWorldRoom() {
 		restrictions = "To access water facilities, bathing suits must be worn at all times.";
 		description = "Olympic-sized pool with water slide, kiddie pool, and large jacuzzi";
@@ -39,9 +40,9 @@ public class AquaWorldRoom extends PartyRoom{
 	}
 
 	@Override
-	public PartyRoom reserveRoom() {
-		return singleInstance;
+	public ArrayList<PartyGoer> reserveRoom() {
+		return reserveList;
 	}
-	
+
 
 }

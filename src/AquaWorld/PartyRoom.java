@@ -88,7 +88,7 @@ public abstract class PartyRoom {
 
     }
 
-    public void getReservation(PartyGoer currentPartyGoer) {
+    public void notifyPartyGoer(PartyGoer currentPartyGoer) {
         //Notifying whether they set or cancel
         if (reservationMade) {
             //if room is full, add to wait list

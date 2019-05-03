@@ -80,6 +80,6 @@ public class PartyGoer {
 	}
 
 	public void Update() {
-        partyRoom.getReservation(partyGoer);
+        partyRoom.setReservation(partyGoer);
     }
 }
