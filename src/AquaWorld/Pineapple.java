@@ -1,6 +1,6 @@
 package AquaWorld;
 
-public class Pineapple {
+public class Pineapple extends PizzaDecorator{
 	
 	Pizza pizza;
 	
@@ -9,6 +9,6 @@ public class Pineapple {
 	}
 	
 	public String getDescription() {
-		return pizza.getDescription() + ", pineapple";
+		return pizza.getDescription() + ", Pineapple";
 	}
 }

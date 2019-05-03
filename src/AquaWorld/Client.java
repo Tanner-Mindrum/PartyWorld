@@ -11,6 +11,13 @@ public class Client {
         ArrayList<Integer> reservationTimes = new ArrayList<>();
         PartyGoer partyGoer = null;
         PartyRoom partyRoom = null;
+        Pizza pizza1 = new PlainPizza();
+        pizza1 = new Cheese(pizza1);
+        pizza1 = new Pepperoni(pizza1);
+        pizza1 = new Ham(pizza1);
+        pizza1 = new Pineapple(pizza1);
+        System.out.println(pizza1.getDescription());
+        
         //AquaWorldRoom aqua = AquaWorldRoom.getInstance();
 //        AquaWorldRoom newAqua = AquaWorldRoom.getInstance();
 //        aqua.addRestrictions("You must wear bathing suits to the pool");

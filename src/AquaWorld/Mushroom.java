@@ -9,6 +9,6 @@ public class Mushroom extends PizzaDecorator {
 	}
 	
 	public String getDescription() {
-		return pizza.getDescription() + ", mushroom";
+		return pizza.getDescription() + ", Mushroom";
 	}
 }

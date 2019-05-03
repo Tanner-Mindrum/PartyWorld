@@ -7,7 +7,6 @@ public class AdultBilliardsLounge extends PartyRoom {
 	private AdultBilliardsLounge partyRoom;
 	private String Description = "Enclosed lounge with pool table";
 	ArrayList<PartyGoer> waitList = new ArrayList<PartyGoer>();
-	ArrayList<PartyGoer> reserveList = new ArrayList<>();
 
 
 

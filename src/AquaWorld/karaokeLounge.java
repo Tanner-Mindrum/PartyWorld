@@ -6,7 +6,7 @@ public class karaokeLounge extends PartyRoom {
 	private karaokeLounge partyRoom;
 	private String Description = "Enclosed lounge with karaoke machine";
 	ArrayList<PartyGoer> waitList = new ArrayList<PartyGoer>();
-	ArrayList<PartyGoer> reserveList = new ArrayList<>();
+
 
 	public double calculateCost() {
 		return 0;

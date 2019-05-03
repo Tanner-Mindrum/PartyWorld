@@ -6,6 +6,6 @@ public class Sausage extends PizzaDecorator {
 		this.pizza = pizza;
 	}
 	public String getDescription() {
-		return pizza.getDescription() + ", sausage";
+		return pizza.getDescription() + ", Sausage";
 	}
 }

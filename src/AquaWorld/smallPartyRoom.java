@@ -6,7 +6,6 @@ public class smallPartyRoom extends PartyRoom{
 	private smallPartyRoom partyRoom;
 	private String Description = "Room with party tables and chairs, adjacent to arcade";
 	private ArrayList<PartyGoer> waitList = new ArrayList<PartyGoer>();
-	private ArrayList<PartyGoer> reserveList = new ArrayList<PartyGoer>(); 
 	
 //	public smallPartyRoom() {
 //		partyRoom = new smallPartyRoom();
