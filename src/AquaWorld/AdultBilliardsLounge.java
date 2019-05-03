@@ -28,8 +28,8 @@ public class AdultBilliardsLounge extends PartyRoom {
 	}
 
 	@Override
-	public ArrayList<PartyGoer> reserveRoom() {
-		return reserveList;
+	public PartyGoer reserveRoom() {
+		return null;
 	}
 
 }

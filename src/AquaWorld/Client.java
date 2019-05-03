@@ -92,8 +92,14 @@ public class Client {
                                 break;
                             }
                         }
+
+                        //Observer begin
                         if (roomTaken) {
-                            partyRoom.notifyPartyGoer(partyGoer);
+                            System.out.println("You have been added to a wait list");
+                            partyRoom.getNotification();
+                        }
+                        else {
+                            System.out.println("You have been added to a wait list");
                         }
                     }
 //                    for (int i = 0; i < reservationTimes.size() - 1; i++) {

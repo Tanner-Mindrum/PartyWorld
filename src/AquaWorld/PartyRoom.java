@@ -10,6 +10,7 @@ public abstract class PartyRoom {
     private MealPlan meals;
     private PartyGoer partyGoerInfo;
     private boolean reservationMade;
+    private String notification;
 
 
     /**
@@ -22,6 +23,7 @@ public abstract class PartyRoom {
         this.upgrades = "N/A";
         this.setPartyGoerInfo(null);
         this.reservationMade = false;
+        this.notification = "N/A";
     }
 
     /**
@@ -88,19 +90,17 @@ public abstract class PartyRoom {
 
     }
 
-    public void notifyPartyGoer(PartyGoer currentPartyGoer) {
-        //Notifying whether they set or cancel
-        if (reservationMade) {
-            //if room is full, add to wait list
-            System.out.println("Your reservation has been set!");
-        }
-        else {
-            System.out.println("Your reservation has been cancelled.");
-        }
+    public String getNotification() {
+        return notification;
+    }
+
+    public void setNotification(String notification) {
+        this.notification = notification;
     }
 
     public void cancelReservation(PartyGoer currentPartyGoer) {
-        
+        //If a user cancels their reservation, then set the reservation times back to true (remove from arraylist)
+
     }
 
     public abstract double calculateCost();
@@ -121,7 +121,7 @@ public abstract class PartyRoom {
 		this.partyGoerInfo = partyGoerInfo;
 	}
 
-	public abstract ArrayList<PartyGoer> reserveRoom();
+	public abstract PartyGoer reserveRoom();
 
 
 }

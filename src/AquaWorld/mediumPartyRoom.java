@@ -12,6 +12,12 @@ public class mediumPartyRoom extends PartyRoom{
 	public double calculateCost() {
 		return 0;
 	}
+
+	@Override
+	public PartyGoer reserveRoom() {
+		return null;
+	}
+
 	public void setDescription(String description) {
 		Description = description;
 	}
@@ -24,9 +30,5 @@ public class mediumPartyRoom extends PartyRoom{
 	}
 	
 	//We need to fix this for all classes
-	@Override
-	public ArrayList<PartyGoer> reserveRoom() {
-		return reserveList;
-	}
 
 }

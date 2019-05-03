@@ -41,13 +41,7 @@ public class AquaWorldRoom extends PartyRoom{
 	}
 
 	@Override
-	public ArrayList<PartyGoer> reserveRoom() {
-<<<<<<< HEAD
-		return reserveList;
-=======
-		return singleInstance;
->>>>>>> 2092b62fb6a5ada866078e6ab8d010c1e8713cab
+	public PartyGoer reserveRoom() {
+		return null;
 	}
-
-
 }

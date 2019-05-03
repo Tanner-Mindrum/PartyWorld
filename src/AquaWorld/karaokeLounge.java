@@ -11,18 +11,18 @@ public class karaokeLounge extends PartyRoom {
 	public double calculateCost() {
 		return 0;
 	}
-	
+
+	@Override
+	public PartyGoer reserveRoom() {
+		return null;
+	}
+
 	public String getDescription() {
 		return Description;
 	}
 	
 	public void addWaitList(PartyGoer partyGoer) {
 		waitList.add(partyGoer);
-	}
-
-	@Override
-	public ArrayList<PartyGoer> reserveRoom() {
-		return reserveList;
 	}
 
 }
