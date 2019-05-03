@@ -1,6 +1,7 @@
 package AquaWorld;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class AquaWorldRoom extends PartyRoom{
 	private String restrictions;
@@ -41,7 +42,11 @@ public class AquaWorldRoom extends PartyRoom{
 
 	@Override
 	public ArrayList<PartyGoer> reserveRoom() {
+<<<<<<< HEAD
 		return reserveList;
+=======
+		return singleInstance;
+>>>>>>> 2092b62fb6a5ada866078e6ab8d010c1e8713cab
 	}
 
 
