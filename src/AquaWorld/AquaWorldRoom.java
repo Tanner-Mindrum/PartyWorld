@@ -26,6 +26,9 @@ public class AquaWorldRoom extends PartyRoom{
 		waitList.add(partyGoer);
 	
 	}
+	public String getDescription() {
+		return description;
+	}
 	
 	public void addRestrictions(String newRestriction) {
 		restrictions = newRestriction;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class karaokeLounge extends PartyRoom {
 	private karaokeLounge partyRoom;
-	private String Description = "Enclosed lounge with karaoke machine";
+	private String Description = "Enclosed karaoke lounge with karaoke machine";
 	ArrayList<PartyGoer> waitList = new ArrayList<PartyGoer>();
 
 

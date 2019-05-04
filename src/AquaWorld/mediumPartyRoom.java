@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class mediumPartyRoom extends PartyRoom{
 	private mediumPartyRoom partyRoom; //This could be dangerous as it is already created by the factory
-	private String Description = "Room with party tables and chairs, quick access to arcade";
+	private String Description = "Medium Room with party tables and chairs, quick access to arcade";
 	ArrayList<PartyGoer> waitList = new ArrayList<PartyGoer>();
 	
 	
