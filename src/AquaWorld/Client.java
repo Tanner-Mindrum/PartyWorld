@@ -11,12 +11,19 @@ public class Client {
         ArrayList<Integer> reservationTimes = new ArrayList<>();
         PartyGoer partyGoer = null;
         PartyRoom partyRoom = null;
-        Pizza pizza1 = new PlainPizza();
+        Pizza pizza1 = new Pizza();
         pizza1 = new Cheese(pizza1);
         pizza1 = new Pepperoni(pizza1);
         pizza1 = new Ham(pizza1);
         pizza1 = new Pineapple(pizza1);
         System.out.println(pizza1.getDescription());
+        
+        PartyRoom partyRoom1 = new smallPartyRoom();
+        System.out.println(partyRoom1.getDescription());
+        partyRoom1 = new Projector(partyRoom1);
+        partyRoom1 = new TowelRentals(partyRoom1);
+        System.out.println(partyRoom1.getDescription());
+        
         
         //AquaWorldRoom aqua = AquaWorldRoom.getInstance();
 //        AquaWorldRoom newAqua = AquaWorldRoom.getInstance();
