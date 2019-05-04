@@ -18,12 +18,14 @@ public class Client {
         pizza1 = new Pineapple(pizza1);
         System.out.println(pizza1.getDescription());
         
-        PartyRoom partyRoom1 = new smallPartyRoom();
-        System.out.println(partyRoom1.getDescription());
+        PartyRoom partyRoom1 = AquaWorldRoom.getInstance();
         partyRoom1 = new Projector(partyRoom1);
         partyRoom1 = new TowelRentals(partyRoom1);
         System.out.println(partyRoom1.getDescription());
-        
+        PartyRoom partyRoom2 = new mediumPartyRoom();
+        partyRoom2 = new PartyFavorBag(partyRoom2);
+        partyRoom2 = new Projector(partyRoom2);
+        System.out.println(partyRoom2.getDescription());
         
         //AquaWorldRoom aqua = AquaWorldRoom.getInstance();
 //        AquaWorldRoom newAqua = AquaWorldRoom.getInstance();
