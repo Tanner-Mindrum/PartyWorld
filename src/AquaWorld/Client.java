@@ -2,7 +2,7 @@ package AquaWorld;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import gui.*;
 public class Client {
     
     public static void main(String[] args) {
@@ -42,6 +42,7 @@ public class Client {
 //       // medRoom2.setDescription("Second object");
 //        System.out.println(medRoom1.getDescription());
 //        System.out.println(medRoom2.getDescription());
+        MainFrame frame = new MainFrame(); 
 
         Scanner in = new Scanner(System.in);
         System.out.println("BUSINESS HOURS: 9:00 AM to 12:00 AM");
