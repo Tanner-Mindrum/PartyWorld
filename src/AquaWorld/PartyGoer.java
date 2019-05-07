@@ -10,6 +10,8 @@ public class PartyGoer {
     private String date;
     private PartyRoom partyRoom;
     private PartyGoer partyGoer;
+    private String notification;
+    private String Info;
 
     public PartyGoer() {
         name = "N/A";
@@ -19,6 +21,7 @@ public class PartyGoer {
         creditCardInfo = "N/A";
         roomType = "N/A";
         date = "N/A";
+        Info = "";
         partyRoom = null;
         partyGoer = null;
     }
@@ -78,7 +81,14 @@ public class PartyGoer {
 	public void setDate(String date) {
 		this.date = date;
 	}
+    public String getInfo() {
+		return Info;
+    }
 
+    public void updateInfo(String info) {
+        this.Info = info;
+    }
+    
 	public void Update() {
         partyRoom.setReservation(partyGoer);
     }
