@@ -2,10 +2,7 @@ package AquaWorld;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-<<<<<<< HEAD
-=======
 import gui.*;
->>>>>>> 393e8c2d7f83d3071a4c98f4dd268987eca99574
 public class Client {
 
     public static void main(String[] args) {
@@ -20,11 +17,8 @@ public class Client {
         pizza1 = new Ham(pizza1);
         pizza1 = new Pineapple(pizza1);
         System.out.println(pizza1.getDescription());
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 393e8c2d7f83d3071a4c98f4dd268987eca99574
+
         PartyRoom partyRoom1 = AquaWorldRoom.getInstance();
         partyRoom1 = new Projector(partyRoom1);
         partyRoom1 = new TowelRentals(partyRoom1);
@@ -33,11 +27,8 @@ public class Client {
         partyRoom2 = new PartyFavorBag(partyRoom2);
         partyRoom2 = new Projector(partyRoom2);
         System.out.println(partyRoom2.getDescription());
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 393e8c2d7f83d3071a4c98f4dd268987eca99574
+
         //AquaWorldRoom aqua = AquaWorldRoom.getInstance();
 //        AquaWorldRoom newAqua = AquaWorldRoom.getInstance();
 //        aqua.addRestrictions("You must wear bathing suits to the pool");
@@ -53,11 +44,7 @@ public class Client {
 //       // medRoom2.setDescription("Second object");
 //        System.out.println(medRoom1.getDescription());
 //        System.out.println(medRoom2.getDescription());
-<<<<<<< HEAD
         MainFrame frame = new MainFrame();
-=======
-        MainFrame frame = new MainFrame(); 
->>>>>>> 393e8c2d7f83d3071a4c98f4dd268987eca99574
 
         Scanner in = new Scanner(System.in);
         System.out.println("BUSINESS HOURS: 9:00 AM to 12:00 AM");

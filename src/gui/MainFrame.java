@@ -238,9 +238,6 @@ public class MainFrame extends JFrame {
 		
 	}
 	
-
-	
-	
 	class RoomItemListener implements ActionListener{
 
 		@Override
