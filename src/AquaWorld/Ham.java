@@ -8,6 +8,6 @@ public class Ham extends PizzaDecorator {
 	}
 	
 	public String getDescription() {
-		return pizza.getDescription() + ", ham";
+		return pizza.getDescription() + ", Ham";
 	}
 }

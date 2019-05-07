@@ -8,7 +8,6 @@ public class AquaWorldRoom extends PartyRoom{
 	private static AquaWorldRoom singleInstance = null; 
 	private String description;
 	private ArrayList<PartyGoer> waitList = new ArrayList<PartyGoer>();
-	ArrayList<PartyGoer> reserveList = new ArrayList<>();
 
 	private AquaWorldRoom() {
 		restrictions = "To access water facilities, bathing suits must be worn at all times.";
@@ -26,6 +25,9 @@ public class AquaWorldRoom extends PartyRoom{
 		
 		waitList.add(partyGoer);
 	
+	}
+	public String getDescription() {
+		return description;
 	}
 	
 	public void addRestrictions(String newRestriction) {

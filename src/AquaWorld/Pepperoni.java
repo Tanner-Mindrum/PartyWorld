@@ -8,6 +8,6 @@ public class Pepperoni extends PizzaDecorator {
 	}
 	
 	public String getDescription() {
-		return pizza.getDescription() + ", pepperoni";
+		return pizza.getDescription() + ", Pepperoni";
 	}
 }

@@ -8,6 +8,6 @@ public class Onion {
 	}
 	
 	public String getDescription() {
-		return pizza.getDescription() + ", onion";
+		return pizza.getDescription() + ", Onion";
 	}
 }
