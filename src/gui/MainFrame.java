@@ -26,10 +26,11 @@ import AquaWorld.*;
 // import backend.MediumPartyRoom;
  import AquaWorld.smallPartyRoom;
 
-public class MainFrame extends JFrame {
-	JMenuBar menuBar;
-	JScrollPane scrollPane;
-	JPanel centerPanel;
+public class MainFrame  {
+	private JMenuBar menuBar;
+	private JScrollPane scrollPane;
+	private JPanel centerPanel;
+	private JFrame frame; 
 	
 	private smallPartyRoom smallRoom = new smallPartyRoom();
 	private mediumPartyRoom mediumRoom = new mediumPartyRoom();
@@ -45,13 +46,15 @@ public class MainFrame extends JFrame {
  	Border loweredbevel = BorderFactory.createLoweredBevelBorder();
 	
 	public MainFrame(){
-		this.setTitle("Reservation System");
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH); //makes window screen size
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		frame = new JFrame();
+		frame.setTitle("Reservation System");
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); //makes window screen size
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		this.createMenuBar();
 		this.createDefaultPanel();
-		this.setVisible(true);
+		frame.setVisible(true);
 		
 	}
 	
@@ -74,7 +77,7 @@ public class MainFrame extends JFrame {
 		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\billiardLounge.jpg","Adult Billiard Lounge", adultRoom.getDescription());
 		
 		scrollPane = new JScrollPane(centerPanel);
-		this.add(scrollPane, BorderLayout.CENTER);
+		frame.add(scrollPane, BorderLayout.CENTER);
 	}
 	
 	/* initializes menu bar items and adds them to this window*/
@@ -165,8 +168,10 @@ public class MainFrame extends JFrame {
 				menu = new JMenu("Reservations");
 						
 						//New reservation item
-						menuItem = new JMenuItem("New Reservation...");
+						menuItem = new JMenuItem("New Reservation");
+						menuItem.addActionListener(new ReservationListener());
 						menu.add(menuItem);
+						
 						menu.addSeparator();
 						
 						//Edit reservation item
@@ -190,7 +195,7 @@ public class MainFrame extends JFrame {
 				
 				
 				menuBar.add(menu);
-				this.add(menuBar, BorderLayout.NORTH);
+				frame.add(menuBar, BorderLayout.NORTH);
 	}
 	
 	
@@ -302,8 +307,24 @@ public class MainFrame extends JFrame {
 		}
 	}
 	
-	public static void main(String[] args
-			) {
-		MainFrame f = new MainFrame();
+	class ReservationListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			JMenuItem item = (JMenuItem) e.getSource();
+			
+			if (item.getText().equals("New Reservation")) {
+				
+				System.out.println("Make a new reservation");
+				NewReservationFrame reservationFrame = new NewReservationFrame();
+				frame.setVisible(false);
+			}
+			
+			
+			
+		}
+		
+		
 	}
 }
