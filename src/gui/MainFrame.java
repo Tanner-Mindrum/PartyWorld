@@ -24,14 +24,20 @@ import javax.swing.border.Border;
 
 import AquaWorld.*;
 // import backend.MediumPartyRoom;
-// import backend.SmallPartyRoom;
+ import AquaWorld.smallPartyRoom;
 
 public class MainFrame extends JFrame {
 	JMenuBar menuBar;
 	JScrollPane scrollPane;
 	JPanel centerPanel;
 	
+	private smallPartyRoom smallRoom = new smallPartyRoom();
+	private mediumPartyRoom mediumRoom = new mediumPartyRoom();
+	private karaokeLounge karaokeLounge = new karaokeLounge();
+	private AquaWorldRoom aquaRoom = AquaWorldRoom.getInstance();
+	private AdultBilliardsLounge adultRoom = new AdultBilliardsLounge();
 
+	private JLabel panelTitle = new JLabel("Party World Rooms");
 	//border settings used in the method addARoomDescription()
  	Border raisedbevel = BorderFactory.createRaisedBevelBorder(); 
  	Border loweredbevel = BorderFactory.createLoweredBevelBorder();
@@ -56,13 +62,14 @@ public class MainFrame extends JFrame {
 		centerPanel = new JPanel();
 		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
 		//Title of default view
-		JLabel panelTitle = new JLabel("Party World Rooms");
 		panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
 		
 		centerPanel.add(panelTitle);
-		// addARoomDescription(centerPanel, "C:\\Users\\kapiv\\Desktop\\Pictures\\medroom.jpg", "Small Party Room" , SmallPartyRoom.DESCRIPTION);
-		// addARoomDescription(centerPanel, "C:\\Users\\kapiv\\Desktop\\Pictures\\medroom.jpg","Medium Party Room", MediumPartyRoom.DESCRIPTION);
-		// addARoomDescription(centerPanel, "C:\\Users\\kapiv\\Desktop\\Pictures\\medroom.jpg", "Aqua Room" , AquaRoom.DESCRIPTION);
+		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\smallParty.jpg", "Small Party Room", smallRoom.getDescription());
+		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\mediumParty.jpg","Medium Party Room", mediumRoom.getDescription());
+		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\karaokeLounge.jpg","Karaoke Lounge", karaokeLounge.getDescription());
+		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\AquaRoom.jpg","Aqua Room", aquaRoom.getDescription());
+		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\billiardLounge.jpg","Adult Billiard Lounge", adultRoom.getDescription());
 		
 		scrollPane = new JScrollPane(centerPanel);
 		this.add(scrollPane, BorderLayout.CENTER);
@@ -96,6 +103,7 @@ public class MainFrame extends JFrame {
 				submenu.add(menuItem);
 				
 				menuItem = new JMenuItem("Aqua Room");
+				menuItem.addActionListener(new RoomItemListener());
 				submenu.add(menuItem);
 				menu.add(submenu);
 				
@@ -103,12 +111,15 @@ public class MainFrame extends JFrame {
 				submenu = new JMenu("Lounges");
 				
 				menuItem = new JMenuItem("All");
+				menuItem.addActionListener(new RoomItemListener());
 				submenu.add(menuItem);
 				
 				menuItem = new JMenuItem("Karaoke Lounges");
+				menuItem.addActionListener(new RoomItemListener());
 				submenu.add(menuItem);
 				
 				menuItem = new JMenuItem("Billiards Lounges");
+				menuItem.addActionListener(new RoomItemListener());
 				submenu.add(menuItem);
 				
 				menu.add(submenu);
@@ -242,11 +253,52 @@ public class MainFrame extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent select) {
+			
 			JMenuItem item = (JMenuItem) select.getSource();
 			
-			if(item.getText().equals("Medium Party Rooms")) System.out.println("Display only Medium Party Room");
-			
-		}}
+			if(item.getText().equals("Medium Party Rooms")) {
+				centerPanel.removeAll();
+				centerPanel.add(panelTitle);
+				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\mediumParty.jpg","Medium Party Room", mediumRoom.getDescription());
+				centerPanel.repaint();
+			}else if(item.getText().equals("Small Party Rooms")) {
+				centerPanel.removeAll();
+				centerPanel.add(panelTitle);
+				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\smallParty.jpg","Small Party Room", smallRoom.getDescription());
+				centerPanel.repaint();
+			}else if(item.getText().equals("Aqua Room")) {
+				centerPanel.removeAll();
+				centerPanel.add(panelTitle);
+				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\aquaRoom.jpg","Aqua Room", aquaRoom.getDescription());
+				centerPanel.repaint();
+			}else if(item.getText().equals("Billiards Lounges")) {
+				centerPanel.removeAll();
+				centerPanel.add(panelTitle);
+				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\billiardLounge.jpg","Billiards Lounges", adultRoom.getDescription());
+				centerPanel.repaint();
+			}else if(item.getText().equals("Karaoke Lounges")) {
+				centerPanel.removeAll();
+				centerPanel.add(panelTitle);
+				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\karaokeLounge.jpg","Karaoke Lounges", karaokeLounge.getDescription());
+				centerPanel.repaint();
+			}else {
+				centerPanel.removeAll();
+				centerPanel.add(panelTitle);
+				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\smallParty.jpg", "Small Party Room", smallRoom.getDescription());
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\mediumParty.jpg","Medium Party Room", mediumRoom.getDescription());
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\karaokeLounge.jpg","Karaoke Lounge", karaokeLounge.getDescription());
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\AquaRoom.jpg","Aqua Room", aquaRoom.getDescription());
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\billiardLounge.jpg","Adult Billiard Lounge", adultRoom.getDescription());
+				centerPanel.repaint();
+			}
+		}
+	}
 	
 	public static void main(String[] args
 			) {
