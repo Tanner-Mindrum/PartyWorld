@@ -37,6 +37,8 @@ public class MainFrame extends JFrame {
 	private AquaWorldRoom aquaRoom = AquaWorldRoom.getInstance();
 	private AdultBilliardsLounge adultRoom = new AdultBilliardsLounge();
 
+	private static String titleChoice;
+
 	private JLabel panelTitle = new JLabel("Party World Rooms");
 	//border settings used in the method addARoomDescription()
  	Border raisedbevel = BorderFactory.createRaisedBevelBorder(); 
