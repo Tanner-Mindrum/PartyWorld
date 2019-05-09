@@ -18,6 +18,7 @@ public class DateTimeFrame extends JFrame {
     private JSpinner monthSpinner;
     private JSpinner daySpinner;
     private JSpinner yearSpinner;
+    private JSpinner timeSpinner;
     private Calendar calender;
     private Date date;
     String[] monthStrings;
@@ -41,6 +42,7 @@ public class DateTimeFrame extends JFrame {
         monthLabel = new JLabel("Month: ");
         dayLabel = new JLabel("Day: ");
         yearLabel = new JLabel("Year: ");
+        timeLabel = new JLabel("Time: ");
 
         //Month spinner
         SpinnerListModel monthModel = new SpinnerListModel(this.monthStrings);
@@ -61,18 +63,45 @@ public class DateTimeFrame extends JFrame {
             yearInts.add(i);
         }
 
+        ArrayList<String> timeInts = new ArrayList<>();
+        int j = 0;
+        for (int i = 800; i < 2615; i += 15) {
+            j += 15;
+            if (i % 100 == 60) {
+                i += 40;
+                j += 40;
+
+            }
+            j = i;
+            if (i >= 1300) {
+                j -= 1200;
+            }
+            if (i >= 2500) {
+                j -= 1200;
+            }
+            StringBuilder str = new StringBuilder(Integer.toString(j));
+            timeInts.add(str.insert(Integer.toString(j).length() - 2, ":").toString());
+        }
+        System.out.println(timeInts);
+
         //Make day spinner
         SpinnerListModel dayModel = new SpinnerListModel(dayInts);
         daySpinner = new JSpinner(dayModel);
         Dimension dimension2 = daySpinner.getPreferredSize();
-        dimension2.width = 82;
+        dimension2.width = 50;
         daySpinner.setPreferredSize(dimension2);
 
         SpinnerListModel yearModel = new SpinnerListModel(yearInts);
         yearSpinner = new JSpinner(yearModel);
         Dimension dimension3 = yearSpinner.getPreferredSize();
-        dimension.width = 82;
+        dimension3.width = 82;
         yearSpinner.setPreferredSize(dimension3);
+
+        SpinnerListModel timeModel = new SpinnerListModel(timeInts);
+        timeSpinner = new JSpinner(timeModel);
+        Dimension dimension4 = timeSpinner.getPreferredSize();
+        dimension4.width = 60;
+        timeSpinner.setPreferredSize(dimension4);
 
         panel.add(monthLabel);
         panel.add(monthSpinner);
@@ -94,7 +123,7 @@ public class DateTimeFrame extends JFrame {
                     SpinnerListModel dayModel = new SpinnerListModel(dayInts.subList(0, 28));
                     daySpinner = new JSpinner(dayModel);
                     Dimension dimension = daySpinner.getPreferredSize();
-                    dimension.width = 82;
+                    dimension.width = 50;
                     daySpinner.setPreferredSize(dimension);
 
                     panel.add(daySpinner);
@@ -124,6 +153,8 @@ public class DateTimeFrame extends JFrame {
 
         panel.add(yearLabel);
         panel.add(yearSpinner);
+        panel.add(timeLabel);
+        panel.add(timeSpinner);
     }
 
     /**
