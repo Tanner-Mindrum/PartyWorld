@@ -15,6 +15,9 @@ public class PartyGoer {
     private int month; 
     private int day; 
     private int year; 
+    private String cardName;
+    private int expirationMonth;
+    private int expirationYear; 
 
     public PartyGoer() {
         name = "N/A";
@@ -114,4 +117,24 @@ public class PartyGoer {
         return year; 
     }
     
+    public void setCardName(String name) {
+        cardName = name;
+    }
+
+    public String getCardName() {
+        return cardName;
+    }
+
+    public void setExpirationDate(int month, int year) {
+        expirationMonth = month;
+        expirationYear = year; 
+    }
+    
+    public int getExpirationMonth() {
+        return expirationMonth;
+    }
+
+    public int getExpirationYear() {
+        return expirationYear;
+    }
 }
