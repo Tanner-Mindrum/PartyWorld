@@ -35,16 +35,21 @@ public class NewReservationFrame {
     private JComboBox<Integer> expirationYear;
 
     // Room info
-    private JComboBox roomTypeBox;
-    private JComboBox roomNumberBox;
+    private JComboBox<String> roomTypeBox;
+    private JComboBox<Integer> roomNumberBox;
     private JLabel roomNumberLabel;
     private JLabel roomTypeLabel;
-
+    
+    private JButton reserveButton;
+    private JButton cancelButton; 
     private JFrame frame;
+
+    private final String[] roomTypes= {"Small Party Room", "Medium Party Room", "Karaoke Lounge", "Adult Billiards Lounge", "Aqua Room"};
 
     public NewReservationFrame() {
         frame = new JFrame();
         panel = new JPanel();
+        
 
         frame.setTitle("New Reservation");
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -64,10 +69,21 @@ public class NewReservationFrame {
         emailField = new JTextField(10);
         emailLabel = new JLabel("Email address");
         dateOfBirth = new JLabel("Date of birth");
+       
+        roomTypeBox = new JComboBox<String>(roomTypes);
+        roomNumberBox = new JComboBox<Integer>();
+        roomTypeBox.addActionListener(new guestInfoListener());
+
         year = new JComboBox<Integer>();
         month = new JComboBox<Integer>();
         day = new JComboBox<Integer>();
+       
 
+        reserveButton = new JButton("Reserve");
+        cancelButton = new JButton("Cancel");
+        cancelButton.addActionListener(new guestInfoListener());
+        reserveButton.addActionListener(new guestInfoListener());
+        
         creditCardInfoLabel = new JLabel("Card information");
         cardNumberLabel = new JLabel("Credit card information");
         securityCodeLabel = new JLabel("Security code (3 digits)");
@@ -79,12 +95,12 @@ public class NewReservationFrame {
         expirationYear = new JComboBox<Integer>();
 
         // setting 12 months in the month dropdown menu
-        for (int i = 0; i <= 12; i++) {
+        for (int i = 1; i <= 12; i++) {
             month.addItem(i);
             expirationMonth.addItem(i);
         }
         // Settings the amount of days per month
-        for (int i = 0; i <= 30; i++) {
+        for (int i = 1; i <= 30; i++) {
             day.addItem(i);
         }
         // Settings years for date of birth
@@ -117,6 +133,10 @@ public class NewReservationFrame {
         panel.add(expirationDateLabel);
         panel.add(expirationMonth);
         panel.add(expirationYear);
+        panel.add(roomTypeBox);
+        panel.add(roomNumberBox);
+        panel.add(cancelButton);
+        panel.add(reserveButton);
         frame.add(panel);
 
     }
@@ -125,8 +145,92 @@ public class NewReservationFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            String roomType = (String) roomTypeBox.getSelectedItem();
             
+            if (e.getSource() == reserveButton) {
+                System.out.println("The reserve button was pressed");
+            }
+            
+            else if (e.getSource() == cancelButton) {
+                System.out.println("The cancel button was pressed");
+            }
+
+            else if (e.getSource() == roomTypeBox) {
+
+                if (roomType.equals("Small Party Room") || roomType.equals("Karaoke Lounge")) {
+                   
+                    
+                  
+                    roomNumberBox.removeAllItems();
+                   
+                    panel.remove(cancelButton);
+                    panel.remove(reserveButton);
+                    panel.remove(roomNumberBox);
+                    panel.repaint();
+                    
+                    for (int i = 1; i <= 10; i++) {
+                        roomNumberBox.addItem(i);
+                    }
+
+                    panel.add(roomNumberBox);
+                    panel.add(cancelButton);
+                    panel.add(reserveButton);
+                    panel.revalidate();
+                                      
+                }
+
+                else if (roomType.equals("Medium Party Room")) {
+
+                  
+                    roomNumberBox.removeAllItems();
+                    panel.remove(cancelButton);
+                    panel.remove(reserveButton);
+                    panel.remove(roomNumberBox);
+                    panel.repaint();
+                    
+                    for (int i = 1; i <= 2; i++) {
+                        roomNumberBox.addItem(i);
+                    }
+
+                    panel.add(roomNumberBox);
+                    panel.add(cancelButton);
+                    panel.add(reserveButton);
+                    panel.revalidate();
+
+                }
+
+                else if (roomType.equals("Adult Billiards Lounge")) {
+
+                  
+                    roomNumberBox.removeAllItems();
+                    panel.remove(cancelButton);
+                    panel.remove(reserveButton);
+                    panel.remove(roomNumberBox);
+                    panel.repaint();
+                    
+                    for (int i = 1; i <= 5; i++) {
+                        roomNumberBox.addItem(i);
+                    }
+
+                    panel.add(roomNumberBox);
+                    panel.add(cancelButton);
+                    panel.add(reserveButton);
+                    panel.revalidate();
+
+                }
+
+                else {
+                    
+                    panel.remove(cancelButton);
+                    panel.remove(reserveButton);
+                    panel.remove(roomNumberBox);
+                    panel.repaint();
+                    panel.add(cancelButton);
+                    panel.add(reserveButton);
+                    panel.revalidate();
+                }
+
+            }
         }
         
     }
