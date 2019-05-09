@@ -323,12 +323,6 @@ public class MainFrame  {
 //			) {
 //		MainFrame f = new MainFrame();
 //	}
-||||||| merged common ancestors
-	
-	public static void main(String[] args
-			) {
-		MainFrame f = new MainFrame();
-	}
 =======
 
 	class ReservationListener implements ActionListener {

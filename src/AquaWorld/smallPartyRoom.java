@@ -19,7 +19,7 @@ public class smallPartyRoom extends PartyRoom{
 	}
 	
 	public String getDescription() {
-		return Description; 
+		return Description;
 	}
 	
 	public double calculateCost() {

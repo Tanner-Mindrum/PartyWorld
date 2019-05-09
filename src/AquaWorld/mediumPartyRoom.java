@@ -27,8 +27,8 @@ public class mediumPartyRoom extends PartyRoom{
 		waitList.add(partyGoer);
 	}
 	
-	public String getDescription() { 
-		return Description; 
+	public String getDescription() {
+		return Description;
 	}
 	
 	//We need to fix this for all classes
