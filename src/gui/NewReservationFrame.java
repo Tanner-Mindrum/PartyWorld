@@ -156,6 +156,7 @@ public class NewReservationFrame {
             int tempDay = (Integer) day.getSelectedItem();
             int tempMonth = (Integer) month.getSelectedItem();
             int tempYear = (Integer) year.getSelectedItem();
+            String tempCreditCardInfo = cardNumberField.getText();
             
             
             PartyGoer guest = new PartyGoer();     
@@ -165,7 +166,8 @@ public class NewReservationFrame {
                 guest.setPhoneNum(tempPhoneNum);
                 guest.setAddress(tempAddress);
                 guest.setDOB(tempMonth, tempDay, tempYear);
-                
+                guest.setCreditCardInfo(tempCreditCardInfo);
+                guest.setRoomType(roomType);
                 
             }
             
