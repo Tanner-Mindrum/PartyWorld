@@ -46,4 +46,10 @@ public class AquaWorldRoom extends PartyRoom{
 	public PartyGoer reserveRoom() {
 		return null;
 	}
+
+	public String toString() {
+//		restrictions = "To access water facilities, bathing suits must be worn at all times.";
+//		description = "Olympic-sized pool with water slide, kiddie pool, and large jacuzzi";
+		return "To access water facilities, bathing suits must be worn at all times." + "Olympic-sized pool with water slide, kiddie pool, and large jacuzzi";
+	}
 }

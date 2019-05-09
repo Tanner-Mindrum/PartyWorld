@@ -1,9 +1,7 @@
 package gui;
 
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -82,9 +80,9 @@ public class MainFrame  {
 //		JButton karaokeButton = new JButton("Book Now");
 
 		centerPanel.add(panelTitle);
-		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\smallParty.jpg", "Small Party Room", smallRoom.getDescription(), smallButton);
-		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\mediumParty.jpg","Medium Party Room", mediumRoom.getDescription(), medButton);
-		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\karaokeLounge.jpg","Karaoke Lounge", karaokeLounge.getDescription(), karaokeButton);
+		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\smallParty.jpg", "Small Party Room", smallRoom.toString(), smallButton);
+		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\mediumParty.jpg","Medium Party Room", mediumRoom.toString(), medButton);
+		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\karaokeLounge.jpg","Karaoke Lounge", karaokeLounge.toString(), karaokeButton);
 		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\AquaRoom.jpg","Aqua Room", aquaRoom.getDescription(), aquaButton);
 		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\billiardLounge.jpg","Adult Billiard Lounge", adultRoom.getDescription(), billiardButton);
 
@@ -96,6 +94,7 @@ public class MainFrame  {
 
 
 		scrollPane = new JScrollPane(centerPanel);
+		scrollPane.getViewport().setViewPosition(new Point(0,0));
 		frame.add(scrollPane, BorderLayout.CENTER);
 	}
 
