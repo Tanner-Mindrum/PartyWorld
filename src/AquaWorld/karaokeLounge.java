@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class karaokeLounge extends PartyRoom {
 	private karaokeLounge partyRoom;
-//	private String Description = "Enclosed karaoke lounge with karaoke machine";
+	private String Description = "Capacity: 10 people\nCost: $30/hr\nIncluded in cost:\n\t-Access to the karaoke machine\n"
+	+ "Upgrades Available:\n\t-Add Meal Plan\tCost: $(meal plan cost)\n";
 	ArrayList<PartyGoer> waitList = new ArrayList<PartyGoer>();
 
 
@@ -17,9 +18,9 @@ public class karaokeLounge extends PartyRoom {
 		return null;
 	}
 
-//	public String getDescription() {
-//		return Description;
-//	}
+	public String getDescription() {
+		return Description;
+	}
 	
 	public void addWaitList(PartyGoer partyGoer) {
 		waitList.add(partyGoer);
@@ -36,5 +37,4 @@ public class karaokeLounge extends PartyRoom {
 //				+ "-Projector\t\tCost: $10/hour\n\t-Party Decorations & set-Up       Cost: $100\n\t"
 //				+ "     Themes: Hawaiian, Sea Life, Jungle, Space, or Modern";
 	}
-
 }

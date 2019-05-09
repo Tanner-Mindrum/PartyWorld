@@ -6,18 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import javax.swing.*;
 import javax.swing.border.Border;
 
 import AquaWorld.*;
@@ -29,6 +18,7 @@ public class MainFrame  {
 	private JScrollPane scrollPane;
 	private JPanel centerPanel;
 	private JFrame frame;
+	private DateTimeFrame dateTimeFrame = new DateTimeFrame();
 
 	private smallPartyRoom smallRoom = new smallPartyRoom();
 	private mediumPartyRoom mediumRoom = new mediumPartyRoom();
@@ -80,10 +70,10 @@ public class MainFrame  {
 //		JButton karaokeButton = new JButton("Book Now");
 
 		centerPanel.add(panelTitle);
-		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\smallParty.jpg", "Small Party Room", smallRoom.toString(), smallButton);
-		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\mediumParty.jpg","Medium Party Room", mediumRoom.toString(), medButton);
-		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\karaokeLounge.jpg","Karaoke Lounge", karaokeLounge.toString(), karaokeButton);
+		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\smallParty.jpg", "Small Party Room", smallRoom.getDescription(), smallButton);
+		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\mediumParty.jpg","Medium Party Room", mediumRoom.getDescription(), medButton);
 		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\AquaRoom.jpg","Aqua Room", aquaRoom.getDescription(), aquaButton);
+		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\karaokeLounge.jpg","Karaoke Lounge", karaokeLounge.getDescription(), karaokeButton);
 		addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\billiardLounge.jpg","Adult Billiard Lounge", adultRoom.getDescription(), billiardButton);
 
 		smallButton.addActionListener(new ButtonListener());
@@ -244,6 +234,7 @@ public class MainFrame  {
 
 
 		 	JTextArea description = new JTextArea(5,10);
+
 		 	description.append(roomDesc);
 		 	description.setEditable(false);
 		 	description.setFont(new Font(Font.SERIF, Font.PLAIN, 20));
@@ -319,13 +310,26 @@ public class MainFrame  {
 				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
 				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\smallParty.jpg", "Small Party Room", smallRoom.getDescription(), new JButton("Book now"));
 				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\mediumParty.jpg","Medium Party Room", mediumRoom.getDescription(), new JButton("Book now"));
-				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\karaokeLounge.jpg","Karaoke Lounge", karaokeLounge.getDescription(), new JButton("Book now"));
 				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\AquaRoom.jpg","Aqua Room", aquaRoom.getDescription(), new JButton("Book now"));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\karaokeLounge.jpg","Karaoke Lounge", karaokeLounge.getDescription(), new JButton("Book now"));
 				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\billiardLounge.jpg","Adult Billiard Lounge", adultRoom.getDescription(), new JButton("Book now"));
 				centerPanel.repaint();
 			}
 		}
 	}
+
+	
+//	public static void main(String[] args
+//			) {
+//		MainFrame f = new MainFrame();
+//	}
+
+	
+	public static void main(String[] args
+			) {
+		MainFrame f = new MainFrame();
+	}
+
 
 	class ReservationListener implements ActionListener {
 
@@ -345,21 +349,37 @@ public class MainFrame  {
 
 	private class ButtonListener implements ActionListener {
 		@Override
+
 		public void actionPerformed(ActionEvent click) {
 			if (click.getSource() == smallButton) {
 				System.out.println("SMALL ROOM");
+				frame.setVisible(false);
+				dateTimeFrame.setVisible(true);
+				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 			else if (click.getSource() == medButton) {
 				System.out.println("MED ROOM");
+				frame.setVisible(false);
+				dateTimeFrame.setVisible(true);
+				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 			else if (click.getSource() == aquaButton) {
 				System.out.println("AQUA ROOM");
+				frame.setVisible(false);
+				dateTimeFrame.setVisible(true);
+				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 			else if (click.getSource() == karaokeButton) {
 				System.out.println("KARAOKE ROOM");
+				frame.setVisible(false);
+				dateTimeFrame.setVisible(true);
+				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 			else if (click.getSource() == billiardButton) {
 				System.out.println("BILLIARD ROOM");
+				frame.setVisible(false);
+				dateTimeFrame.setVisible(true);
+				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 		}
 	}
