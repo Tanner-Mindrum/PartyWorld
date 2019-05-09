@@ -317,19 +317,19 @@ public class MainFrame  {
 			}
 		}
 	}
-<<<<<<< HEAD
+
 	
 //	public static void main(String[] args
 //			) {
 //		MainFrame f = new MainFrame();
 //	}
-||||||| merged common ancestors
+
 	
 	public static void main(String[] args
 			) {
 		MainFrame f = new MainFrame();
 	}
-=======
+
 
 	class ReservationListener implements ActionListener {
 
@@ -383,5 +383,4 @@ public class MainFrame  {
 			}
 		}
 	}
->>>>>>> 4d2ed62aa185c95b36683c6e4089d10b21efd69f
 }
