@@ -12,6 +12,9 @@ public class PartyGoer {
     private PartyGoer partyGoer;
     private String notification;
     private String Info;
+    private int month; 
+    private int day; 
+    private int year; 
 
     public PartyGoer() {
         name = "N/A";
@@ -92,4 +95,23 @@ public class PartyGoer {
 	public void Update() {
         partyRoom.setReservation(partyGoer);
     }
+
+    public void setDOB(int month, int day, int year) {
+        this.month = month;
+        this.day = day; 
+        this.year = year; 
+    }
+
+    public int getBirthMonth() {
+        return month; 
+    }
+
+    public int getBirthDay() {
+        return day; 
+    }
+
+    public int getBirthYear() {
+        return year; 
+    }
+    
 }

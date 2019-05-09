@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import AquaWorld.*;
 
 public class NewReservationFrame {
     // Frame info
@@ -30,6 +31,7 @@ public class NewReservationFrame {
     private JLabel expirationDateLabel;
 
     private JTextField cardNumberField;
+    private JTextField cardName;
     private JTextField securityCodeField;
     private JComboBox<Integer> expirationMonth;
     private JComboBox<Integer> expirationYear;
@@ -146,9 +148,25 @@ public class NewReservationFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             String roomType = (String) roomTypeBox.getSelectedItem();
+
+            //Guest information to save 
+            String tempName = nameField.getText();
+            String tempPhoneNum = phoneNumField.getText();
+            String tempAddress = addressField.getText();
+            int tempDay = (Integer) day.getSelectedItem();
+            int tempMonth = (Integer) month.getSelectedItem();
+            int tempYear = (Integer) year.getSelectedItem();
             
+            
+            PartyGoer guest = new PartyGoer();     
+
             if (e.getSource() == reserveButton) {
-                System.out.println("The reserve button was pressed");
+                guest.setName(tempName);
+                guest.setPhoneNum(tempPhoneNum);
+                guest.setAddress(tempAddress);
+                guest.setDOB(tempMonth, tempDay, tempYear);
+                
+                
             }
             
             else if (e.getSource() == cancelButton) {
