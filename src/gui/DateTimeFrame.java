@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,11 +16,14 @@ public class DateTimeFrame extends JFrame {
     private JLabel monthLabel;
     private JLabel dayLabel;
     private JLabel yearLabel;
-    private JLabel timeLabel;
+    private JLabel startTimeLabel;
+    private JLabel endTimeLabel;
     private JSpinner monthSpinner;
     private JSpinner daySpinner;
     private JSpinner yearSpinner;
     private JSpinner timeSpinner;
+    private JSpinner endTimeSpinner;
+    private JButton reserveButton;
     private Calendar calender;
     private Date date;
     String[] monthStrings;
@@ -42,7 +47,11 @@ public class DateTimeFrame extends JFrame {
         monthLabel = new JLabel("Month: ");
         dayLabel = new JLabel("Day: ");
         yearLabel = new JLabel("Year: ");
-        timeLabel = new JLabel("Time: ");
+        startTimeLabel = new JLabel("Start Time: ");
+        endTimeLabel = new JLabel("End Time: ");
+
+
+        reserveButton = new JButton("Reserve now");
 
         //Month spinner
         SpinnerListModel monthModel = new SpinnerListModel(this.monthStrings);
@@ -65,7 +74,11 @@ public class DateTimeFrame extends JFrame {
 
         ArrayList<String> timeInts = new ArrayList<>();
         int j = 0;
+        //17
+        int amPmCount = 0;
+        //String finalString = "";
         for (int i = 800; i < 2615; i += 15) {
+            amPmCount++;
             j += 15;
             if (i % 100 == 60) {
                 i += 40;
@@ -79,10 +92,19 @@ public class DateTimeFrame extends JFrame {
             if (i >= 2500) {
                 j -= 1200;
             }
-            StringBuilder str = new StringBuilder(Integer.toString(j));
-            timeInts.add(str.insert(Integer.toString(j).length() - 2, ":").toString());
+            if (amPmCount <= 16 || amPmCount >= 65) {
+                StringBuilder str = new StringBuilder(Integer.toString(j));
+                str = str.insert(Integer.toString(j).length() - 2, ":");
+                //finalString = str.toString() + " AM";
+                timeInts.add(str.toString() + " AM");
+            }
+            else if (amPmCount >= 16 && amPmCount <= 65) {
+                StringBuilder str = new StringBuilder(Integer.toString(j));
+                str = str.insert(Integer.toString(j).length() - 2, ":");
+                //finalString = str.toString() + " PM";
+                timeInts.add(str.toString() + " PM");
+            }
         }
-        System.out.println(timeInts);
 
         //Make day spinner
         SpinnerListModel dayModel = new SpinnerListModel(dayInts);
@@ -94,14 +116,20 @@ public class DateTimeFrame extends JFrame {
         SpinnerListModel yearModel = new SpinnerListModel(yearInts);
         yearSpinner = new JSpinner(yearModel);
         Dimension dimension3 = yearSpinner.getPreferredSize();
-        dimension3.width = 82;
+        dimension3.width = 70;
         yearSpinner.setPreferredSize(dimension3);
 
-        SpinnerListModel timeModel = new SpinnerListModel(timeInts);
+        SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(0, timeInts.size() - 1));
         timeSpinner = new JSpinner(timeModel);
         Dimension dimension4 = timeSpinner.getPreferredSize();
-        dimension4.width = 60;
+        dimension4.width = 75;
         timeSpinner.setPreferredSize(dimension4);
+
+        SpinnerListModel timeModel2 = new SpinnerListModel(timeInts.subList(1, timeInts.size()));
+        endTimeSpinner = new JSpinner(timeModel2);
+        Dimension dimension5 = endTimeSpinner.getPreferredSize();
+        dimension5.width = 75;
+        endTimeSpinner.setPreferredSize(dimension5);
 
         panel.add(monthLabel);
         panel.add(monthSpinner);
@@ -117,6 +145,11 @@ public class DateTimeFrame extends JFrame {
                     panel.remove(daySpinner);
                     panel.remove(yearLabel);
                     panel.remove(yearSpinner);
+                    panel.remove(startTimeLabel);
+                    panel.remove(timeSpinner);
+                    panel.remove(endTimeLabel);
+                    panel.remove(endTimeSpinner);
+                    panel.remove(reserveButton);
                     panel.repaint();
 
 
@@ -129,32 +162,91 @@ public class DateTimeFrame extends JFrame {
                     panel.add(daySpinner);
                     panel.add(yearLabel);
                     panel.add(yearSpinner);
+                    panel.add(startTimeLabel);
+                    panel.add(timeSpinner);
+                    panel.add(endTimeLabel);
+                    panel.add(endTimeSpinner);
+                    panel.add(reserveButton);
                     panel.revalidate();
                 }
                 else {
                     panel.remove(daySpinner);
                     panel.remove(yearLabel);
                     panel.remove(yearSpinner);
+                    panel.remove(startTimeLabel);
+                    panel.remove(timeSpinner);
+                    panel.remove(endTimeLabel);
+                    panel.remove(endTimeSpinner);
+                    panel.remove(reserveButton);
                     panel.repaint();
 
                     SpinnerListModel dayModel = new SpinnerListModel(dayInts);
                     daySpinner = new JSpinner(dayModel);
                     Dimension dimension = daySpinner.getPreferredSize();
-                    dimension.width = 82;
+                    dimension.width = 50;
                     daySpinner.setPreferredSize(dimension);
 
                     panel.add(daySpinner);
                     panel.add(yearLabel);
                     panel.add(yearSpinner);
+                    panel.add(startTimeLabel);
+                    panel.add(timeSpinner);
+                    panel.add(endTimeLabel);
+                    panel.add(endTimeSpinner);
+                    panel.add(reserveButton);
                     panel.revalidate();
                 }
             }
         });
 
+        timeSpinner.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                String timeValue = timeSpinner.getValue().toString();
+                int timeValueIndex = 0;
+                for (int i = 0; i < timeInts.size(); i++) {
+                    if (timeInts.get(i) == timeValue) {
+                        timeValueIndex = i;
+                    }
+                }
+
+                panel.remove(daySpinner);
+                panel.remove(yearLabel);
+                panel.remove(yearSpinner);
+                panel.remove(startTimeLabel);
+                panel.remove(timeSpinner);
+                panel.remove(endTimeLabel);
+                panel.remove(endTimeSpinner);
+                panel.remove(reserveButton);
+                panel.repaint();
+
+                SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(timeValueIndex+1, timeInts.size()));
+                endTimeSpinner = new JSpinner(timeModel);
+                Dimension dimension = endTimeSpinner.getPreferredSize();
+                dimension.width = 75;
+                endTimeSpinner.setPreferredSize(dimension);
+
+                panel.add(daySpinner);
+                panel.add(yearLabel);
+                panel.add(yearSpinner);
+                panel.add(startTimeLabel);
+                panel.add(timeSpinner);
+                panel.add(endTimeLabel);
+                panel.add(endTimeSpinner);
+                panel.add(reserveButton);
+                panel.revalidate();
+            }
+        });
+
+        reserveButton.addActionListener(new ButtonListener());
+
         panel.add(yearLabel);
         panel.add(yearSpinner);
-        panel.add(timeLabel);
+        panel.add(startTimeLabel);
         panel.add(timeSpinner);
+        panel.add(endTimeLabel);
+        panel.add(endTimeSpinner);
+        panel.add(reserveButton);
     }
 
     /**
@@ -189,6 +281,16 @@ public class DateTimeFrame extends JFrame {
             return monthStrings;
         } else { //last item not empty
             return months;
+        }
+    }
+
+    private class ButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent click) {
+            if (click.getSource() == reserveButton) {
+                setVisible(false);
+                NewReservationFrame aFrame = new NewReservationFrame();
+            }
         }
     }
 }

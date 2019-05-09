@@ -13,7 +13,7 @@ import AquaWorld.*;
 // import backend.MediumPartyRoom;
  import AquaWorld.smallPartyRoom;
 
-public class MainFrame  {
+public class MainFrame {
 	private JMenuBar menuBar;
 	private JScrollPane scrollPane;
 	private JPanel centerPanel;
