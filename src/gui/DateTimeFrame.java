@@ -342,7 +342,7 @@ public class DateTimeFrame extends JFrame {
             AdultBilliardsLounge adultBilliardsLounge = new AdultBilliardsLounge();
             final PartyRoom[] ROOM_TYPE_OBJECTS = {smallPartyRoom, medPartyRoom, aquaWorldRoom, karaokeLounge, adultBilliardsLounge};
             String[] ROOM_TYPES = {"Small Party Room", "Medium Party Room", "Aqua World", "Karaoke Lounge", "Adult Billiards Lounge"};
-            int foundRoom = 0;
+            foundRoom = 0;
             for (int i = 0; i < ROOM_TYPES.length; i++) {
                 if (ROOM_TYPES[i].equals(aRoomType)) {
                     System.out.println(ROOM_TYPES[i]);

@@ -55,7 +55,7 @@ public class NewReservationFrame {
     private JButton cancelButton; 
     private JFrame frame;
 
-    private String[] roomTypes = {"Small Party Room", "Medium Party Room", "Karaoke Lounge", "Adult Billiards Lounge", "Aqua Room"};
+    private String[] roomTypes = {"Small Party Room", "Medium Party Room", "Aqua World", "Karaoke Lounge", "Adult Billiards Lounge"};
     private final ArrayList<String> roomTypesArrayList = new ArrayList<>();
 
     private DateTimeFrame dateTimeFrame = new DateTimeFrame(false, null);
@@ -94,13 +94,13 @@ public class NewReservationFrame {
         */
         initialRoomIndex = dateTimeFrame.getFoundRoomIndex();
         initialRoomDisplay = roomTypes[initialRoomIndex];
+        System.out.println("room to display" + initialRoomDisplay);
         for (int i = 0; i < roomTypes.length; i++) {
             roomTypesArrayList.add(roomTypes[i]);
         }
-        System.out.println(initialRoomIndex);
         System.out.println(roomTypesArrayList);
         roomTypesArrayList.remove(initialRoomIndex);
-        roomTypesArrayList.add(initialRoomDisplay);
+        roomTypesArrayList.add(0, initialRoomDisplay);
         System.out.println(roomTypesArrayList);
         roomTypes = new String[5];
         for (int i = 0; i < roomTypesArrayList.size(); i++) {
