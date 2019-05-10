@@ -24,10 +24,10 @@ public class karaokeLounge extends PartyRoom {
 
 	@Override
 	/**
-	 * reserves the room for the lounge
-	 * @return the PartyGoer that reserved
+	 * reserves the room to a partygoer
+	 * @return a PartyGoer
 	 */
-	public PartyGoer reserveRoom() {
+	public PartyGoer reserveRoom(int month, int day, int year, int startTime, int endTime) {
 		return null;
 	}
 

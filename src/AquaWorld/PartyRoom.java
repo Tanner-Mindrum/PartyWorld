@@ -161,15 +161,11 @@ public abstract class PartyRoom {
 		this.partyGoerInfo = partyGoerInfo;
 	}
 
-<<<<<<< HEAD
-	public abstract PartyGoer reserveRoom(String month, int day, int year, int startTime, int endTime);
-=======
+
 	/**
 	 * reserves the room for the partyGoer
 	 * @return the partyGoer 
 	 */
-	public abstract PartyGoer reserveRoom();
->>>>>>> ae15efa16a598f6f69294a91b4d402e7c14c076e
-
+	public abstract PartyGoer reserveRoom(int month, int day, int year, int startTime, int endTime);
 
 }

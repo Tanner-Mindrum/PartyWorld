@@ -8,7 +8,7 @@ import java.util.ArrayList;
  *
  * This class is the small party room that holds the waitlist and description
  */
-public class smallPartyRoom extends PartyRoom{
+public class smallPartyRoom extends PartyRoom {
 	private smallPartyRoom partyRoom;
 	private String Description = "Capacity: 30 people\nCost: $150/hr\nIncluded in cost:\n\t-Basic Meal Plan\n\t-Table & Chair Set-up\n"
 			+ "Upgrades Available:\n\t-Upgrade Meal Plan\tCost: $(meal plan cost)\n\t-Party favor bags\t Cost: $5 per bag\n\t"
@@ -46,10 +46,15 @@ public class smallPartyRoom extends PartyRoom{
 
 	@Override
 	/**
-	 * reserves the room 
+	 * reserves the room
 	 * @return the PartyGoer that reserved the room
 	 */
-	public PartyGoer reserveRoom() {
+	public PartyGoer reserveRoom(int month, int day, int year, int startTime, int endTime) {
+		System.out.println(month);
+		System.out.println(day);
+		System.out.println(year);
+		System.out.println(startTime);
+		System.out.println(endTime);
 		return null;
 	}
 

@@ -339,11 +339,56 @@ public class DateTimeFrame extends JFrame {
             if (click.getSource() == reserveButton) {
                 setVisible(false);
                 NewReservationFrame aFrame = new NewReservationFrame();
+                String numString = "";
+                String numStringEnd = "";
                 if (aRoomType.equals("Small Party Room")) {
-//                    for (int i = 0; i < timeSpinner.getValue().toString(); i++) {
-//
-//                    }
-                    smallPartyRoom.reserveRoom(monthSpinner.getValue().toString(), daySpinner.getValue(), yearSpinner.getValue(),);
+                    for (int i = 0; i < timeSpinner.getValue().toString().length(); i++) {
+                        char c = timeSpinner.getValue().toString().charAt(i);
+                        if (Character.isDigit(c)) {
+                            numString += c;
+                        }
+                    }
+                    String[] startTimes = timeSpinner.getValue().toString().split("\\s+");
+                    String AMPM = startTimes[1];
+                    int milStartTimeInt = 0;
+                    milStartTimeInt = Integer.parseInt(numString);
+
+                    if (AMPM.equals("PM")) {
+                        if (milStartTimeInt != 1200) {
+                            milStartTimeInt += 1200;
+                        }
+                    }
+                    else if (AMPM.equals("AM") && milStartTimeInt == 1200) {
+                        milStartTimeInt += 1200;
+                    }
+
+                    for (int i = 0; i < endTimeSpinner.getValue().toString().length(); i++) {
+                        char c = endTimeSpinner.getValue().toString().charAt(i);
+                        if (Character.isDigit(c)) {
+                            numStringEnd += c;
+                        }
+                    }
+                    String[] startTimes2 = endTimeSpinner.getValue().toString().split("\\s+");
+                    String AMPM2 = startTimes2[1];
+                    int milEndTimeInt = 0;
+                    milEndTimeInt = Integer.parseInt(numStringEnd);
+                    if (AMPM2.equals("PM")) {
+                        if (milEndTimeInt != 1200) {
+                            milEndTimeInt += 1200;
+                        }
+                    }
+                    else if (AMPM2.equals("AM") && milEndTimeInt == 1200) {
+                        milEndTimeInt += 1200;
+                    }
+
+
+                    int monthInt = 0;
+                    for (int i = 0; i < monthStrings.length; i++) {
+                        if (monthStrings[i].equals(monthSpinner.getValue().toString())) {
+                            monthInt = i + 1;
+                        }
+                    }
+                    smallPartyRoom.reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt);
                 }
             }
         }

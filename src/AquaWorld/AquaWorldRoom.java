@@ -85,10 +85,10 @@ public class AquaWorldRoom extends PartyRoom{
 
 	@Override
 	/**
-	 * reserves the room for the party goer
-	 * @return the PartyGoer as a PartyGoer type
+	 * reserves the room to a partygoer
+	 * @return a PartyGoer
 	 */
-	public PartyGoer reserveRoom() {
+	public PartyGoer reserveRoom(int month, int day, int year, int startTime, int endTime) {
 		return null;
 	}
 
