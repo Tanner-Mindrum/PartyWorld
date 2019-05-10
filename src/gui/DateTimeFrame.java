@@ -35,7 +35,6 @@ public class DateTimeFrame extends JFrame {
     private int starter;
     private int ender;
     private static String aRoomType;
-    private final String[] ROOM_TYPES = {"Small Party Room", "Medium Party Room", "Aqua World", "Karaoke Lounge", "Adult Billiards Lounge"};
     private static int foundRoom;
 
 
@@ -342,17 +341,20 @@ public class DateTimeFrame extends JFrame {
             karaokeLounge karaokeLounge = new karaokeLounge();
             AdultBilliardsLounge adultBilliardsLounge = new AdultBilliardsLounge();
             final PartyRoom[] ROOM_TYPE_OBJECTS = {smallPartyRoom, medPartyRoom, aquaWorldRoom, karaokeLounge, adultBilliardsLounge};
+            String[] ROOM_TYPES = {"Small Party Room", "Medium Party Room", "Aqua World", "Karaoke Lounge", "Adult Billiards Lounge"};
+            int foundRoom = 0;
+            for (int i = 0; i < ROOM_TYPES.length; i++) {
+                if (ROOM_TYPES[i].equals(aRoomType)) {
+                    System.out.println(ROOM_TYPES[i]);
+                    foundRoom = i;
+                }
+            }
+            System.out.println(foundRoom);
             if (click.getSource() == reserveButton) {
                 setVisible(false);
                 NewReservationFrame aFrame = new NewReservationFrame();
                 String numString = "";
                 String numStringEnd = "";
-                int foundRoom = 0;
-                for (int i = 0; i < ROOM_TYPES.length; i++) {
-                    if (ROOM_TYPES[i].equals(aRoomType)) {
-                        foundRoom = i;
-                    }
-                }
 
                 for (int i = 0; i < timeSpinner.getValue().toString().length(); i++) {
                     char c = timeSpinner.getValue().toString().charAt(i);
