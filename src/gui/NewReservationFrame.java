@@ -2,10 +2,12 @@ package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.Period;
 
 import javax.swing.*;
 import AquaWorld.*;
-import com.sun.deploy.util.ArrayUtil;
+//import com.sun.deploy.util.ArrayUtil;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -86,7 +88,10 @@ public class NewReservationFrame {
         dateOfBirth = new JLabel("Date of birth");
         cardName = new JTextField(5);
         cardNameLabel = new JLabel("Name");
-
+      
+        /*
+        *Manipulating array for book now button does not work currently
+        */
         initialRoomIndex = dateTimeFrame.getFoundRoomIndex();
         initialRoomDisplay = roomTypes[initialRoomIndex];
         for (int i = 0; i < roomTypes.length; i++) {
@@ -137,7 +142,7 @@ public class NewReservationFrame {
             day.addItem(i);
         }
         // Settings years for date of birth
-        for (int i = 1900; i <= 2019; i++) {
+        for (int i = 2019; i >= 1900; i--) {
             year.addItem(i);
 
         }
@@ -181,7 +186,7 @@ public class NewReservationFrame {
     }
 
     class guestInfoListener implements ActionListener {
-
+        JLabel ageCheck = new JLabel("You are not old enough");
         @Override
         public void actionPerformed(ActionEvent e) {
             String roomType = (String) roomTypeBox.getSelectedItem();
@@ -220,29 +225,20 @@ public class NewReservationFrame {
                 guest.setEmail(tempEmail);
                 guest.setCardName(tempCardName);
                 guest.setExpirationDate(tempExpirationMonth, tempExpirationYear);
-                //Checking for their birthday is unfinished
-                if (roomType.equals("Adult Billiards Lounge")) {
-                    
-                    if (calendar.get(Calendar.MONTH) - guest.getBirthYear() >= 20) {
-                        
-                        if (calendar.get(Calendar.MONTH) + 1 > guest.getBirthMonth()) {
-                            System.out.println("You're good to go");
-                        }
-
-                        else if (calendar.get(Calendar.MONTH) + 1 == guest.getBirthMonth()) {
-                            
-                            if (calendar.get(Calendar.DAY_OF_MONTH) > guest.getBirthDay()) {
-
-                                System.out.println("You're good to go");
-                            }
-                        }
-                    }
+                
+                LocalDate today = LocalDate.now();
+                LocalDate birthDay = LocalDate.of(1998, 5, 15);
+                int years = Period.between(birthDay, today).getYears();
+                panel.remove(ageCheck);
+                panel.repaint();
+     
+                if (years <= 21 && roomType.equals("Adult Billiards Lounge")) {
+                   
+                    panel.add(ageCheck);
+                    panel.revalidate();
+                   
                 }
          
-                //Not sure that we need the room type and room number for the partygoer object
-                
-           
-
             }
             
             else if (e.getSource() == cancelButton) {
