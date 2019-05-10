@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import AquaWorld.*;
+import java.util.Calendar;
+import java.util.Date;
 
 public class NewReservationFrame {
     // Frame info
@@ -25,11 +27,12 @@ public class NewReservationFrame {
     private JComboBox<Integer> month;
 
     // Credit Card Info
+    private JLabel cardNameLabel; 
     private JLabel creditCardInfoLabel;
     private JLabel cardNumberLabel;
     private JLabel securityCodeLabel;
     private JLabel expirationDateLabel;
-
+    
     private JTextField cardNumberField;
     private JTextField cardName;
     private JTextField securityCodeField;
@@ -41,6 +44,7 @@ public class NewReservationFrame {
     private JComboBox<Integer> roomNumberBox;
     private JLabel roomNumberLabel;
     private JLabel roomTypeLabel;
+    
     
     private JButton reserveButton;
     private JButton cancelButton; 
@@ -71,6 +75,8 @@ public class NewReservationFrame {
         emailField = new JTextField(10);
         emailLabel = new JLabel("Email address");
         dateOfBirth = new JLabel("Date of birth");
+        cardName = new JTextField(5);
+        cardNameLabel = new JLabel("Name");
        
         roomTypeBox = new JComboBox<String>(roomTypes);
         roomNumberBox = new JComboBox<Integer>();
@@ -128,6 +134,8 @@ public class NewReservationFrame {
         panel.add(day);
         panel.add(year);
         panel.add(creditCardInfoLabel);
+        panel.add(cardNameLabel);
+        panel.add(cardName);
         panel.add(cardNumberLabel);
         panel.add(cardNumberField);
         panel.add(securityCodeLabel);
@@ -153,14 +161,26 @@ public class NewReservationFrame {
             String tempName = nameField.getText();
             String tempPhoneNum = phoneNumField.getText();
             String tempAddress = addressField.getText();
+            
             int tempDay = (Integer) day.getSelectedItem();
             int tempMonth = (Integer) month.getSelectedItem();
             int tempYear = (Integer) year.getSelectedItem();
+            
             String tempCreditCardInfo = cardNumberField.getText();
+            String tempEmail = emailField.getText();
+            String tempCardName = cardName.getText();
+            int tempExpirationMonth = (Integer) expirationMonth.getSelectedItem();
+            int tempExpirationYear = (Integer) expirationYear.getSelectedItem();
+
+            Calendar calendar = Calendar.getInstance(); 
+        
+            calendar.get(Calendar.YEAR);
+            calendar.get(Calendar.MONTH);
+            calendar.get(Calendar.DAY_OF_MONTH);
             
             
             PartyGoer guest = new PartyGoer();     
-
+            
             if (e.getSource() == reserveButton) {
                 guest.setName(tempName);
                 guest.setPhoneNum(tempPhoneNum);
@@ -168,7 +188,32 @@ public class NewReservationFrame {
                 guest.setDOB(tempMonth, tempDay, tempYear);
                 guest.setCreditCardInfo(tempCreditCardInfo);
                 guest.setRoomType(roomType);
+                guest.setEmail(tempEmail);
+                guest.setCardName(tempCardName);
+                guest.setExpirationDate(tempExpirationMonth, tempExpirationYear);
+                //Checking for their birthday is unfinished
+                if (roomType.equals("Adult Billiards Lounge")) {
+                    
+                    if (calendar.get(Calendar.MONTH) - guest.getBirthYear() >= 20) {
+                        
+                        if (calendar.get(Calendar.MONTH) + 1 > guest.getBirthMonth()) {
+                            System.out.println("Youre good to go");
+                        }
+
+                        else if (calendar.get(Calendar.MONTH) + 1 == guest.getBirthMonth()) {
+                            
+                            if (calendar.get(Calendar.DAY_OF_MONTH) > guest.getBirthDay()) {
+
+                                System.out.println("You're good to go");
+                            }
+                        }
+                    }
+                }
+         
+                //Not sure that we need the room type and room number for the partygoer object
                 
+           
+
             }
             
             else if (e.getSource() == cancelButton) {
