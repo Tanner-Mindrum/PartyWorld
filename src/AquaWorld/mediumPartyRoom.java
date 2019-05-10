@@ -29,6 +29,7 @@ public class mediumPartyRoom extends PartyRoom{
 	 * @return a PartyGoer
 	 */
 	public PartyGoer reserveRoom(int month, int day, int year, int startTime, int endTime) {
+		System.out.println("Reserved med room");
 		return null;
 	}
 
