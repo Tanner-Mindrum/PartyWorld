@@ -36,6 +36,7 @@ public class DateTimeFrame extends JFrame {
     private int ender;
     private static String aRoomType;
     private final String[] ROOM_TYPES = {"Small Party Room", "Medium Party Room", "Aqua World", "Karaoke Lounge", "Adult Billiards Lounge"};
+    private static int foundRoom;
 
 
 
@@ -403,5 +404,9 @@ public class DateTimeFrame extends JFrame {
                 ROOM_TYPE_OBJECTS[foundRoom].reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt);
             }
         }
+    }
+
+    public int getFoundRoomIndex() {
+        return foundRoom;
     }
 }

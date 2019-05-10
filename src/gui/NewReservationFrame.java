@@ -5,6 +5,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import AquaWorld.*;
+import com.sun.deploy.util.ArrayUtil;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -50,7 +53,13 @@ public class NewReservationFrame {
     private JButton cancelButton; 
     private JFrame frame;
 
-    private final String[] roomTypes= {"Small Party Room", "Medium Party Room", "Karaoke Lounge", "Adult Billiards Lounge", "Aqua Room"};
+    private String[] roomTypes = {"Small Party Room", "Medium Party Room", "Karaoke Lounge", "Adult Billiards Lounge", "Aqua Room"};
+    private final ArrayList<String> roomTypesArrayList = new ArrayList<>();
+
+    private DateTimeFrame dateTimeFrame = new DateTimeFrame(false, null);
+    private static String initialRoomDisplay = "";
+    private static int initialRoomIndex = 0;
+
 
     public NewReservationFrame() {
         frame = new JFrame();
@@ -77,6 +86,22 @@ public class NewReservationFrame {
         dateOfBirth = new JLabel("Date of birth");
         cardName = new JTextField(5);
         cardNameLabel = new JLabel("Name");
+
+        initialRoomIndex = dateTimeFrame.getFoundRoomIndex();
+        initialRoomDisplay = roomTypes[initialRoomIndex];
+        for (int i = 0; i < roomTypes.length; i++) {
+            roomTypesArrayList.add(roomTypes[i]);
+        }
+        System.out.println(initialRoomIndex);
+        System.out.println(roomTypesArrayList);
+        roomTypesArrayList.remove(initialRoomIndex);
+        roomTypesArrayList.add(initialRoomDisplay);
+        System.out.println(roomTypesArrayList);
+        roomTypes = new String[5];
+        for (int i = 0; i < roomTypesArrayList.size(); i++) {
+            roomTypes[i] = roomTypesArrayList.get(i);
+        }
+
        
         roomTypeBox = new JComboBox<String>(roomTypes);
         roomNumberBox = new JComboBox<Integer>();
