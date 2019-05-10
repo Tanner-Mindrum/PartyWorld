@@ -89,11 +89,38 @@ public class NewReservationFrame {
         cardName = new JTextField(5);
         cardNameLabel = new JLabel("Name");
       
-        /*
-        *Manipulating array for book now button does not work currently
-        */
+
+        //Manipulating array for book now button does not work currently
+
         initialRoomIndex = dateTimeFrame.getFoundRoomIndex();
         initialRoomDisplay = roomTypes[initialRoomIndex];
+        if (initialRoomDisplay.equals("Small Party Room")) {
+            roomNumberBox = new JComboBox<Integer>();
+            for (int i = 1; i <= 10; i++) {
+                roomNumberBox.addItem(i);
+            }
+        }
+        else if (initialRoomDisplay.equals("Medium Party Room")) {
+            roomNumberBox = new JComboBox<Integer>();
+            for (int i = 1; i <= 2; i++) {
+                roomNumberBox.addItem(i);
+            }
+        }
+        else if (initialRoomDisplay.equals("Aqua World")) {
+            roomNumberBox = new JComboBox<Integer>();
+        }
+        else if (initialRoomDisplay.equals("Karaoke Lounge")) {
+            roomNumberBox = new JComboBox<Integer>();
+            for (int i = 1; i <= 10; i++) {
+                roomNumberBox.addItem(i);
+            }
+        }
+        else if (initialRoomDisplay.equals("Adult Billiards Lounge")) {
+            roomNumberBox = new JComboBox<Integer>();
+            for (int i = 1; i <= 5; i++) {
+                roomNumberBox.addItem(i);
+            }
+        }
         System.out.println("room to display" + initialRoomDisplay);
         for (int i = 0; i < roomTypes.length; i++) {
             roomTypesArrayList.add(roomTypes[i]);
@@ -109,7 +136,7 @@ public class NewReservationFrame {
 
        
         roomTypeBox = new JComboBox<String>(roomTypes);
-        roomNumberBox = new JComboBox<Integer>();
+        //roomNumberBox = new JComboBox<Integer>();
         roomTypeBox.addActionListener(new guestInfoListener());
 
         year = new JComboBox<Integer>();
@@ -151,10 +178,6 @@ public class NewReservationFrame {
             expirationYear.addItem(i);
         }
 
-        for (int i = 1; i <= 10; i++) {
-            roomNumberBox.addItem(i);
-        }
-
         panel.add(nameLabel);
         panel.add(nameField);
         panel.add(phoneNumLabel);
@@ -179,6 +202,10 @@ public class NewReservationFrame {
         panel.add(expirationYear);
         panel.add(roomTypeBox);
         panel.add(roomNumberBox);
+        if (initialRoomDisplay.equals("Aqua World")) {
+            panel.remove(roomNumberBox);
+            panel.repaint();
+        }
         panel.add(cancelButton);
         panel.add(reserveButton);
         frame.add(panel);

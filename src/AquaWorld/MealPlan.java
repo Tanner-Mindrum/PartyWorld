@@ -7,9 +7,5 @@ public class MealPlan {
 	private goldMeal goldMeal;
 	private bronzeMeal bronzeMeal;
 	private silverMeal silverMeal;
-	
-	
-	
-	
 
 }
