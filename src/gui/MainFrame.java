@@ -18,7 +18,6 @@ public class MainFrame {
 	private JScrollPane scrollPane;
 	private JPanel centerPanel;
 	private JFrame frame;
-	private DateTimeFrame dateTimeFrame = new DateTimeFrame();
 
 	private smallPartyRoom smallRoom = new smallPartyRoom();
 	private mediumPartyRoom mediumRoom = new mediumPartyRoom();
@@ -33,6 +32,9 @@ public class MainFrame {
 	private static JButton karaokeButton = new JButton("Book Now");
 
 	private static String titleChoice;
+
+	private static boolean partyRoomWasClicked;
+	private static boolean loungeWasClicked;
 
 	private JLabel panelTitle = new JLabel("Party World Rooms");
 	//border settings used in the method addARoomDescription()
@@ -50,6 +52,8 @@ public class MainFrame {
 		this.createDefaultPanel();
 		frame.setVisible(true);
 
+		partyRoomWasClicked = false;
+		loungeWasClicked = false;
 	}
 
 
@@ -348,39 +352,47 @@ public class MainFrame {
 	}
 
 	private class ButtonListener implements ActionListener {
-		@Override
 
+		@Override
 		public void actionPerformed(ActionEvent click) {
 			if (click.getSource() == smallButton) {
 				System.out.println("SMALL ROOM");
+				DateTimeFrame dateTimeFrame = new DateTimeFrame(true, "Small Party Room");
+				//partyRoomWasClicked = true;
 				frame.setVisible(false);
 				dateTimeFrame.setVisible(true);
 				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 			else if (click.getSource() == medButton) {
 				System.out.println("MED ROOM");
+				DateTimeFrame dateTimeFrame = new DateTimeFrame(true, "Medium Party Room");
 				frame.setVisible(false);
 				dateTimeFrame.setVisible(true);
 				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 			else if (click.getSource() == aquaButton) {
 				System.out.println("AQUA ROOM");
+				DateTimeFrame dateTimeFrame = new DateTimeFrame(true, "Aqua World");
 				frame.setVisible(false);
 				dateTimeFrame.setVisible(true);
 				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 			else if (click.getSource() == karaokeButton) {
 				System.out.println("KARAOKE ROOM");
+				DateTimeFrame dateTimeFrame = new DateTimeFrame(false, "Karaoke Lounge");
 				frame.setVisible(false);
 				dateTimeFrame.setVisible(true);
 				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 			else if (click.getSource() == billiardButton) {
 				System.out.println("BILLIARD ROOM");
+				DateTimeFrame dateTimeFrame = new DateTimeFrame(false, "Adult Billiards Lounge");
 				frame.setVisible(false);
 				dateTimeFrame.setVisible(true);
 				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
+			partyRoomWasClicked = false;
+			loungeWasClicked = false;
 		}
 	}
 }

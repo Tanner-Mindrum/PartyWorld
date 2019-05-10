@@ -30,15 +30,20 @@ public class DateTimeFrame extends JFrame {
     ArrayList<Integer> dayInts;
     private JTextField textField;
     private JPanel panel;
+    private boolean roomLoungeCheck;
+    private int starter;
+    private int ender;
+
 
     private static final int FRAME_WIDTH = 500;
     private static final int FRAME_HEIGHT = 400;
 
-    public DateTimeFrame() {
-        this.setTitle("Select Date/Time");
+    public DateTimeFrame(boolean roomOrLounge, String roomType) {
+        this.setTitle(roomType);
         this.monthStrings = getMonthStrings();
         this.dayInts = new ArrayList<>();
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        roomLoungeCheck = roomOrLounge;
         createComponents();
     }
 
@@ -49,7 +54,6 @@ public class DateTimeFrame extends JFrame {
         yearLabel = new JLabel("Year: ");
         startTimeLabel = new JLabel("Start Time: ");
         endTimeLabel = new JLabel("End Time: ");
-
 
         reserveButton = new JButton("Reserve now");
 
@@ -113,19 +117,27 @@ public class DateTimeFrame extends JFrame {
         dimension2.width = 50;
         daySpinner.setPreferredSize(dimension2);
 
+        //Year spinner
         SpinnerListModel yearModel = new SpinnerListModel(yearInts);
         yearSpinner = new JSpinner(yearModel);
         Dimension dimension3 = yearSpinner.getPreferredSize();
         dimension3.width = 70;
         yearSpinner.setPreferredSize(dimension3);
 
-        SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(0, timeInts.size() - 1));
+        ender = 4;
+        if (roomLoungeCheck) {
+            ender = 8;
+        }
+
+        //Start time spinner
+        SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(4, timeInts.size() - 1 - ender));
         timeSpinner = new JSpinner(timeModel);
         Dimension dimension4 = timeSpinner.getPreferredSize();
         dimension4.width = 75;
         timeSpinner.setPreferredSize(dimension4);
 
-        SpinnerListModel timeModel2 = new SpinnerListModel(timeInts.subList(1, timeInts.size()));
+        //End time spinner
+        SpinnerListModel timeModel2 = new SpinnerListModel(timeInts.subList(5, timeInts.size() - ender));
         endTimeSpinner = new JSpinner(timeModel2);
         Dimension dimension5 = endTimeSpinner.getPreferredSize();
         dimension5.width = 75;
@@ -138,6 +150,7 @@ public class DateTimeFrame extends JFrame {
         this.add(panel);
 
         monthSpinner.addChangeListener(new ChangeListener() {
+
             @Override
             public void stateChanged(ChangeEvent e) {
                 String value = monthSpinner.getValue().toString();
@@ -168,6 +181,35 @@ public class DateTimeFrame extends JFrame {
                     panel.add(endTimeSpinner);
                     panel.add(reserveButton);
                     panel.revalidate();
+                }
+                else if (value.equals("April") || value.equals("June") || value.equals("September") || value.equals("November")) {
+                    panel.remove(daySpinner);
+                    panel.remove(yearLabel);
+                    panel.remove(yearSpinner);
+                    panel.remove(startTimeLabel);
+                    panel.remove(timeSpinner);
+                    panel.remove(endTimeLabel);
+                    panel.remove(endTimeSpinner);
+                    panel.remove(reserveButton);
+                    panel.repaint();
+
+
+                    SpinnerListModel dayModel = new SpinnerListModel(dayInts.subList(0, 30));
+                    daySpinner = new JSpinner(dayModel);
+                    Dimension dimension = daySpinner.getPreferredSize();
+                    dimension.width = 50;
+                    daySpinner.setPreferredSize(dimension);
+
+                    panel.add(daySpinner);
+                    panel.add(yearLabel);
+                    panel.add(yearSpinner);
+                    panel.add(startTimeLabel);
+                    panel.add(timeSpinner);
+                    panel.add(endTimeLabel);
+                    panel.add(endTimeSpinner);
+                    panel.add(reserveButton);
+                    panel.revalidate();
+
                 }
                 else {
                     panel.remove(daySpinner);
@@ -220,7 +262,7 @@ public class DateTimeFrame extends JFrame {
                 panel.remove(reserveButton);
                 panel.repaint();
 
-                SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(timeValueIndex+1, timeInts.size()));
+                SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(timeValueIndex+1, timeInts.size() - ender));
                 endTimeSpinner = new JSpinner(timeModel);
                 Dimension dimension = endTimeSpinner.getPreferredSize();
                 dimension.width = 75;
