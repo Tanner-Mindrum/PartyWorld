@@ -197,7 +197,7 @@ public class NewReservationFrame {
                     if (calendar.get(Calendar.MONTH) - guest.getBirthYear() >= 20) {
                         
                         if (calendar.get(Calendar.MONTH) + 1 > guest.getBirthMonth()) {
-                            System.out.println("Youre good to go");
+                            System.out.println("You're good to go");
                         }
 
                         else if (calendar.get(Calendar.MONTH) + 1 == guest.getBirthMonth()) {
