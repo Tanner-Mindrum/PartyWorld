@@ -82,45 +82,89 @@ public abstract class PartyRoom {
         return upgrades;
     }
 
+    /**
+     * sets the upgrades to the room
+     * @param upgrades to be added as a string
+     */
     public void setUpgrades(String upgrades) {
         this.upgrades = upgrades;
     }
 
+    /**
+     * sets the reservation of the room
+     * @param currentPartyGoer as a PartyGoer
+     */
     public void setReservation(PartyGoer currentPartyGoer) {
 
     }
 
+    /**
+     * gets the notification
+     * @return the notification as a string
+     */
     public String getNotification() {
         return notification;
     }
 
+    /**
+     * sets the notification to the room
+     * @param notification as a string
+     */
     public void setNotification(String notification) {
         this.notification = notification;
     }
 
+    /**
+     *  cancels the reservation of the partygoer
+     * @param currentPartyGoer to remove from the reservation
+     */
     public void cancelReservation(PartyGoer currentPartyGoer) {
         //If a user cancels their reservation, then set the reservation times back to true (remove from arraylist)
 
     }
 
+    /**
+     * calculates the cost
+     * @return the cost as a double
+     */
     public abstract double calculateCost();
 
+    /**
+     * gets the meal plans
+     * @return the MealPlan
+     */
 	public MealPlan getMeals() {
 		return meals;
 	}
 
+	/**
+	 * sets new meal plans
+	 * @param meals as a MealPlan
+	 */
 	public void setMeals(MealPlan meals) {
 		this.meals = meals;
 	}
 
+	/**
+	 * gets the party goers information
+	 * @return the PartyGoer
+	 */
 	public PartyGoer getPartyGoerInfo() {
 		return partyGoerInfo;
 	}
 
+	/**
+	 * sets the partyGoers info
+	 * @param partyGoerInfo as a PartyGoer
+	 */
 	public void setPartyGoerInfo(PartyGoer partyGoerInfo) {
 		this.partyGoerInfo = partyGoerInfo;
 	}
 
+	/**
+	 * reserves the room for the partyGoer
+	 * @return the partyGoer 
+	 */
 	public abstract PartyGoer reserveRoom();
 
 
