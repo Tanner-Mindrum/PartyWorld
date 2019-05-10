@@ -121,6 +121,10 @@ public class NewReservationFrame {
             expirationYear.addItem(i);
         }
 
+        for (int i = 1; i <= 10; i++) {
+            roomNumberBox.addItem(i);
+        }
+
         panel.add(nameLabel);
         panel.add(nameField);
         panel.add(phoneNumLabel);
@@ -197,7 +201,7 @@ public class NewReservationFrame {
                     if (calendar.get(Calendar.MONTH) - guest.getBirthYear() >= 20) {
                         
                         if (calendar.get(Calendar.MONTH) + 1 > guest.getBirthMonth()) {
-                            System.out.println("Youre good to go");
+                            System.out.println("You're good to go");
                         }
 
                         else if (calendar.get(Calendar.MONTH) + 1 == guest.getBirthMonth()) {
