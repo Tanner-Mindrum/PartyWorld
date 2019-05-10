@@ -27,7 +27,7 @@ public class DateTimeFrame extends JFrame {
     private JButton reserveButton;
     private Calendar calender;
     private Date date;
-    String[] monthStrings;
+    private String[] monthStrings;
     ArrayList<Integer> dayInts;
     private JTextField textField;
     private JPanel panel;
@@ -294,22 +294,6 @@ public class DateTimeFrame extends JFrame {
         panel.add(endTimeLabel);
         panel.add(endTimeSpinner);
         panel.add(reserveButton);
-    }
-
-    /**
-     * Return the formatted text field used by the editor, or
-     * null if the editor doesn't descend from JSpinner.DefaultEditor.
-     */
-    public JFormattedTextField getTextField(JSpinner spinner) {
-        JComponent editor = spinner.getEditor();
-        if (editor instanceof JSpinner.DefaultEditor) {
-            return ((JSpinner.DefaultEditor)editor).getTextField();
-        } else {
-            System.err.println("Unexpected editor type: "
-                    + spinner.getEditor().getClass()
-                    + " isn't a descendant of DefaultEditor");
-            return null;
-        }
     }
 
     /**
