@@ -121,7 +121,7 @@ public abstract class PartyRoom {
 		this.partyGoerInfo = partyGoerInfo;
 	}
 
-	public abstract PartyGoer reserveRoom();
+	public abstract PartyGoer reserveRoom(String month, int day, int year, int startTime, int endTime);
 
 
 }

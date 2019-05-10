@@ -121,6 +121,10 @@ public class NewReservationFrame {
             expirationYear.addItem(i);
         }
 
+        for (int i = 1; i <= 10; i++) {
+            roomNumberBox.addItem(i);
+        }
+
         panel.add(nameLabel);
         panel.add(nameField);
         panel.add(phoneNumLabel);

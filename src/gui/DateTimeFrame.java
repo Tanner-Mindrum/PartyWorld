@@ -1,5 +1,7 @@
 package gui;
 
+import AquaWorld.smallPartyRoom;
+
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -33,6 +35,8 @@ public class DateTimeFrame extends JFrame {
     private boolean roomLoungeCheck;
     private int starter;
     private int ender;
+    private static String aRoomType;
+
 
 
     private static final int FRAME_WIDTH = 500;
@@ -44,6 +48,7 @@ public class DateTimeFrame extends JFrame {
         this.dayInts = new ArrayList<>();
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
         roomLoungeCheck = roomOrLounge;
+        aRoomType = roomType;
         createComponents();
     }
 
@@ -247,7 +252,7 @@ public class DateTimeFrame extends JFrame {
                 String timeValue = timeSpinner.getValue().toString();
                 int timeValueIndex = 0;
                 for (int i = 0; i < timeInts.size(); i++) {
-                    if (timeInts.get(i) == timeValue) {
+                    if (timeInts.get(i).equals(timeValue)) {
                         timeValueIndex = i;
                     }
                 }
@@ -327,11 +332,19 @@ public class DateTimeFrame extends JFrame {
     }
 
     private class ButtonListener implements ActionListener {
+
         @Override
         public void actionPerformed(ActionEvent click) {
+            smallPartyRoom smallPartyRoom = new smallPartyRoom();
             if (click.getSource() == reserveButton) {
                 setVisible(false);
                 NewReservationFrame aFrame = new NewReservationFrame();
+                if (aRoomType.equals("Small Party Room")) {
+//                    for (int i = 0; i < timeSpinner.getValue().toString(); i++) {
+//
+//                    }
+                    smallPartyRoom.reserveRoom(monthSpinner.getValue().toString(), daySpinner.getValue(), yearSpinner.getValue(),);
+                }
             }
         }
     }
