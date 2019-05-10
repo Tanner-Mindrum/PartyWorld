@@ -1,7 +1,12 @@
 package AquaWorld;
 
 import java.util.ArrayList;
-
+/**
+ * 
+ * @author steven, tymee, Justin, Tanner
+ *
+ * This class is the medium party room that holds the waitlist and description 
+ */
 public class mediumPartyRoom extends PartyRoom{
 	private mediumPartyRoom partyRoom; //This could be dangerous as it is already created by the factory
 	private String Description = "Capacity: 45 people\nCost: $250/hr\nIncluded in cost:\n\t-Basic Meal Plan\n\t-Table & Chair Set-up\n\t-DJ\n"
@@ -10,23 +15,43 @@ public class mediumPartyRoom extends PartyRoom{
 			+ "     Themes: Hawaiian, Sea Life, Jungle, Space, or Modern";
 	ArrayList<PartyGoer> waitList = new ArrayList<PartyGoer>();
 	
-	
+	/**
+	 * calculates the cost of the room
+	 * @return the cost as a double
+	 */
 	public double calculateCost() {
 		return 0;
 	}
 
 	@Override
+	/**
+	 * reserves the room for the party goer
+	 * @return the PartyGoer that reserved the room
+	 */
 	public PartyGoer reserveRoom() {
 		return null;
 	}
 
+	/**
+	 * sets the description of the room
+	 * @param description as a String
+	 */
 	public void setDescription(String description) {
 		Description = description;
 	}
+	
+	/**
+	 * adds to the waitlist
+	 * @param partyGoer to tbe added to the waitlist
+	 */
 	public void addWaitList(PartyGoer partyGoer) {
 		waitList.add(partyGoer);
 	}
 	
+	/**
+	 * gets the description of the room
+	 * @return the description as a String
+	 */
 	public String getDescription() {
 		return Description;
 	}
