@@ -10,9 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 
-import gui.WaitlistFrame.NoButton;
-import gui.WaitlistFrame.YesButton;
-
 public class CheckInFrame {
 	private JFrame frame;
 	private JPanel panel;

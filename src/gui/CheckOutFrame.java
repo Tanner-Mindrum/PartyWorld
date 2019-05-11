@@ -11,9 +11,6 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import gui.CheckInFrame.cancel;
-import gui.CheckInFrame.checkIn;
-
 public class CheckOutFrame {
 
 	private JFrame frame;

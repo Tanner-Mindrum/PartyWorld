@@ -9,6 +9,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
+/**
+ * 
+ * @author steven, tymee, Justin, Tanner
+ *
+ * This class is the frame to add a guest to the waitlist
+ */
 public class WaitlistFrame {
 
 	private static JButton yesButton = new JButton("Yes");
@@ -17,6 +24,9 @@ public class WaitlistFrame {
 	private JFrame frame;
 	private JPanel panel;
 	
+	/**
+	 * the constructor for the waitlist
+	 */
 	public WaitlistFrame() {
 		frame = new JFrame();
         panel = new JPanel();
@@ -30,6 +40,9 @@ public class WaitlistFrame {
         
 	}
 	
+	/**
+	 * adds the necessary components to the frame
+	 */
 	public void addComponents() {
 		panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
 		yesButton.addActionListener(new YesButton());
@@ -40,22 +53,34 @@ public class WaitlistFrame {
 		frame.add(panel);
 	}
 	
+	/**
+	 * 
+	 * @author steve, tanner, justin, tymee
+	 *
+	 * is the action listener to the no button, does not add the guest to the waitlist
+	 */
 	class NoButton implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			// TODO Auto-generated method stub
+			frame.setVisible(false);
 			
 		}
 		
 	}
 	
-	
+	/**
+	 * 
+	 * @author steve, tanner, justin, tymee
+	 *
+	 * action listener for the yes button, adds the guest to the waitlist
+	 */
 	class YesButton implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
+			frame.setVisible(false);
+			//add to waitlist & 
 			
 		}
 		
