@@ -14,6 +14,7 @@ import AquaWorld.*;
 //import com.sun.deploy.util.ArrayUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -82,6 +83,7 @@ public class NewReservationFrame {
     private DateTimeFrame dateTimeFrame = new DateTimeFrame(false, null);
     private static String initialRoomDisplay = "";
     private static int initialRoomIndex = 0;
+    private static int initialMonthIndex = 0;
     private static int foundRoom;
     private static String aRoomType;
 
@@ -123,8 +125,14 @@ public class NewReservationFrame {
         cardName = new JTextField(5);
         cardNameLabel = new JLabel("Name");
 
+        initialMonthIndex = dateTimeFrame.getMonthIndex();
+        ArrayList<String> monthsToAdd = new ArrayList<>();
+        for (int i = 0; i < monthStrings.length; i++) {
+            monthsToAdd.add(monthStrings[i]);
+        }
+
         //Month spinner
-        SpinnerListModel monthModel = new SpinnerListModel(this.monthStrings);
+        SpinnerListModel monthModel = new SpinnerListModel(monthsToAdd.subList(initialMonthIndex, monthsToAdd.size()));
         monthSpinner = new JSpinner(monthModel);
         Dimension dimension = monthSpinner.getPreferredSize();
         dimension.width = 82;
@@ -156,7 +164,6 @@ public class NewReservationFrame {
         dimension3.width = 70;
         yearSpinner.setPreferredSize(dimension3);
 
-//        ArrayList<String> timeInts = new ArrayList<>();
         int j = 0;
         //17
         int amPmCount = 0;
@@ -300,7 +307,6 @@ public class NewReservationFrame {
             dimension5.width = 75;
             endTimeSpinner.setPreferredSize(dimension5);
         }
-        System.out.println("room to display: " + initialRoomDisplay);
 //        for (int i = 0; i < roomTypes.length; i++) {
 //            roomTypesArrayList.add(roomTypes[i]);
 //        }
@@ -561,6 +567,36 @@ public class NewReservationFrame {
             return months;
         }
     }
+
+    public static int getSelectedIndex(JSpinner spinner, String[] monthStrings) {
+        int index = 0;
+        for(String s : monthStrings) {
+            if (s.equals(spinner.getValue())) {
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
+
+    public static void setSelectedIndex(JSpinner spinner, String[] monthStrings, int index) {
+        spinner.setValue(monthStrings[(index)]);
+    }
+
+//    public int getSelectedIndex2(JSpinner spinner, ArrayList<?> values) {
+//        int index = 0;
+//        for(Object o : values) {
+//            if (o.equals(spinner.getValue())) {
+//                return index;
+//            }
+//            index++;
+//        }
+//        return -1;
+//    }
+//
+//    public void setSelectedIndex2(JSpinner spinner, String[] monthStrings, int index) {
+//        spinner.setValue(monthStrings[(index)]);
+//    }
 
     class guestInfoListener implements ActionListener {
         JLabel ageCheck = new JLabel("You are not old enough");

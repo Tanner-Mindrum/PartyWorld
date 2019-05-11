@@ -36,6 +36,7 @@ public class DateTimeFrame extends JFrame {
     private int ender;
     private static String aRoomType;
     private static int foundRoom;
+    private static int monthInt;
 
 
 
@@ -336,7 +337,7 @@ public class DateTimeFrame extends JFrame {
             System.out.println(foundRoom);
             if (click.getSource() == reserveButton) {
                 setVisible(false);
-                NewReservationFrame aFrame = new NewReservationFrame();
+//                NewReservationFrame aFrame = new NewReservationFrame();
                 String numString = "";
                 String numStringEnd = "";
 
@@ -380,12 +381,14 @@ public class DateTimeFrame extends JFrame {
                 }
 
 
-                int monthInt = 0;
+                monthInt = 0;
                 for (int i = 0; i < monthStrings.length; i++) {
                     if (monthStrings[i].equals(monthSpinner.getValue().toString())) {
                         monthInt = i + 1;
                     }
                 }
+
+                NewReservationFrame aFrame = new NewReservationFrame();
 
                 //ROOM_TYPE_OBJECTS[foundRoom].reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt);
             }
@@ -394,5 +397,9 @@ public class DateTimeFrame extends JFrame {
 
     public int getFoundRoomIndex() {
         return foundRoom;
+    }
+
+    public int getMonthIndex() {
+        return monthInt - 1;
     }
 }
