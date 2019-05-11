@@ -7,6 +7,9 @@ import java.time.LocalDate;
 import java.time.Period;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 import AquaWorld.*;
 //import com.sun.deploy.util.ArrayUtil;
 
@@ -79,8 +82,12 @@ public class NewReservationFrame {
     private DateTimeFrame dateTimeFrame = new DateTimeFrame(false, null);
     private static String initialRoomDisplay = "";
     private static int initialRoomIndex = 0;
+    private static int foundRoom;
+    private static String aRoomType;
 
     private static ArrayList<String> timeInts = new ArrayList<>();
+
+    private static int ender = 0;
 
     public NewReservationFrame() {
         frame = new JFrame();
@@ -201,6 +208,7 @@ public class NewReservationFrame {
         initialRoomIndex = dateTimeFrame.getFoundRoomIndex();
         initialRoomDisplay = roomTypes[initialRoomIndex];
         if (initialRoomDisplay.equals("Small Party Room")) {
+            ender = 8;
             roomNumberBox = new JComboBox<Integer>();
             for (int i = 1; i <= 10; i++) {
                 roomNumberBox.addItem(i);
@@ -220,6 +228,8 @@ public class NewReservationFrame {
             endTimeSpinner.setPreferredSize(dimension5);
         }
         else if (initialRoomDisplay.equals("Medium Party Room")) {
+            ender = 8;
+
             roomNumberBox = new JComboBox<Integer>();
             for (int i = 1; i <= 2; i++) {
                 roomNumberBox.addItem(i);
@@ -237,6 +247,8 @@ public class NewReservationFrame {
             endTimeSpinner.setPreferredSize(dimension5);
         }
         else if (initialRoomDisplay.equals("Aqua World")) {
+            ender = 8;
+
             roomNumberBox = new JComboBox<Integer>();
             SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(4, timeInts.size() - 1 - 8));
             timeSpinner = new JSpinner(timeModel);
@@ -251,6 +263,8 @@ public class NewReservationFrame {
             endTimeSpinner.setPreferredSize(dimension5);
         }
         else if (initialRoomDisplay.equals("Karaoke Lounge")) {
+            ender = 4;
+
             roomNumberBox = new JComboBox<Integer>();
             for (int i = 1; i <= 10; i++) {
                 roomNumberBox.addItem(i);
@@ -268,6 +282,8 @@ public class NewReservationFrame {
             endTimeSpinner.setPreferredSize(dimension5);
         }
         else if (initialRoomDisplay.equals("Adult Billiards Lounge")) {
+            ender = 4;
+
             roomNumberBox = new JComboBox<Integer>();
             for (int i = 1; i <= 5; i++) {
                 roomNumberBox.addItem(i);
@@ -296,6 +312,145 @@ public class NewReservationFrame {
         for (int i = 0; i < roomTypesArrayList.size(); i++) {
             roomTypes[i] = roomTypesArrayList.get(i);
         }
+
+        monthSpinner.addChangeListener(new ChangeListener() {
+
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                String value = monthSpinner.getValue().toString();
+                if (value.equals("February")) {
+                    panel.remove(daySpinner);
+                    panel.remove(yearLabel);
+                    panel.remove(yearSpinner);
+                    panel.remove(startTimeLabel);
+                    panel.remove(timeSpinner);
+                    panel.remove(endTimeLabel);
+                    panel.remove(endTimeSpinner);
+                    panel.remove(cancelButton);
+                    panel.remove(reserveButton);
+                    panel.repaint();
+
+
+                    SpinnerListModel dayModel = new SpinnerListModel(dayInts.subList(0, 28));
+                    daySpinner = new JSpinner(dayModel);
+                    Dimension dimension = daySpinner.getPreferredSize();
+                    dimension.width = 50;
+                    daySpinner.setPreferredSize(dimension);
+
+                    panel.add(daySpinner);
+                    panel.add(yearLabel);
+                    panel.add(yearSpinner);
+                    panel.add(startTimeLabel);
+                    panel.add(timeSpinner);
+                    panel.add(endTimeLabel);
+                    panel.add(endTimeSpinner);
+                    panel.add(cancelButton);
+                    panel.add(reserveButton);
+                    panel.revalidate();
+                }
+                else if (value.equals("April") || value.equals("June") || value.equals("September") || value.equals("November")) {
+                    panel.remove(daySpinner);
+                    panel.remove(yearLabel);
+                    panel.remove(yearSpinner);
+                    panel.remove(startTimeLabel);
+                    panel.remove(timeSpinner);
+                    panel.remove(endTimeLabel);
+                    panel.remove(endTimeSpinner);
+                    panel.remove(cancelButton);
+                    panel.remove(reserveButton);
+                    panel.repaint();
+
+
+                    SpinnerListModel dayModel = new SpinnerListModel(dayInts.subList(0, 30));
+                    daySpinner = new JSpinner(dayModel);
+                    Dimension dimension = daySpinner.getPreferredSize();
+                    dimension.width = 50;
+                    daySpinner.setPreferredSize(dimension);
+
+                    panel.add(daySpinner);
+                    panel.add(yearLabel);
+                    panel.add(yearSpinner);
+                    panel.add(startTimeLabel);
+                    panel.add(timeSpinner);
+                    panel.add(endTimeLabel);
+                    panel.add(endTimeSpinner);
+                    panel.add(cancelButton);
+                    panel.add(reserveButton);
+                    panel.revalidate();
+
+                }
+                else {
+                    panel.remove(daySpinner);
+                    panel.remove(yearLabel);
+                    panel.remove(yearSpinner);
+                    panel.remove(startTimeLabel);
+                    panel.remove(timeSpinner);
+                    panel.remove(endTimeLabel);
+                    panel.remove(endTimeSpinner);
+                    panel.remove(cancelButton);
+                    panel.remove(reserveButton);
+                    panel.repaint();
+
+                    SpinnerListModel dayModel = new SpinnerListModel(dayInts);
+                    daySpinner = new JSpinner(dayModel);
+                    Dimension dimension = daySpinner.getPreferredSize();
+                    dimension.width = 50;
+                    daySpinner.setPreferredSize(dimension);
+
+                    panel.add(daySpinner);
+                    panel.add(yearLabel);
+                    panel.add(yearSpinner);
+                    panel.add(startTimeLabel);
+                    panel.add(timeSpinner);
+                    panel.add(endTimeLabel);
+                    panel.add(endTimeSpinner);
+                    panel.add(cancelButton);
+                    panel.add(reserveButton);
+                    panel.revalidate();
+                }
+            }
+        });
+
+        timeSpinner.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                String timeValue = timeSpinner.getValue().toString();
+                int timeValueIndex = 0;
+                for (int i = 0; i < timeInts.size(); i++) {
+                    if (timeInts.get(i).equals(timeValue)) {
+                        timeValueIndex = i;
+                    }
+                }
+
+                panel.remove(daySpinner);
+                panel.remove(yearLabel);
+                panel.remove(yearSpinner);
+                panel.remove(startTimeLabel);
+                panel.remove(timeSpinner);
+                panel.remove(endTimeLabel);
+                panel.remove(endTimeSpinner);
+                panel.remove(cancelButton);
+                panel.remove(reserveButton);
+                panel.repaint();
+
+                SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(timeValueIndex+1, timeInts.size() - ender));
+                endTimeSpinner = new JSpinner(timeModel);
+                Dimension dimension = endTimeSpinner.getPreferredSize();
+                dimension.width = 75;
+                endTimeSpinner.setPreferredSize(dimension);
+
+                panel.add(daySpinner);
+                panel.add(yearLabel);
+                panel.add(yearSpinner);
+                panel.add(startTimeLabel);
+                panel.add(timeSpinner);
+                panel.add(endTimeLabel);
+                panel.add(endTimeSpinner);
+                panel.add(cancelButton);
+                panel.add(reserveButton);
+                panel.revalidate();
+            }
+        });
 
        
         roomTypeBox = new JComboBox<String>(roomTypes);
@@ -457,7 +612,72 @@ public class NewReservationFrame {
                     panel.revalidate();
                    
                 }
-         
+                smallPartyRoom smallPartyRoom = new smallPartyRoom();
+                mediumPartyRoom medPartyRoom = new mediumPartyRoom();
+                AquaWorldRoom aquaWorldRoom = AquaWorldRoom.getInstance();
+                karaokeLounge karaokeLounge = new karaokeLounge();
+                AdultBilliardsLounge adultBilliardsLounge = new AdultBilliardsLounge();
+                final PartyRoom[] ROOM_TYPE_OBJECTS = {smallPartyRoom, medPartyRoom, aquaWorldRoom, karaokeLounge, adultBilliardsLounge};
+                String[] ROOM_TYPES = {"Small Party Room", "Medium Party Room", "Aqua World", "Karaoke Lounge", "Adult Billiards Lounge"};
+                foundRoom = 0;
+                for (int i = 0; i < ROOM_TYPES.length; i++) {
+                    if (ROOM_TYPES[i].equals(aRoomType)) {
+                        System.out.println(ROOM_TYPES[i]);
+                        foundRoom = i;
+                    }
+                }
+                System.out.println(foundRoom);
+
+                String numString = "";
+                String numStringEnd = "";
+
+                for (int i = 0; i < timeSpinner.getValue().toString().length(); i++) {
+                    char c = timeSpinner.getValue().toString().charAt(i);
+                    if (Character.isDigit(c)) {
+                        numString += c;
+                    }
+                }
+                String[] startTimes = timeSpinner.getValue().toString().split("\\s+");
+                String AMPM = startTimes[1];
+                int milStartTimeInt = 0;
+                milStartTimeInt = Integer.parseInt(numString);
+
+                if (AMPM.equals("PM")) {
+                    if (milStartTimeInt != 1200) {
+                        milStartTimeInt += 1200;
+                    }
+                }
+                else if (AMPM.equals("AM") && milStartTimeInt == 1200) {
+                    milStartTimeInt += 1200;
+                }
+
+                for (int i = 0; i < endTimeSpinner.getValue().toString().length(); i++) {
+                    char c = endTimeSpinner.getValue().toString().charAt(i);
+                    if (Character.isDigit(c)) {
+                        numStringEnd += c;
+                    }
+                }
+                String[] startTimes2 = endTimeSpinner.getValue().toString().split("\\s+");
+                String AMPM2 = startTimes2[1];
+                int milEndTimeInt = 0;
+                milEndTimeInt = Integer.parseInt(numStringEnd);
+                if (AMPM2.equals("PM")) {
+                    if (milEndTimeInt != 1200) {
+                        milEndTimeInt += 1200;
+                    }
+                }
+                else if (AMPM2.equals("AM") && milEndTimeInt == 1200) {
+                    milEndTimeInt += 1200;
+                }
+
+
+                int monthInt = 0;
+                for (int i = 0; i < monthStrings.length; i++) {
+                    if (monthStrings[i].equals(monthSpinner.getValue().toString())) {
+                        monthInt = i + 1;
+                    }
+                }
+                ROOM_TYPE_OBJECTS[foundRoom].reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt);
             }
             
             else if (e.getSource() == cancelButton) {
@@ -466,6 +686,7 @@ public class NewReservationFrame {
 
             else if (e.getSource() == roomTypeBox) {
                 if (roomType.equals("Small Party Room")) {
+                    aRoomType = "Small Party Room";
                     roomNumberBox.removeAllItems();
                    
                     panel.remove(cancelButton);
@@ -519,6 +740,7 @@ public class NewReservationFrame {
                 }
 
                 else if (roomType.equals("Medium Party Room")) {
+                    aRoomType = "Medium Party Room";
                     roomNumberBox.removeAllItems();
 
                     panel.remove(cancelButton);
@@ -572,6 +794,7 @@ public class NewReservationFrame {
                 }
 
                 else if (roomType.equals("Karaoke Lounge")) {
+                    aRoomType = "Karaoke Lounge";
                     roomNumberBox.removeAllItems();
 
                     panel.remove(cancelButton);
@@ -624,6 +847,7 @@ public class NewReservationFrame {
                 }
 
                 else if (roomType.equals("Adult Billiards Lounge")) {
+                    aRoomType = "Adult Billiards Lounge";
 
 
                     roomNumberBox.removeAllItems();
@@ -674,10 +898,10 @@ public class NewReservationFrame {
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
-
                 }
 
                 else {
+                    aRoomType = "Aqua World";
                     panel.remove(cancelButton);
                     panel.remove(reserveButton);
                     panel.remove(roomNumberBox);
