@@ -96,7 +96,6 @@ public class NewReservationFrame {
     public NewReservationFrame() {
         frame = new JFrame();
         panel = new JPanel();
-        
 
         frame.setTitle("New Reservation");
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -135,6 +134,8 @@ public class NewReservationFrame {
 
         //Month spinner
         SpinnerListModel monthModel = new SpinnerListModel(monthsToAdd.subList(initialMonthIndex, monthsToAdd.size()));
+        //SpinnerListModel monthModel = new SpinnerListModel(monthStrings);
+        //SpinnerListModel monthModelFull = new SpinnerListModel(monthStrings);
         monthSpinner = new JSpinner(monthModel);
         Dimension dimension = monthSpinner.getPreferredSize();
         dimension.width = 82;
