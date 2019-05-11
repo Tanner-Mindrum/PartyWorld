@@ -6,9 +6,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+/**
+ * This class opens a frame with a jtextfield where a guest 
+ * can put their confirmation number to make edits to their existing reservations  
+ */
 public class EditReservationFrame {
 
     private JFrame frame = new JFrame();
@@ -17,7 +21,9 @@ public class EditReservationFrame {
     private JLabel confirmLabel;
     private JButton checkButton;
     private JButton cancelButton;
-
+    /**
+     * The constructor that initializes the frame 
+     */
     public EditReservationFrame() {
 
         frame.setTitle("Edit reservation");
@@ -26,7 +32,11 @@ public class EditReservationFrame {
         frame.setVisible(true);
         panelComponents();
     }
-
+    //Only use this method to add components to the frame
+    /**
+     * This method adds the jlabel, jtextfield, jbuttons to the panel and adds
+     * it to the frame
+     */
     public void panelComponents() {
 
         confirmNumberField = new JTextField(5);
@@ -45,9 +55,14 @@ public class EditReservationFrame {
         frame.add(panel);
 
     }
-
+    /**
+     * This class is used to check if the buttons were clicked
+     */
     class buttonListener implements ActionListener {
-
+        /**
+         * checks which button is pressed, if the checked in button is pressed 
+         * it will go the newreservationframe, the cancel button will exit the frame
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
 
