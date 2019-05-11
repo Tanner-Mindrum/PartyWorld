@@ -128,15 +128,19 @@ public class NewReservationFrame {
 
         initialMonthIndex = dateTimeFrame.getMonthIndex();
 
-        //hey
         ArrayList<String> monthsToAdd = new ArrayList<>();
         for (int i = 0; i < monthStrings.length; i++) {
             monthsToAdd.add(monthStrings[i]);
         }
 
-        SpinnerListModel monthModel = new SpinnerListModel(monthStrings);
+        System.out.println(monthsToAdd);
+        System.out.println(monthsToAdd.subList(initialMonthIndex, monthsToAdd.size()));
+
+        //SpinnerListModel monthModel = new SpinnerListModel(monthStrings);
+        SpinnerModel monthModel = new SpinnerNumberModel(initialMonthIndex, 0, monthsToAdd.size(), 1);
         if (initialMonthIndex != -1) {
-            monthModel = new SpinnerListModel(monthsToAdd.subList(initialMonthIndex, monthsToAdd.size()));
+            //monthModel = new SpinnerListModel(monthsToAdd.subList(initialMonthIndex, monthsToAdd.size()));
+            monthModel = new SpinnerNumberModel(initialMonthIndex + 1, 1, monthsToAdd.size(), 1);
         }
 
         //Month spinner
@@ -144,6 +148,8 @@ public class NewReservationFrame {
         Dimension dimension = monthSpinner.getPreferredSize();
         dimension.width = 82;
         monthSpinner.setPreferredSize(dimension);
+
+        monthSpinner.getValue();
 
         //Make 31 days
         ArrayList<Integer> dayInts = new ArrayList<>();
