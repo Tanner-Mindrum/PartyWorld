@@ -60,7 +60,7 @@ public class DateTimeFrame extends JFrame {
         startTimeLabel = new JLabel("Start Time: ");
         endTimeLabel = new JLabel("End Time: ");
 
-        reserveButton = new JButton("Reserve now");
+        reserveButton = new JButton("Continue");
 
         //Month spinner
         SpinnerListModel monthModel = new SpinnerListModel(this.monthStrings);
@@ -387,7 +387,7 @@ public class DateTimeFrame extends JFrame {
                     }
                 }
 
-                ROOM_TYPE_OBJECTS[foundRoom].reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt);
+                //ROOM_TYPE_OBJECTS[foundRoom].reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt);
             }
         }
     }
