@@ -127,15 +127,18 @@ public class NewReservationFrame {
         cardNameLabel = new JLabel("Name");
 
         initialMonthIndex = dateTimeFrame.getMonthIndex();
+
         ArrayList<String> monthsToAdd = new ArrayList<>();
         for (int i = 0; i < monthStrings.length; i++) {
             monthsToAdd.add(monthStrings[i]);
         }
 
+        SpinnerListModel monthModel = new SpinnerListModel(monthStrings);
+        if (initialMonthIndex != -1) {
+            monthModel = new SpinnerListModel(monthsToAdd.subList(initialMonthIndex, monthsToAdd.size()));
+        }
+        
         //Month spinner
-        SpinnerListModel monthModel = new SpinnerListModel(monthsToAdd.subList(initialMonthIndex, monthsToAdd.size()));
-        //SpinnerListModel monthModel = new SpinnerListModel(monthStrings);
-        //SpinnerListModel monthModelFull = new SpinnerListModel(monthStrings);
         monthSpinner = new JSpinner(monthModel);
         Dimension dimension = monthSpinner.getPreferredSize();
         dimension.width = 82;
