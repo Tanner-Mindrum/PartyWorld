@@ -18,7 +18,7 @@ public class CheckOutFrame {
 	private JFrame frame;
 	private JPanel panel;
 	private JLabel panelTitle = new JLabel("Check out list");
-	private JList guestsList;
+	private JList<String> guestsList;
 	private JTextField damageCharges = new JTextField(5);
 	private JTextField damageDescription = new JTextField(10);
 	private JButton checkOut = new JButton("check out");
@@ -44,12 +44,14 @@ public class CheckOutFrame {
 		panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
 		checkOut.addActionListener(new cancel());
 		cancel.addActionListener(new checkOut());
+		guestsList = new JList<String>(); 
 		
 		panel.add(guestsList);
 		panel.add(damageCharges);
 		panel.add(damageDescription);
 		panel.add(checkOut);
 		panel.add(cancel);
+		frame.add(panel);
 		
 	}
 	

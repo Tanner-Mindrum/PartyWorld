@@ -427,6 +427,11 @@ public class MainFrame {
 				CheckInFrame checkIn = new CheckInFrame(); 
 				frame.setVisible(false);
 			}
+
+			else {
+				CheckOutFrame checkOut = new CheckOutFrame();
+				frame.setVisible(false);
+			}
 		}
 	}
 
