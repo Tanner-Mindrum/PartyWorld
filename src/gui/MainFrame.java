@@ -247,7 +247,9 @@ public class MainFrame {
 
 //	        JButton bookButton = new JButton("Book Now");
 //	        bookButton.addActionListener(new ButtonListener());
-	        p.add(button);
+			if(button != null) {
+				p.add(button);
+			}
 	        container.add(p);
 	    }
 
@@ -258,6 +260,7 @@ public class MainFrame {
 		@Override
 		public void actionPerformed(ActionEvent click) {
 			JMenuItem menuItem = (JMenuItem) click.getSource();
+			panelTitle = new JLabel("Meal Items");
 			String item = menuItem.getText();
 		
 			basicMeal basic= new basicMeal();
@@ -268,28 +271,55 @@ public class MainFrame {
 			//item needs to be replaced for drop down menu
 			
 			if(item.equals("All")) {
-				System.out.println("VIEW ALL"); //replace 
+				centerPanel.removeAll();
+				centerPanel.add(panelTitle);
+				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\smallParty.jpg", "Basic Meal Plan", basic.getDescription(), null);
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\mediumParty.jpg","Bronze Meal Plan", bronze.getDescription(), null);
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\AquaRoom.jpg","Silver Meal Plan", silver.getDescription(), null);
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\karaokeLounge.jpg","Gold Meal Plan", gold.getDescription(), null);
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\billiardLounge.jpg","Platinum Meal Plan", plat.getDescription(), null);
+				centerPanel.repaint();
 			}
 			
 			else if(item.equals("Basic")) {
-				centerPanel.removeAll(); 
+				centerPanel.removeAll();
+				centerPanel.add(panelTitle);
+				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\smallParty.jpg", "Basic Meal Plan", basic.getDescription(), null);
+				centerPanel.repaint();
 			} 
 			
 			else if(item.equals("Bronze")) {
-
-				System.out.println(bronze.getDescription());
+				centerPanel.removeAll();
+				centerPanel.add(panelTitle);
+				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\mediumParty.jpg","Bronze Meal Plan", bronze.getDescription(), null);
+				centerPanel.repaint();
 			}
 
 			else if (item.equals("Silver")){
-				System.out.println(silver.getDescription());
+				centerPanel.removeAll();
+				centerPanel.add(panelTitle);
+				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\AquaRoom.jpg","Silver Meal Plan", silver.getDescription(), null);
+				centerPanel.repaint();
 			}
 
 			else if (item.equals("Gold")) {
-				System.out.println(gold.getDescription());
+				centerPanel.removeAll();
+				centerPanel.add(panelTitle);
+				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\karaokeLounge.jpg","Gold Meal Plan", gold.getDescription(), null);
+				centerPanel.repaint();
 			}
 
 			else {
-				System.out.println(plat.getDescription());
+				centerPanel.removeAll();
+				centerPanel.add(panelTitle);
+				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\billiardLounge.jpg","Platinum Meal Plan", plat.getDescription(), null);
+				centerPanel.repaint();
 			}
 			
 
@@ -305,6 +335,7 @@ public class MainFrame {
 		public void actionPerformed(ActionEvent select) {
 
 			JMenuItem item = (JMenuItem) select.getSource();
+			panelTitle = new JLabel("Party World Rooms");
 
 			if(item.getText().equals("Medium Party Rooms")) {
 				centerPanel.removeAll();
