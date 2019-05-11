@@ -187,7 +187,8 @@ public class MainFrame {
 						menu.addSeparator();
 
 						//Edit reservation item
-						menuItem = new JMenuItem("Edit Existing Reservation...");
+						menuItem = new JMenuItem("Edit Existing Reservation");
+						menuItem.addActionListener(new ReservationListener());
 						menu.add(menuItem);
 						menu.addSeparator();
 
@@ -408,9 +409,15 @@ public class MainFrame {
 
 			if (item.getText().equals("New Reservation")) {
 
-				System.out.println("Make a new reservation");
 				NewReservationFrame reservationFrame = new NewReservationFrame();
 				frame.setVisible(false);
+			}
+			
+			else if (item.getText().equals("Edit Existing Reservation")) {
+
+				EditReservationFrame editFrame = new EditReservationFrame();
+				frame.setVisible(false);
+				
 			}
 		}
 	}
