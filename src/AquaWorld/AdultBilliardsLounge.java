@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * 
  * @author steven, tymee, Justin, Tanner
  *
- * This class is the room for 
+ * This class is the room for adult billiards
  */
 public class AdultBilliardsLounge extends PartyRoom {
 	private String Restrictions = "21+ only";
