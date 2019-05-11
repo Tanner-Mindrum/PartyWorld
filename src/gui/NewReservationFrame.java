@@ -47,6 +47,7 @@ public class NewReservationFrame {
     private JSpinner daySpinner;
     private JLabel yearLabel;
     private JSpinner yearSpinner;
+    private JSpinner.NumberEditor editor;
     private JLabel startTimeLabel;
     private JSpinner timeSpinner;
     private JLabel endTimeLabel;
@@ -85,6 +86,9 @@ public class NewReservationFrame {
     private static String initialRoomDisplay = "";
     private static int initialRoomIndex = 0;
     private static int initialMonthIndex = 0;
+    private static int initialDayIndex = 0;
+    private static int initialYearIndex = 0;
+    private static int initialStartTimeIndex = 0;
     private static int foundRoom;
     private static String aRoomType;
     private static int sideCounter;
@@ -127,6 +131,9 @@ public class NewReservationFrame {
         cardNameLabel = new JLabel("Name");
 
         initialMonthIndex = dateTimeFrame.getMonthIndex();
+        initialDayIndex = dateTimeFrame.getDayIndex();
+        initialYearIndex = dateTimeFrame.getYearIndex();
+        initialStartTimeIndex = dateTimeFrame.getStartTimeIndex();
 
         ArrayList<String> monthsToAdd = new ArrayList<>();
         for (int i = 0; i < monthStrings.length; i++) {
@@ -137,7 +144,7 @@ public class NewReservationFrame {
         System.out.println(monthsToAdd.subList(initialMonthIndex, monthsToAdd.size()));
 
         //SpinnerListModel monthModel = new SpinnerListModel(monthStrings);
-        SpinnerModel monthModel = new SpinnerNumberModel(initialMonthIndex, 0, monthsToAdd.size(), 1);
+        SpinnerModel monthModel = new SpinnerNumberModel(1, 1, monthsToAdd.size(), 1);
         if (initialMonthIndex != -1) {
             //monthModel = new SpinnerListModel(monthsToAdd.subList(initialMonthIndex, monthsToAdd.size()));
             monthModel = new SpinnerNumberModel(initialMonthIndex + 1, 1, monthsToAdd.size(), 1);
@@ -149,7 +156,7 @@ public class NewReservationFrame {
         dimension.width = 82;
         monthSpinner.setPreferredSize(dimension);
 
-        monthSpinner.getValue();
+        //monthSpinner.getValue();
 
         //Make 31 days
         ArrayList<Integer> dayInts = new ArrayList<>();
@@ -163,16 +170,27 @@ public class NewReservationFrame {
             yearInts.add(i);
         }
 
+        SpinnerModel dayModel = new SpinnerNumberModel(1, 1, dayInts.size(), 1);
+        if (initialDayIndex != -1) {
+            dayModel = new SpinnerNumberModel(initialDayIndex + 1, 1, dayInts.size(), 1);
+        }
+
         //Make day spinner
-        SpinnerListModel dayModel = new SpinnerListModel(dayInts);
         daySpinner = new JSpinner(dayModel);
         Dimension dimension2 = daySpinner.getPreferredSize();
         dimension2.width = 50;
         daySpinner.setPreferredSize(dimension2);
 
+        SpinnerModel yearModel = new SpinnerNumberModel(2019, 2019, 2021, 1);
+        if (initialYearIndex != -1) {
+            initialYearIndex = yearInts.get(initialYearIndex);
+            yearModel = new SpinnerNumberModel(initialYearIndex, 2019, 2021, 1);
+        }
+
         //Year spinner
-        SpinnerListModel yearModel = new SpinnerListModel(yearInts);
         yearSpinner = new JSpinner(yearModel);
+        editor = new JSpinner.NumberEditor(yearSpinner, "#");
+        yearSpinner.setEditor(editor);
         Dimension dimension3 = yearSpinner.getPreferredSize();
         dimension3.width = 70;
         yearSpinner.setPreferredSize(dimension3);
@@ -225,6 +243,12 @@ public class NewReservationFrame {
 
         //Manipulating array for book now button does not work currently
 
+        SpinnerModel timeModel = new SpinnerNumberModel(1, 1, timeInts.size(), 1);
+        if (initialStartTimeIndex != -1) {
+            //initialStartTimeIndex = timeInts.get(initialStartTimeIndex);
+            timeModel = new SpinnerNumberModel(initialStartTimeIndex + 1, 1, timeInts.size(), 1);
+        }
+
         initialRoomIndex = dateTimeFrame.getFoundRoomIndex();
         initialRoomDisplay = roomTypes[initialRoomIndex];
         if (initialRoomDisplay.equals("Small Party Room")) {
@@ -234,7 +258,6 @@ public class NewReservationFrame {
                 roomNumberBox.addItem(i);
             }
             //Start time spinner
-            SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(4, timeInts.size() - 1 - 8));
             timeSpinner = new JSpinner(timeModel);
             Dimension dimension4 = timeSpinner.getPreferredSize();
             dimension4.width = 75;
@@ -254,7 +277,6 @@ public class NewReservationFrame {
             for (int i = 1; i <= 2; i++) {
                 roomNumberBox.addItem(i);
             }
-            SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(4, timeInts.size() - 1 - 8));
             timeSpinner = new JSpinner(timeModel);
             Dimension dimension4 = timeSpinner.getPreferredSize();
             dimension4.width = 75;
@@ -270,7 +292,6 @@ public class NewReservationFrame {
             ender = 8;
 
             roomNumberBox = new JComboBox<Integer>();
-            SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(4, timeInts.size() - 1 - 8));
             timeSpinner = new JSpinner(timeModel);
             Dimension dimension4 = timeSpinner.getPreferredSize();
             dimension4.width = 75;
@@ -289,7 +310,6 @@ public class NewReservationFrame {
             for (int i = 1; i <= 10; i++) {
                 roomNumberBox.addItem(i);
             }
-            SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(4, timeInts.size() - 1 - 4));
             timeSpinner = new JSpinner(timeModel);
             Dimension dimension4 = timeSpinner.getPreferredSize();
             dimension4.width = 75;
@@ -308,7 +328,6 @@ public class NewReservationFrame {
             for (int i = 1; i <= 5; i++) {
                 roomNumberBox.addItem(i);
             }
-            SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(4, timeInts.size() - 1 - 4));
             timeSpinner = new JSpinner(timeModel);
             Dimension dimension4 = timeSpinner.getPreferredSize();
             dimension4.width = 75;

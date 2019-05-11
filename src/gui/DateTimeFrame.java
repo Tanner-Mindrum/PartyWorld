@@ -28,7 +28,10 @@ public class DateTimeFrame extends JFrame {
     private Calendar calender;
     private Date date;
     private String[] monthStrings;
-    ArrayList<Integer> dayInts;
+    private static ArrayList<Integer> monthInts;
+    private static ArrayList<Integer> dayInts;
+    private static ArrayList<Integer> yearInts;
+    private static ArrayList<String> timeInts;
     private JTextField textField;
     private JPanel panel;
     private boolean roomLoungeCheck;
@@ -37,6 +40,9 @@ public class DateTimeFrame extends JFrame {
     private static String aRoomType;
     private static int foundRoom;
     private static int monthInt;
+    private static int dayInt;
+    private static int yearInt;
+    private static int timeInt;
 
 
 
@@ -63,26 +69,31 @@ public class DateTimeFrame extends JFrame {
 
         reserveButton = new JButton("Continue");
 
+        monthInts = new ArrayList<>();
+        for (int i = 1; i < 13; i++) {
+            monthInts.add(i);
+        }
+
         //Month spinner
-        SpinnerListModel monthModel = new SpinnerListModel(this.monthStrings);
+        SpinnerListModel monthModel = new SpinnerListModel(monthInts);
         monthSpinner = new JSpinner(monthModel);
         Dimension dimension = monthSpinner.getPreferredSize();
         dimension.width = 82;
         monthSpinner.setPreferredSize(dimension);
 
         //Make 31 days
-        ArrayList<Integer> dayInts = new ArrayList<>();
+        dayInts = new ArrayList<>();
         for (int i = 1; i < 32; i++) {
             dayInts.add(i);
         }
 
         //Make years
-        ArrayList<Integer> yearInts = new ArrayList<>();
+        yearInts = new ArrayList<>();
         for (int i = 2019; i <= 2021; i++) {
             yearInts.add(i);
         }
 
-        ArrayList<String> timeInts = new ArrayList<>();
+        timeInts = new ArrayList<>();
         int j = 0;
         //17
         int amPmCount = 0;
@@ -382,15 +393,34 @@ public class DateTimeFrame extends JFrame {
 
 
                 monthInt = 0;
-                for (int i = 0; i < monthStrings.length; i++) {
-                    if (monthStrings[i].equals(monthSpinner.getValue().toString())) {
-                        monthInt = i + 1;
+                for (int i = 0; i < monthInts.size(); i++) {
+                    if (monthInts.get(i).equals(monthSpinner.getValue())) {
+                        monthInt = i;
+                    }
+                }
+
+                dayInt = 0;
+                for (int i = 0; i < dayInts.size(); i++) {
+                    if (dayInts.get(i).equals(daySpinner.getValue())) {
+                        dayInt = i;
+                    }
+                }
+
+                yearInt = 0;
+                for (int i = 0; i < yearInts.size(); i++) {
+                    if (yearInts.get(i).equals(daySpinner.getValue())) {
+                        yearInt = i;
+                    }
+                }
+
+                timeInt = 0;
+                for (int i = 0; i < timeInts.size(); i++) {
+                    if (timeInts.get(i).equals(timeSpinner.getValue())) {
+                        timeInt = i;
                     }
                 }
 
                 NewReservationFrame aFrame = new NewReservationFrame();
-
-                //ROOM_TYPE_OBJECTS[foundRoom].reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt);
             }
         }
     }
@@ -400,6 +430,18 @@ public class DateTimeFrame extends JFrame {
     }
 
     public int getMonthIndex() {
-        return monthInt - 1;
+        return monthInt;
+    }
+
+    public int getDayIndex() {
+        return dayInt;
+    }
+
+    public int getYearIndex() {
+        return yearInt;
+    }
+
+    public int getStartTimeIndex() {
+        return timeInt;
     }
 }
