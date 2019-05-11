@@ -259,12 +259,40 @@ public class MainFrame {
 		public void actionPerformed(ActionEvent click) {
 			JMenuItem menuItem = (JMenuItem) click.getSource();
 			String item = menuItem.getText();
-			System.out.println(item);
+		
+			basicMeal basic= new basicMeal();
+			bronzeMeal bronze = new bronzeMeal();
+			silverMeal silver = new silverMeal(); 
+			goldMeal gold = new goldMeal(); 
+			platMeal plat = new platMeal(); 
+			//item needs to be replaced for drop down menu
+			
 			if(item.equals("All")) {
 				System.out.println("VIEW ALL"); //replace 
 			}
-			else if(item.equals("Basic")) System.out.println("VIEW BASIC"); //replace
-			else if(item.equals("Bronze")) System.out.println("VIEW BRONZE");
+			
+			else if(item.equals("Basic")) {
+				centerPanel.removeAll(); 
+			} 
+			
+			else if(item.equals("Bronze")) {
+
+				System.out.println(bronze.getDescription());
+			}
+
+			else if (item.equals("Silver")){
+				System.out.println(silver.getDescription());
+			}
+
+			else if (item.equals("Gold")) {
+				System.out.println(gold.getDescription());
+			}
+
+			else {
+				System.out.println(plat.getDescription());
+			}
+			
+
 
 
 		}
