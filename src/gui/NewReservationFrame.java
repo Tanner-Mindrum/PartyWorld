@@ -42,6 +42,7 @@ public class NewReservationFrame {
     private JLabel monthLabel;
     private String[] monthStrings;
     private JSpinner monthSpinner;
+    private JSpinner monthSpinner2;
     private JLabel dayLabel;
     private JSpinner daySpinner;
     private JLabel yearLabel;
@@ -86,6 +87,7 @@ public class NewReservationFrame {
     private static int initialMonthIndex = 0;
     private static int foundRoom;
     private static String aRoomType;
+    private static int sideCounter;
 
     private static ArrayList<String> timeInts = new ArrayList<>();
 
@@ -326,6 +328,7 @@ public class NewReservationFrame {
 
             @Override
             public void stateChanged(ChangeEvent e) {
+
                 String value = monthSpinner.getValue().toString();
                 if (value.equals("February")) {
                     panel.remove(daySpinner);
@@ -419,6 +422,8 @@ public class NewReservationFrame {
                 }
             }
         });
+
+
 
         timeSpinner.addChangeListener(new ChangeListener() {
             @Override
