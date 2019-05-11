@@ -3,6 +3,14 @@ package AquaWorld;
 import java.util.ArrayList;
 import java.util.Scanner;
 import gui.*;
+
+/**
+ * 
+ * @author steven, tanner, justin, tymee
+ * 
+ * is the main that runs the classes
+ *
+ */
 public class Client {
 
     public static void main(String[] args) {

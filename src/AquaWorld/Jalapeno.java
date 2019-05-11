@@ -1,5 +1,10 @@
 package AquaWorld;
 
+/**
+ * 
+ * @author steven, tanner, tymee, justin
+ *
+ */
 public class Jalapeno extends PizzaDecorator {
 	Pizza pizza;
 	
