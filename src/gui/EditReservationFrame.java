@@ -41,7 +41,7 @@ public class EditReservationFrame {
 
         confirmNumberField = new JTextField(5);
         confirmLabel = new JLabel("Please enter your confirmation number");
-        checkButton = new JButton("Check in");
+        checkButton = new JButton("Find reservation");
         cancelButton = new JButton("Cancel");
 
         checkButton.addActionListener(new buttonListener());
@@ -67,7 +67,7 @@ public class EditReservationFrame {
         public void actionPerformed(ActionEvent e) {
 
             if (e.getSource() == checkButton) {
-                System.out.println("You are checked in!");
+                System.out.println("This should open the new reservation frame with guest information that was filled out ");
             }
 
             else {

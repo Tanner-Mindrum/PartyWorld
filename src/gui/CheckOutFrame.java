@@ -10,7 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+/**
+ * CheckOutFrame is used to check out a guest that was already checked in
+ */
 public class CheckOutFrame {
 
 	private JFrame frame;
@@ -21,7 +23,9 @@ public class CheckOutFrame {
 	private JTextField damageDescription = new JTextField(10);
 	private JButton checkOut = new JButton("check out");
 	private JButton cancel = new JButton("cancel");
-	
+	/**
+	 * Constructor for the class, it initializes a new frame with added components
+	 */
 	public CheckOutFrame() {
 		frame = new JFrame();
         panel = new JPanel();
@@ -33,7 +37,9 @@ public class CheckOutFrame {
         frame.setVisible(true);
         createComponents();
 	}
-	
+	/**
+	 * Components are added to the panel and to the frame 
+	 */
 	public void createComponents() {
 		panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
 		checkOut.addActionListener(new cancel());
