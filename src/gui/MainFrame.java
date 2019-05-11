@@ -198,9 +198,11 @@ public class MainFrame {
 						submenu.setMnemonic(KeyEvent.VK_S);
 
 						menuItem = new JMenuItem("Check-in");
+						menuItem.addActionListener(new ReservationListener());
 						submenu.add(menuItem);
 
 						menuItem = new JMenuItem("Check-out");
+						menuItem.addActionListener(new ReservationListener());
 						submenu.add(menuItem);
 
 
@@ -418,6 +420,12 @@ public class MainFrame {
 				EditReservationFrame editFrame = new EditReservationFrame();
 				frame.setVisible(false);
 				
+			}
+
+			else if (item.getText().equals("Check-in")) {
+				System.out.println("The program is going in the check in frame");
+				CheckInFrame checkIn = new CheckInFrame(); 
+				frame.setVisible(false);
 			}
 		}
 	}

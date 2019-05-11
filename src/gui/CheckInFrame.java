@@ -17,7 +17,7 @@ public class CheckInFrame {
 	private JFrame frame;
 	private JPanel panel;
 	private JLabel panelTitle = new JLabel("Check in list");
-	private JList guestsList;
+	private JList<String> guestsList;
 	private JButton checkIn = new JButton("check in");
 	private JButton cancel = new JButton("cancel");
 	/**
@@ -44,10 +44,12 @@ public class CheckInFrame {
 		panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
 		checkIn.addActionListener(new ButtonListener());
 		cancel.addActionListener(new ButtonListener());
+		guestsList = new JList<String>(); 
 		
 		panel.add(guestsList);
 		panel.add(checkIn);
 		panel.add(cancel);
+		frame.add(panel);
 		
 	}
 	/**
