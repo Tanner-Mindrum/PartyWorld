@@ -107,7 +107,7 @@ public class MainFrame {
 				submenu = new JMenu("Party Rooms");
 
 
-				menuItem = new JMenuItem("All");
+				menuItem = new JMenuItem("All Party Rooms");
 				menuItem.addActionListener(new RoomItemListener());
 				submenu.add(menuItem);
 
@@ -127,7 +127,7 @@ public class MainFrame {
 				//Lounges Sub Menu
 				submenu = new JMenu("Lounges");
 
-				menuItem = new JMenuItem("All");
+				menuItem = new JMenuItem("All Lounges");
 				menuItem.addActionListener(new RoomItemListener());
 				submenu.add(menuItem);
 
@@ -367,15 +367,20 @@ public class MainFrame {
 				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
 				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\karaokeLounge.jpg","Karaoke Lounges", karaokeLounge.getDescription(), new JButton("Book now"));
 				centerPanel.repaint();
-			}else {
+			}else if(item.getText().equals("All Party Rooms")){
 				centerPanel.removeAll();
 				centerPanel.add(panelTitle);
 				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
 				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\smallParty.jpg", "Small Party Room", smallRoom.getDescription(), new JButton("Book now"));
 				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\mediumParty.jpg","Medium Party Room", mediumRoom.getDescription(), new JButton("Book now"));
 				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\AquaRoom.jpg","Aqua Room", aquaRoom.getDescription(), new JButton("Book now"));
-				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\karaokeLounge.jpg","Karaoke Lounge", karaokeLounge.getDescription(), new JButton("Book now"));
-				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\billiardLounge.jpg","Adult Billiard Lounge", adultRoom.getDescription(), new JButton("Book now"));
+				centerPanel.repaint();
+			}else if(item.getText().equals("All Lounges")){
+				centerPanel.removeAll();
+				centerPanel.add(panelTitle);
+				panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\karaokeLounge.jpg","Karaoke Lounges", karaokeLounge.getDescription(), new JButton("Book now"));
+				addARoomDescription(centerPanel, "C:\\Users\\drizz\\OneDrive\\Pictures\\Saved Pictures\\billiardLounge.jpg","Billiards Lounges", adultRoom.getDescription(), new JButton("Book now"));
 				centerPanel.repaint();
 			}
 		}
