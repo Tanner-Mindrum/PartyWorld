@@ -128,6 +128,7 @@ public class NewReservationFrame {
 
         initialMonthIndex = dateTimeFrame.getMonthIndex();
 
+        //hey
         ArrayList<String> monthsToAdd = new ArrayList<>();
         for (int i = 0; i < monthStrings.length; i++) {
             monthsToAdd.add(monthStrings[i]);
@@ -137,7 +138,7 @@ public class NewReservationFrame {
         if (initialMonthIndex != -1) {
             monthModel = new SpinnerListModel(monthsToAdd.subList(initialMonthIndex, monthsToAdd.size()));
         }
-        
+
         //Month spinner
         monthSpinner = new JSpinner(monthModel);
         Dimension dimension = monthSpinner.getPreferredSize();
