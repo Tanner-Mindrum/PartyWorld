@@ -301,17 +301,20 @@ public class NewReservationFrame {
             endTimeSpinner.setPreferredSize(dimension5);
         }
         System.out.println("room to display: " + initialRoomDisplay);
-        for (int i = 0; i < roomTypes.length; i++) {
-            roomTypesArrayList.add(roomTypes[i]);
-        }
-        System.out.println(roomTypesArrayList);
-        roomTypesArrayList.remove(initialRoomIndex);
-        roomTypesArrayList.add(0, initialRoomDisplay);
-        System.out.println(roomTypesArrayList);
-        roomTypes = new String[5];
-        for (int i = 0; i < roomTypesArrayList.size(); i++) {
-            roomTypes[i] = roomTypesArrayList.get(i);
-        }
+//        for (int i = 0; i < roomTypes.length; i++) {
+//            roomTypesArrayList.add(roomTypes[i]);
+//        }
+//        System.out.println(roomTypesArrayList);
+//        roomTypesArrayList.remove(initialRoomIndex);
+//        roomTypesArrayList.add(0, initialRoomDisplay);
+//        System.out.println(roomTypesArrayList);
+//        roomTypes = new String[5];
+//        for (int i = 0; i < roomTypesArrayList.size(); i++) {
+//            roomTypes[i] = roomTypesArrayList.get(i);
+//        }
+
+        roomTypeBox = new JComboBox<String>(roomTypes);
+        roomTypeBox.setSelectedIndex(initialRoomIndex);
 
         monthSpinner.addChangeListener(new ChangeListener() {
 
@@ -453,7 +456,7 @@ public class NewReservationFrame {
         });
 
        
-        roomTypeBox = new JComboBox<String>(roomTypes);
+        //roomTypeBox = new JComboBox<String>(roomTypes);
         //roomNumberBox = new JComboBox<Integer>();
         roomTypeBox.addActionListener(new guestInfoListener());
 
