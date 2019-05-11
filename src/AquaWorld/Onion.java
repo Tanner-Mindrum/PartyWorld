@@ -1,6 +1,6 @@
 package AquaWorld;
 
-public class Onion {
+public class Onion extends PizzaDecorator  {
 	Pizza pizza;
 	
 	public Onion(Pizza pizza) {
