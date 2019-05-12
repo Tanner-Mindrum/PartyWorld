@@ -3,6 +3,8 @@ package gui;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -53,8 +55,6 @@ public class NewReservationFrame {
     private JLabel endTimeLabel;
     private JSpinner endTimeSpinner;
 
-
-
     // Credit Card Info
     private JLabel cardNameLabel; 
     private JLabel creditCardInfoLabel;
@@ -89,11 +89,13 @@ public class NewReservationFrame {
     private static int initialDayIndex = 0;
     private static int initialYearIndex = 0;
     private static int initialStartTimeIndex = 0;
+    private static int initialEndTimeIndex = 0;
     private static int foundRoom;
     private static String aRoomType;
-    private static int sideCounter;
 
     private static ArrayList<String> timeInts = new ArrayList<>();
+    private JComboBox<String> startTimesBox;
+    private JComboBox<String> endTimesBox;
 
     private static int ender = 0;
 
@@ -134,6 +136,7 @@ public class NewReservationFrame {
         initialDayIndex = dateTimeFrame.getDayIndex();
         initialYearIndex = dateTimeFrame.getYearIndex();
         initialStartTimeIndex = dateTimeFrame.getStartTimeIndex();
+        initialEndTimeIndex = dateTimeFrame.getEndTimeIndex();
 
         ArrayList<String> monthsToAdd = new ArrayList<>();
         for (int i = 0; i < monthStrings.length; i++) {
@@ -184,6 +187,7 @@ public class NewReservationFrame {
         SpinnerModel yearModel = new SpinnerNumberModel(2019, 2019, 2021, 1);
         if (initialYearIndex != -1) {
             initialYearIndex = yearInts.get(initialYearIndex);
+            System.out.println(initialYearIndex);
             yearModel = new SpinnerNumberModel(initialYearIndex, 2019, 2021, 1);
         }
 
@@ -199,7 +203,7 @@ public class NewReservationFrame {
         //17
         int amPmCount = 0;
         //String finalString = "";
-        for (int i = 800; i < 2615; i += 15) {
+        for (int i = 900; i < 2615; i += 15) {
             amPmCount++;
             j += 15;
             if (i % 100 == 60) {
@@ -214,13 +218,13 @@ public class NewReservationFrame {
             if (i >= 2500) {
                 j -= 1200;
             }
-            if (amPmCount <= 16 || amPmCount >= 65) {
+            if (amPmCount <= 12 || amPmCount >= 61) {
                 StringBuilder str = new StringBuilder(Integer.toString(j));
                 str = str.insert(Integer.toString(j).length() - 2, ":");
                 //finalString = str.toString() + " AM";
                 timeInts.add(str.toString() + " AM");
             }
-            else if (amPmCount >= 16 && amPmCount <= 65) {
+            else if (amPmCount >= 12 && amPmCount <= 61) {
                 StringBuilder str = new StringBuilder(Integer.toString(j));
                 str = str.insert(Integer.toString(j).length() - 2, ":");
                 //finalString = str.toString() + " PM";
@@ -228,26 +232,7 @@ public class NewReservationFrame {
             }
         }
 
-//        ender = 4;
-//        if (roomLoungeCheck) {
-//            ender = 8;
-//        }
-
-//        //Start time spinner
-//        SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(4, timeInts.size() - 1 - ender));
-//        timeSpinner = new JSpinner(timeModel);
-//        Dimension dimension4 = timeSpinner.getPreferredSize();
-//        dimension4.width = 75;
-//        timeSpinner.setPreferredSize(dimension4);
-      
-
         //Manipulating array for book now button does not work currently
-
-        SpinnerModel timeModel = new SpinnerNumberModel(1, 1, timeInts.size(), 1);
-        if (initialStartTimeIndex != -1) {
-            //initialStartTimeIndex = timeInts.get(initialStartTimeIndex);
-            timeModel = new SpinnerNumberModel(initialStartTimeIndex + 1, 1, timeInts.size(), 1);
-        }
 
         initialRoomIndex = dateTimeFrame.getFoundRoomIndex();
         initialRoomDisplay = roomTypes[initialRoomIndex];
@@ -257,18 +242,15 @@ public class NewReservationFrame {
             for (int i = 1; i <= 10; i++) {
                 roomNumberBox.addItem(i);
             }
-            //Start time spinner
-            timeSpinner = new JSpinner(timeModel);
-            Dimension dimension4 = timeSpinner.getPreferredSize();
-            dimension4.width = 75;
-            timeSpinner.setPreferredSize(dimension4);
+
+            startTimesBox = new JComboBox<String>();
+            startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 9).toArray()));
+            startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
 
             //End time spinner
-            SpinnerListModel timeModel2 = new SpinnerListModel(timeInts.subList(5, timeInts.size() - 8));
-            endTimeSpinner = new JSpinner(timeModel2);
-            Dimension dimension5 = endTimeSpinner.getPreferredSize();
-            dimension5.width = 75;
-            endTimeSpinner.setPreferredSize(dimension5);
+            endTimesBox = new JComboBox<String>();
+            endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 8).toArray()));
+            endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
         }
         else if (initialRoomDisplay.equals("Medium Party Room")) {
             ender = 8;
@@ -277,31 +259,28 @@ public class NewReservationFrame {
             for (int i = 1; i <= 2; i++) {
                 roomNumberBox.addItem(i);
             }
-            timeSpinner = new JSpinner(timeModel);
-            Dimension dimension4 = timeSpinner.getPreferredSize();
-            dimension4.width = 75;
-            timeSpinner.setPreferredSize(dimension4);
 
-            SpinnerListModel timeModel2 = new SpinnerListModel(timeInts.subList(5, timeInts.size() - 8));
-            endTimeSpinner = new JSpinner(timeModel2);
-            Dimension dimension5 = endTimeSpinner.getPreferredSize();
-            dimension5.width = 75;
-            endTimeSpinner.setPreferredSize(dimension5);
+            startTimesBox = new JComboBox<String>();
+            startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 9).toArray()));
+            startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
+
+            endTimesBox = new JComboBox<String>();
+            endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 8).toArray()));
+            endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
+
         }
         else if (initialRoomDisplay.equals("Aqua World")) {
             ender = 8;
 
             roomNumberBox = new JComboBox<Integer>();
-            timeSpinner = new JSpinner(timeModel);
-            Dimension dimension4 = timeSpinner.getPreferredSize();
-            dimension4.width = 75;
-            timeSpinner.setPreferredSize(dimension4);
 
-            SpinnerListModel timeModel2 = new SpinnerListModel(timeInts.subList(5, timeInts.size() - 8));
-            endTimeSpinner = new JSpinner(timeModel2);
-            Dimension dimension5 = endTimeSpinner.getPreferredSize();
-            dimension5.width = 75;
-            endTimeSpinner.setPreferredSize(dimension5);
+            startTimesBox = new JComboBox<String>();
+            startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 9).toArray()));
+            startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
+
+            endTimesBox = new JComboBox<String>();
+            endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 8).toArray()));
+            endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
         }
         else if (initialRoomDisplay.equals("Karaoke Lounge")) {
             ender = 4;
@@ -310,16 +289,14 @@ public class NewReservationFrame {
             for (int i = 1; i <= 10; i++) {
                 roomNumberBox.addItem(i);
             }
-            timeSpinner = new JSpinner(timeModel);
-            Dimension dimension4 = timeSpinner.getPreferredSize();
-            dimension4.width = 75;
-            timeSpinner.setPreferredSize(dimension4);
 
-            SpinnerListModel timeModel2 = new SpinnerListModel(timeInts.subList(5, timeInts.size() - 4));
-            endTimeSpinner = new JSpinner(timeModel2);
-            Dimension dimension5 = endTimeSpinner.getPreferredSize();
-            dimension5.width = 75;
-            endTimeSpinner.setPreferredSize(dimension5);
+            startTimesBox = new JComboBox<String>();
+            startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 5).toArray()));
+            startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
+
+            endTimesBox = new JComboBox<String>();
+            endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 4).toArray()));
+            endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
         }
         else if (initialRoomDisplay.equals("Adult Billiards Lounge")) {
             ender = 4;
@@ -328,28 +305,15 @@ public class NewReservationFrame {
             for (int i = 1; i <= 5; i++) {
                 roomNumberBox.addItem(i);
             }
-            timeSpinner = new JSpinner(timeModel);
-            Dimension dimension4 = timeSpinner.getPreferredSize();
-            dimension4.width = 75;
-            timeSpinner.setPreferredSize(dimension4);
 
-            SpinnerListModel timeModel2 = new SpinnerListModel(timeInts.subList(5, timeInts.size() - 4));
-            endTimeSpinner = new JSpinner(timeModel2);
-            Dimension dimension5 = endTimeSpinner.getPreferredSize();
-            dimension5.width = 75;
-            endTimeSpinner.setPreferredSize(dimension5);
+            startTimesBox = new JComboBox<String>();
+            startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 5).toArray()));
+            startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
+
+            endTimesBox = new JComboBox<String>();
+            endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 4).toArray()));
+            endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
         }
-//        for (int i = 0; i < roomTypes.length; i++) {
-//            roomTypesArrayList.add(roomTypes[i]);
-//        }
-//        System.out.println(roomTypesArrayList);
-//        roomTypesArrayList.remove(initialRoomIndex);
-//        roomTypesArrayList.add(0, initialRoomDisplay);
-//        System.out.println(roomTypesArrayList);
-//        roomTypes = new String[5];
-//        for (int i = 0; i < roomTypesArrayList.size(); i++) {
-//            roomTypes[i] = roomTypesArrayList.get(i);
-//        }
 
         roomTypeBox = new JComboBox<String>(roomTypes);
         roomTypeBox.setSelectedIndex(initialRoomIndex);
@@ -365,9 +329,9 @@ public class NewReservationFrame {
                     panel.remove(yearLabel);
                     panel.remove(yearSpinner);
                     panel.remove(startTimeLabel);
-                    panel.remove(timeSpinner);
+                    panel.remove(startTimesBox);
                     panel.remove(endTimeLabel);
-                    panel.remove(endTimeSpinner);
+                    panel.remove(endTimesBox);
                     panel.remove(cancelButton);
                     panel.remove(reserveButton);
                     panel.repaint();
@@ -383,9 +347,9 @@ public class NewReservationFrame {
                     panel.add(yearLabel);
                     panel.add(yearSpinner);
                     panel.add(startTimeLabel);
-                    panel.add(timeSpinner);
+                    panel.add(startTimesBox);
                     panel.add(endTimeLabel);
-                    panel.add(endTimeSpinner);
+                    panel.add(endTimesBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
@@ -395,9 +359,9 @@ public class NewReservationFrame {
                     panel.remove(yearLabel);
                     panel.remove(yearSpinner);
                     panel.remove(startTimeLabel);
-                    panel.remove(timeSpinner);
+                    panel.remove(startTimesBox);
                     panel.remove(endTimeLabel);
-                    panel.remove(endTimeSpinner);
+                    panel.remove(endTimesBox);
                     panel.remove(cancelButton);
                     panel.remove(reserveButton);
                     panel.repaint();
@@ -413,9 +377,9 @@ public class NewReservationFrame {
                     panel.add(yearLabel);
                     panel.add(yearSpinner);
                     panel.add(startTimeLabel);
-                    panel.add(timeSpinner);
+                    panel.add(startTimesBox);
                     panel.add(endTimeLabel);
-                    panel.add(endTimeSpinner);
+                    panel.add(endTimesBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
@@ -426,9 +390,9 @@ public class NewReservationFrame {
                     panel.remove(yearLabel);
                     panel.remove(yearSpinner);
                     panel.remove(startTimeLabel);
-                    panel.remove(timeSpinner);
+                    panel.remove(startTimesBox);
                     panel.remove(endTimeLabel);
-                    panel.remove(endTimeSpinner);
+                    panel.remove(endTimesBox);
                     panel.remove(cancelButton);
                     panel.remove(reserveButton);
                     panel.repaint();
@@ -443,9 +407,9 @@ public class NewReservationFrame {
                     panel.add(yearLabel);
                     panel.add(yearSpinner);
                     panel.add(startTimeLabel);
-                    panel.add(timeSpinner);
+                    panel.add(startTimesBox);
                     panel.add(endTimeLabel);
-                    panel.add(endTimeSpinner);
+                    panel.add(endTimesBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
@@ -453,52 +417,6 @@ public class NewReservationFrame {
             }
         });
 
-
-
-        timeSpinner.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                String timeValue = timeSpinner.getValue().toString();
-                int timeValueIndex = 0;
-                for (int i = 0; i < timeInts.size(); i++) {
-                    if (timeInts.get(i).equals(timeValue)) {
-                        timeValueIndex = i;
-                    }
-                }
-
-                panel.remove(daySpinner);
-                panel.remove(yearLabel);
-                panel.remove(yearSpinner);
-                panel.remove(startTimeLabel);
-                panel.remove(timeSpinner);
-                panel.remove(endTimeLabel);
-                panel.remove(endTimeSpinner);
-                panel.remove(cancelButton);
-                panel.remove(reserveButton);
-                panel.repaint();
-
-                SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(timeValueIndex+1, timeInts.size() - ender));
-                endTimeSpinner = new JSpinner(timeModel);
-                Dimension dimension = endTimeSpinner.getPreferredSize();
-                dimension.width = 75;
-                endTimeSpinner.setPreferredSize(dimension);
-
-                panel.add(daySpinner);
-                panel.add(yearLabel);
-                panel.add(yearSpinner);
-                panel.add(startTimeLabel);
-                panel.add(timeSpinner);
-                panel.add(endTimeLabel);
-                panel.add(endTimeSpinner);
-                panel.add(cancelButton);
-                panel.add(reserveButton);
-                panel.revalidate();
-            }
-        });
-
-       
-        //roomTypeBox = new JComboBox<String>(roomTypes);
-        //roomNumberBox = new JComboBox<Integer>();
         roomTypeBox.addActionListener(new guestInfoListener());
 
         year = new JComboBox<Integer>();
@@ -575,9 +493,10 @@ public class NewReservationFrame {
         panel.add(yearLabel);
         panel.add(yearSpinner);
         panel.add(startTimeLabel);
-        panel.add(timeSpinner);
+//        panel.add(timeSpinner);
+        panel.add(startTimesBox);
         panel.add(endTimeLabel);
-        panel.add(endTimeSpinner);
+        panel.add(endTimesBox);
         panel.add(cancelButton);
         panel.add(reserveButton);
         frame.add(panel);
@@ -603,35 +522,6 @@ public class NewReservationFrame {
         }
     }
 
-    public static int getSelectedIndex(JSpinner spinner, String[] monthStrings) {
-        int index = 0;
-        for(String s : monthStrings) {
-            if (s.equals(spinner.getValue())) {
-                return index;
-            }
-            index++;
-        }
-        return -1;
-    }
-
-    public static void setSelectedIndex(JSpinner spinner, String[] monthStrings, int index) {
-        spinner.setValue(monthStrings[(index)]);
-    }
-
-//    public int getSelectedIndex2(JSpinner spinner, ArrayList<?> values) {
-//        int index = 0;
-//        for(Object o : values) {
-//            if (o.equals(spinner.getValue())) {
-//                return index;
-//            }
-//            index++;
-//        }
-//        return -1;
-//    }
-//
-//    public void setSelectedIndex2(JSpinner spinner, String[] monthStrings, int index) {
-//        spinner.setValue(monthStrings[(index)]);
-//    }
 
     class guestInfoListener implements ActionListener {
         JLabel ageCheck = new JLabel("You are not old enough");
@@ -762,7 +652,7 @@ public class NewReservationFrame {
                 if (roomType.equals("Small Party Room")) {
                     aRoomType = "Small Party Room";
                     roomNumberBox.removeAllItems();
-                   
+
                     panel.remove(cancelButton);
                     panel.remove(reserveButton);
                     panel.remove(roomNumberBox);
@@ -773,30 +663,24 @@ public class NewReservationFrame {
                     panel.remove(yearLabel);
                     panel.remove(yearSpinner);
                     panel.remove(startTimeLabel);
-                    panel.remove(timeSpinner);
+                    panel.remove(startTimesBox);
                     panel.remove(endTimeLabel);
-                    panel.remove(endTimeSpinner);
+                    panel.remove(endTimesBox);
                     panel.repaint();
                     
                     for (int i = 1; i <= 10; i++) {
                         roomNumberBox.addItem(i);
                     }
 
-                    //Start time spinner
-                    SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(4, timeInts.size() - 1 - 8));
-                    timeSpinner = new JSpinner(timeModel);
-                    Dimension dimension4 = timeSpinner.getPreferredSize();
-                    dimension4.width = 75;
-                    timeSpinner.setPreferredSize(dimension4);
+                    startTimesBox = new JComboBox<String>();
+                    startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 9).toArray()));
+                    startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
 
-                    SpinnerListModel timeModel2 = new SpinnerListModel(timeInts.subList(5, timeInts.size() - 8));
-                    endTimeSpinner = new JSpinner(timeModel2);
-                    Dimension dimension5 = endTimeSpinner.getPreferredSize();
-                    dimension5.width = 75;
-                    endTimeSpinner.setPreferredSize(dimension5);
+                    //End time spinner
+                    endTimesBox = new JComboBox<String>();
+                    endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 8).toArray()));
+                    endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
 
-
-                    panel.add(roomNumberBox);
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
                     panel.add(dayLabel);
@@ -804,9 +688,9 @@ public class NewReservationFrame {
                     panel.add(yearLabel);
                     panel.add(yearSpinner);
                     panel.add(startTimeLabel);
-                    panel.add(timeSpinner);
+                    panel.add(startTimesBox);
                     panel.add(endTimeLabel);
-                    panel.add(endTimeSpinner);
+                    panel.add(endTimesBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
@@ -827,30 +711,24 @@ public class NewReservationFrame {
                     panel.remove(yearLabel);
                     panel.remove(yearSpinner);
                     panel.remove(startTimeLabel);
-                    panel.remove(timeSpinner);
+                    panel.remove(startTimesBox);
                     panel.remove(endTimeLabel);
-                    panel.remove(endTimeSpinner);
+                    panel.remove(endTimesBox);
                     panel.repaint();
 
                     for (int i = 1; i <= 2; i++) {
                         roomNumberBox.addItem(i);
                     }
 
-                    //Start time spinner
-                    SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(4, timeInts.size() - 1 - 8));
-                    timeSpinner = new JSpinner(timeModel);
-                    Dimension dimension4 = timeSpinner.getPreferredSize();
-                    dimension4.width = 75;
-                    timeSpinner.setPreferredSize(dimension4);
+                    startTimesBox = new JComboBox<String>();
+                    startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 9).toArray()));
+                    startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
 
-                    SpinnerListModel timeModel2 = new SpinnerListModel(timeInts.subList(5, timeInts.size() - 8));
-                    endTimeSpinner = new JSpinner(timeModel2);
-                    Dimension dimension5 = endTimeSpinner.getPreferredSize();
-                    dimension5.width = 75;
-                    endTimeSpinner.setPreferredSize(dimension5);
+                    //End time spinner
+                    endTimesBox = new JComboBox<String>();
+                    endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 8).toArray()));
+                    endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
 
-
-                    panel.add(roomNumberBox);
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
                     panel.add(dayLabel);
@@ -858,9 +736,9 @@ public class NewReservationFrame {
                     panel.add(yearLabel);
                     panel.add(yearSpinner);
                     panel.add(startTimeLabel);
-                    panel.add(timeSpinner);
+                    panel.add(startTimesBox);
                     panel.add(endTimeLabel);
-                    panel.add(endTimeSpinner);
+                    panel.add(endTimesBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
@@ -881,29 +759,23 @@ public class NewReservationFrame {
                     panel.remove(yearLabel);
                     panel.remove(yearSpinner);
                     panel.remove(startTimeLabel);
+                    panel.remove(startTimesBox);
                     panel.remove(endTimeLabel);
-                    panel.remove(endTimeSpinner);
-                    panel.remove(timeSpinner);
+                    panel.remove(endTimesBox);
                     panel.repaint();
 
                     for (int i = 1; i <= 10; i++) {
                         roomNumberBox.addItem(i);
                     }
 
-                    //Start time spinner
-                    SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(4, timeInts.size() - 1 - 4));
-                    timeSpinner = new JSpinner(timeModel);
-                    Dimension dimension4 = timeSpinner.getPreferredSize();
-                    dimension4.width = 75;
-                    timeSpinner.setPreferredSize(dimension4);
+                    startTimesBox = new JComboBox<String>();
+                    startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 5).toArray()));
+                    startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
 
-                    SpinnerListModel timeModel2 = new SpinnerListModel(timeInts.subList(5, timeInts.size() - 4));
-                    endTimeSpinner = new JSpinner(timeModel2);
-                    Dimension dimension5 = endTimeSpinner.getPreferredSize();
-                    dimension5.width = 75;
-                    endTimeSpinner.setPreferredSize(dimension5);
+                    endTimesBox = new JComboBox<String>();
+                    endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 4).toArray()));
+                    endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
 
-                    panel.add(roomNumberBox);
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
                     panel.add(dayLabel);
@@ -911,9 +783,9 @@ public class NewReservationFrame {
                     panel.add(yearLabel);
                     panel.add(yearSpinner);
                     panel.add(startTimeLabel);
-                    panel.add(timeSpinner);
+                    panel.add(startTimesBox);
                     panel.add(endTimeLabel);
-                    panel.add(endTimeSpinner);
+                    panel.add(endTimesBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
@@ -922,7 +794,6 @@ public class NewReservationFrame {
 
                 else if (roomType.equals("Adult Billiards Lounge")) {
                     aRoomType = "Adult Billiards Lounge";
-
 
                     roomNumberBox.removeAllItems();
 
@@ -936,29 +807,23 @@ public class NewReservationFrame {
                     panel.remove(yearLabel);
                     panel.remove(yearSpinner);
                     panel.remove(startTimeLabel);
-                    panel.remove(timeSpinner);
+                    panel.remove(startTimesBox);
                     panel.remove(endTimeLabel);
-                    panel.remove(endTimeSpinner);
+                    panel.remove(endTimesBox);
                     panel.repaint();
 
                     for (int i = 1; i <= 5; i++) {
                         roomNumberBox.addItem(i);
                     }
 
-                    //Start time spinner
-                    SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(4, timeInts.size() - 1 - 4));
-                    timeSpinner = new JSpinner(timeModel);
-                    Dimension dimension4 = timeSpinner.getPreferredSize();
-                    dimension4.width = 75;
-                    timeSpinner.setPreferredSize(dimension4);
+                    startTimesBox = new JComboBox<String>();
+                    startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 5).toArray()));
+                    startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
 
-                    SpinnerListModel timeModel2 = new SpinnerListModel(timeInts.subList(5, timeInts.size() - 4));
-                    endTimeSpinner = new JSpinner(timeModel2);
-                    Dimension dimension5 = endTimeSpinner.getPreferredSize();
-                    dimension5.width = 75;
-                    endTimeSpinner.setPreferredSize(dimension5);
+                    endTimesBox = new JComboBox<String>();
+                    endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 4).toArray()));
+                    endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
 
-                    panel.add(roomNumberBox);
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
                     panel.add(dayLabel);
@@ -966,9 +831,9 @@ public class NewReservationFrame {
                     panel.add(yearLabel);
                     panel.add(yearSpinner);
                     panel.add(startTimeLabel);
-                    panel.add(timeSpinner);
+                    panel.add(startTimesBox);
                     panel.add(endTimeLabel);
-                    panel.add(endTimeSpinner);
+                    panel.add(endTimesBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
@@ -986,25 +851,19 @@ public class NewReservationFrame {
                     panel.remove(yearLabel);
                     panel.remove(yearSpinner);
                     panel.remove(startTimeLabel);
-                    panel.remove(timeSpinner);
+                    panel.remove(startTimesBox);
                     panel.remove(endTimeLabel);
-                    panel.remove(endTimeSpinner);
+                    panel.remove(endTimesBox);
                     panel.repaint();
 
-                    //Start time spinner
-                    SpinnerListModel timeModel = new SpinnerListModel(timeInts.subList(4, timeInts.size() - 1 - 8));
-                    timeSpinner = new JSpinner(timeModel);
-                    Dimension dimension4 = timeSpinner.getPreferredSize();
-                    dimension4.width = 75;
-                    timeSpinner.setPreferredSize(dimension4);
+                    startTimesBox = new JComboBox<String>();
+                    startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 9).toArray()));
+                    startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
 
-                    SpinnerListModel timeModel2 = new SpinnerListModel(timeInts.subList(5, timeInts.size() - 8));
-                    endTimeSpinner = new JSpinner(timeModel2);
-                    Dimension dimension5 = endTimeSpinner.getPreferredSize();
-                    dimension5.width = 75;
-                    endTimeSpinner.setPreferredSize(dimension5);
-
-                    //panel.add(roomNumberBox);
+                    //End time spinner
+                    endTimesBox = new JComboBox<String>();
+                    endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 8).toArray()));
+                    endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
 
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
@@ -1013,9 +872,9 @@ public class NewReservationFrame {
                     panel.add(yearLabel);
                     panel.add(yearSpinner);
                     panel.add(startTimeLabel);
-                    panel.add(timeSpinner);
+                    panel.add(startTimesBox);
                     panel.add(endTimeLabel);
-                    panel.add(endTimeSpinner);
+                    panel.add(endTimesBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();

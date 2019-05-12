@@ -43,6 +43,7 @@ public class DateTimeFrame extends JFrame {
     private static int dayInt;
     private static int yearInt;
     private static int timeInt;
+    private static int endTimeInt;
 
 
 
@@ -408,7 +409,7 @@ public class DateTimeFrame extends JFrame {
 
                 yearInt = 0;
                 for (int i = 0; i < yearInts.size(); i++) {
-                    if (yearInts.get(i).equals(daySpinner.getValue())) {
+                    if (yearInts.get(i).equals(yearSpinner.getValue())) {
                         yearInt = i;
                     }
                 }
@@ -417,6 +418,13 @@ public class DateTimeFrame extends JFrame {
                 for (int i = 0; i < timeInts.size(); i++) {
                     if (timeInts.get(i).equals(timeSpinner.getValue())) {
                         timeInt = i;
+                    }
+                }
+
+                endTimeInt = 0;
+                for (int i = 0; i < timeInts.size(); i++) {
+                    if (timeInts.get(i).equals(endTimeSpinner.getValue())) {
+                        endTimeInt = i;
                     }
                 }
 
@@ -443,5 +451,9 @@ public class DateTimeFrame extends JFrame {
 
     public int getStartTimeIndex() {
         return timeInt;
+    }
+
+    public int getEndTimeIndex() {
+        return endTimeInt;
     }
 }
