@@ -96,6 +96,20 @@ public class NewReservationFrame {
     private static ArrayList<String> timeInts = new ArrayList<>();
     private JComboBox<String> startTimesBox;
     private JComboBox<String> endTimesBox;
+    
+    //Upgrade Stuff
+    private String[] THEMES = {"Choose One", "Hawaiian", "Sea Life", "Jungle", "Space", "Modern"};
+    
+    private JLabel partyBagLabel = new JLabel("Party Favor Bags (5$ per Bag)");
+    private JLabel towelLabel = new JLabel("Towel Rentals (2$ Each)");
+    private JLabel projectorLabel = new JLabel("Projector (10$/hr)");
+    private JLabel decorationsLabel = new JLabel("Party Decorations & Set Up (100$)");
+    
+    
+    private JComboBox<String> partyDecorationsBox = new JComboBox<String>(THEMES);
+    private JCheckBox projectorBox = new JCheckBox();
+    private JCheckBox partyBagsBox = new JCheckBox();
+    private JCheckBox towelBox = new JCheckBox();
 
     //Meal plan stuff
     private JComboBox<String> mealPlanBox; 
@@ -161,6 +175,7 @@ public class NewReservationFrame {
         frame.setVisible(true);
         this.monthStrings = getMonthStrings();
         guestInfo();
+        upgrades();
         mealPlans();
     }
 
@@ -405,8 +420,77 @@ public class NewReservationFrame {
                     panel.remove(startTimesBox);
                     panel.remove(endTimeLabel);
                     panel.remove(endTimesBox);
+                    panel.remove(partyBagLabel);
+                	panel.remove(partyBagsBox);
+                	panel.remove(projectorLabel);
+                	panel.remove(projectorBox);
+                	panel.remove(decorationsLabel);
+                	panel.remove(partyDecorationsBox);
                     panel.remove(cancelButton);
                     panel.remove(reserveButton);
+                    panel.remove(cancelButton);
+                    panel.remove(reserveButton);
+                    panel.remove(roomNumberBox);
+                    panel.remove(monthLabel);
+                    panel.remove(monthSpinner);
+                    panel.remove(dayLabel);
+                    panel.remove(daySpinner);
+                    panel.remove(yearLabel);
+                    panel.remove(yearSpinner);
+                    panel.remove(startTimeLabel);
+                    panel.remove(startTimesBox);
+                    panel.remove(endTimeLabel);
+                    panel.remove(endTimesBox);
+                    panel.remove(sosLabel);
+                    panel.remove(sticksOrSalad);
+                    panel.remove(sodaLabel5);
+                    panel.remove(soda5);
+                    panel.remove(toppings4);
+                    panel.remove(toppings5);
+                    panel.remove(toppings6);
+                    panel.remove(toppings7);
+                    panel.remove(toppings8);
+                    panel.remove(toppings9);
+                    panel.remove(toppings10);
+                    panel.remove(toppings11);
+                    panel.remove(toppings12);
+                    panel.remove(toppings10);
+                    panel.remove(toppings11);
+                    panel.remove(toppings12);
+                    panel.remove(toppings13);
+                    panel.remove(toppings14);
+                    panel.remove(toppings15);
+                    panel.remove(toppings16);
+                    panel.remove(sodaLabel4);
+                    panel.remove(soda4);
+                    panel.remove(Pizza4);
+                    panel.remove(sasLabel);
+                    panel.remove(boneLabel);
+                    panel.remove(bone);
+                    panel.remove(wingsLabel);
+                    panel.remove(wings);
+                    panel.remove(iceCreamLabel);
+                    panel.remove(iceCream1);
+                    panel.remove(iceCream2);
+                    panel.remove(sodaLabel1);
+                    panel.remove(soda1);
+                    panel.remove(sodaLabel2);
+                    panel.remove(soda2);
+                    panel.remove(sodaLabel3);
+                    panel.remove(soda3);
+                    panel.remove(Pizza1);
+                    panel.remove(toppings1);
+                    panel.remove(Pizza2);
+                    panel.remove(toppings2);
+                    panel.remove(Pizza3);
+                    panel.remove(toppings3);
+                    panel.remove(partyBagLabel);
+                	panel.remove(partyBagsBox);
+                	panel.remove(projectorLabel);
+                	panel.remove(projectorBox);
+                	panel.remove(decorationsLabel);
+                	panel.remove(partyDecorationsBox);
+                	panel.remove(mealPlanBox);
                     panel.repaint();
 
 
@@ -415,7 +499,10 @@ public class NewReservationFrame {
                     Dimension dimension = daySpinner.getPreferredSize();
                     dimension.width = 50;
                     daySpinner.setPreferredSize(dimension);
-
+                    
+                    panel.add(monthLabel);
+                    panel.add(monthSpinner);
+                    panel.add(dayLabel);
                     panel.add(daySpinner);
                     panel.add(yearLabel);
                     panel.add(yearSpinner);
@@ -423,6 +510,13 @@ public class NewReservationFrame {
                     panel.add(startTimesBox);
                     panel.add(endTimeLabel);
                     panel.add(endTimesBox);
+                    panel.add(partyBagLabel);
+                	panel.add(partyBagsBox);
+                	panel.add(projectorLabel);
+                	panel.add(projectorBox);
+                	panel.add(decorationsLabel);
+                	panel.add(partyDecorationsBox);
+                	panel.add(mealPlanBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
@@ -437,6 +531,75 @@ public class NewReservationFrame {
                     panel.remove(endTimesBox);
                     panel.remove(cancelButton);
                     panel.remove(reserveButton);
+                    panel.remove(partyBagLabel);
+                	panel.remove(partyBagsBox);
+                	panel.remove(projectorLabel);
+                	panel.remove(projectorBox);
+                	panel.remove(decorationsLabel);
+                	panel.remove(partyDecorationsBox);
+                	panel.remove(cancelButton);
+					 panel.remove(reserveButton);
+					 panel.remove(roomNumberBox);
+					 panel.remove(monthLabel);
+					 panel.remove(monthSpinner);
+					 panel.remove(dayLabel);
+					 panel.remove(daySpinner);
+					 panel.remove(yearLabel);
+					 panel.remove(yearSpinner);
+					 panel.remove(startTimeLabel);
+					 panel.remove(startTimesBox);
+					 panel.remove(endTimeLabel);
+					 panel.remove(endTimesBox);
+					 panel.remove(sosLabel);
+					 panel.remove(sticksOrSalad);
+					 panel.remove(sodaLabel5);
+					 panel.remove(soda5);
+					 panel.remove(toppings4);
+					 panel.remove(toppings5);
+					 panel.remove(toppings6);
+					 panel.remove(toppings7);
+					 panel.remove(toppings8);
+					 panel.remove(toppings9);
+					 panel.remove(toppings10);
+					 panel.remove(toppings11);
+					 panel.remove(toppings12);
+					 panel.remove(toppings10);
+					 panel.remove(toppings11);
+					 panel.remove(toppings12);
+					 panel.remove(toppings13);
+					 panel.remove(toppings14);
+					 panel.remove(toppings15);
+					 panel.remove(toppings16);
+					 panel.remove(sodaLabel4);
+					 panel.remove(soda4);
+					 panel.remove(Pizza4);
+					 panel.remove(sasLabel);
+					 panel.remove(boneLabel);
+					 panel.remove(bone);
+					 panel.remove(wingsLabel);
+					 panel.remove(wings);
+					 panel.remove(iceCreamLabel);
+					 panel.remove(iceCream1);
+					 panel.remove(iceCream2);
+					 panel.remove(sodaLabel1);
+					 panel.remove(soda1);
+					 panel.remove(sodaLabel2);
+					 panel.remove(soda2);
+					 panel.remove(sodaLabel3);
+					 panel.remove(soda3);
+					 panel.remove(Pizza1);
+					 panel.remove(toppings1);
+					 panel.remove(Pizza2);
+					 panel.remove(toppings2);
+					 panel.remove(Pizza3);
+					 panel.remove(toppings3);
+					 panel.remove(partyBagLabel);
+                 	panel.remove(partyBagsBox);
+                 	panel.remove(projectorLabel);
+                 	panel.remove(projectorBox);
+                 	panel.remove(decorationsLabel);
+                 	panel.remove(partyDecorationsBox);
+                 	panel.remove(mealPlanBox);
                     panel.repaint();
 
 
@@ -445,7 +608,10 @@ public class NewReservationFrame {
                     Dimension dimension = daySpinner.getPreferredSize();
                     dimension.width = 50;
                     daySpinner.setPreferredSize(dimension);
-
+                    
+                    panel.add(monthLabel);
+                    panel.add(monthSpinner);
+                    panel.add(dayLabel);
                     panel.add(daySpinner);
                     panel.add(yearLabel);
                     panel.add(yearSpinner);
@@ -453,6 +619,13 @@ public class NewReservationFrame {
                     panel.add(startTimesBox);
                     panel.add(endTimeLabel);
                     panel.add(endTimesBox);
+                    panel.add(partyBagLabel);
+                	panel.add(partyBagsBox);
+                	panel.add(projectorLabel);
+                	panel.add(projectorBox);
+                	panel.add(decorationsLabel);
+                	panel.add(partyDecorationsBox);
+                	panel.add(mealPlanBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
@@ -466,8 +639,77 @@ public class NewReservationFrame {
                     panel.remove(startTimesBox);
                     panel.remove(endTimeLabel);
                     panel.remove(endTimesBox);
+                    panel.remove(partyBagLabel);
+                	panel.remove(partyBagsBox);
+                	panel.remove(projectorLabel);
+                	panel.remove(projectorBox);
+                	panel.remove(decorationsLabel);
+                	panel.remove(partyDecorationsBox);
                     panel.remove(cancelButton);
                     panel.remove(reserveButton);
+                    panel.remove(cancelButton);
+                    panel.remove(reserveButton);
+                    panel.remove(roomNumberBox);
+                    panel.remove(monthLabel);
+                    panel.remove(monthSpinner);
+                    panel.remove(dayLabel);
+                    panel.remove(daySpinner);
+                    panel.remove(yearLabel);
+                    panel.remove(yearSpinner);
+                    panel.remove(startTimeLabel);
+                    panel.remove(startTimesBox);
+                    panel.remove(endTimeLabel);
+                    panel.remove(endTimesBox);
+                    panel.remove(sosLabel);
+                    panel.remove(sticksOrSalad);
+                    panel.remove(sodaLabel5);
+                    panel.remove(soda5);
+                    panel.remove(toppings4);
+                    panel.remove(toppings5);
+                    panel.remove(toppings6);
+                    panel.remove(toppings7);
+                    panel.remove(toppings8);
+                    panel.remove(toppings9);
+                    panel.remove(toppings10);
+                    panel.remove(toppings11);
+                    panel.remove(toppings12);
+                    panel.remove(toppings10);
+                    panel.remove(toppings11);
+                    panel.remove(toppings12);
+                    panel.remove(toppings13);
+                    panel.remove(toppings14);
+                    panel.remove(toppings15);
+                    panel.remove(toppings16);
+                    panel.remove(sodaLabel4);
+                    panel.remove(soda4);
+                    panel.remove(Pizza4);
+                    panel.remove(sasLabel);
+                    panel.remove(boneLabel);
+                    panel.remove(bone);
+                    panel.remove(wingsLabel);
+                    panel.remove(wings);
+                    panel.remove(iceCreamLabel);
+                    panel.remove(iceCream1);
+                    panel.remove(iceCream2);
+                    panel.remove(sodaLabel1);
+                    panel.remove(soda1);
+                    panel.remove(sodaLabel2);
+                    panel.remove(soda2);
+                    panel.remove(sodaLabel3);
+                    panel.remove(soda3);
+                    panel.remove(Pizza1);
+                    panel.remove(toppings1);
+                    panel.remove(Pizza2);
+                    panel.remove(toppings2);
+                    panel.remove(Pizza3);
+                    panel.remove(toppings3);
+                    panel.remove(partyBagLabel);
+                	panel.remove(partyBagsBox);
+                	panel.remove(projectorLabel);
+                	panel.remove(projectorBox);
+                	panel.remove(decorationsLabel);
+                	panel.remove(partyDecorationsBox);
+                	panel.remove(mealPlanBox);
                     panel.repaint();
 
                     SpinnerListModel dayModel = new SpinnerListModel(dayInts);
@@ -475,7 +717,10 @@ public class NewReservationFrame {
                     Dimension dimension = daySpinner.getPreferredSize();
                     dimension.width = 50;
                     daySpinner.setPreferredSize(dimension);
-
+                    
+                    panel.add(monthLabel);
+                    panel.add(monthSpinner);
+                    panel.add(dayLabel);
                     panel.add(daySpinner);
                     panel.add(yearLabel);
                     panel.add(yearSpinner);
@@ -483,6 +728,13 @@ public class NewReservationFrame {
                     panel.add(startTimesBox);
                     panel.add(endTimeLabel);
                     panel.add(endTimesBox);
+                    panel.add(partyBagLabel);
+                	panel.add(partyBagsBox);
+                	panel.add(projectorLabel);
+                	panel.add(projectorBox);
+                	panel.add(decorationsLabel);
+                	panel.add(partyDecorationsBox);
+                	panel.add(mealPlanBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
@@ -557,6 +809,7 @@ public class NewReservationFrame {
         panel.add(roomNumberBox);
         if (initialRoomDisplay.equals("Aqua World")) {
             panel.remove(roomNumberBox);
+            //add here
             panel.repaint();
         }
         panel.add(monthLabel);
@@ -568,6 +821,12 @@ public class NewReservationFrame {
         panel.add(startTimeLabel);
 //        panel.add(timeSpinner);
         panel.add(startTimesBox);
+        panel.add(partyBagLabel);
+    	panel.add(partyBagsBox);
+    	panel.add(projectorLabel);
+    	panel.add(projectorBox);
+    	panel.add(decorationsLabel);
+    	panel.add(partyDecorationsBox);
         panel.add(endTimeLabel);
         panel.add(endTimesBox);
     
@@ -598,6 +857,19 @@ public class NewReservationFrame {
         mealPlanBox.addActionListener(new MealPlanListener());
         
         
+    }
+    public void upgrades() {
+    	panel.add(partyBagLabel);
+    	panel.add(partyBagsBox);
+    	panel.add(projectorLabel);
+    	panel.add(projectorBox);
+    	panel.add(decorationsLabel);
+    	panel.add(partyDecorationsBox);
+    	panel.add(reserveButton);
+        panel.add(cancelButton);
+        
+    	
+    	
     }
     /**
      * DateFormatSymbols returns an extra, empty value at the
@@ -805,6 +1077,13 @@ public class NewReservationFrame {
                     panel.remove(toppings2);
                     panel.remove(Pizza3);
                     panel.remove(toppings3);
+                    panel.remove(partyBagLabel);
+                	panel.remove(partyBagsBox);
+                	panel.remove(projectorLabel);
+                	panel.remove(projectorBox);
+                	panel.remove(decorationsLabel);
+                	panel.remove(partyDecorationsBox);
+                	panel.remove(mealPlanBox);
                     panel.repaint();
                     
                     for (int i = 1; i <= 10; i++) {
@@ -830,6 +1109,13 @@ public class NewReservationFrame {
                     panel.add(startTimesBox);
                     panel.add(endTimeLabel);
                     panel.add(endTimesBox);
+                    panel.add(partyBagLabel);
+                	panel.add(partyBagsBox);
+                	panel.add(projectorLabel);
+                	panel.add(projectorBox);
+                	panel.add(decorationsLabel);
+                	panel.add(partyDecorationsBox);
+                	panel.add(mealPlanBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
@@ -896,6 +1182,13 @@ public class NewReservationFrame {
                     panel.remove(toppings2);
                     panel.remove(Pizza3);
                     panel.remove(toppings3);
+                    panel.remove(partyBagLabel);
+                	panel.remove(partyBagsBox);
+                	panel.remove(projectorLabel);
+                	panel.remove(projectorBox);
+                	panel.remove(decorationsLabel);
+                	panel.remove(partyDecorationsBox);
+                	panel.remove(mealPlanBox);
                     panel.repaint();
 
                     for (int i = 1; i <= 2; i++) {
@@ -921,8 +1214,16 @@ public class NewReservationFrame {
                     panel.add(startTimesBox);
                     panel.add(endTimeLabel);
                     panel.add(endTimesBox);
+                    panel.add(partyBagLabel);
+                	panel.add(partyBagsBox);
+                	panel.add(projectorLabel);
+                	panel.add(projectorBox);
+                	panel.add(decorationsLabel);
+                	panel.add(partyDecorationsBox);
+                	panel.add(mealPlanBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
+                    
                     panel.revalidate();
 
                 }
@@ -987,6 +1288,13 @@ public class NewReservationFrame {
                     panel.remove(toppings2);
                     panel.remove(Pizza3);
                     panel.remove(toppings3);
+                    panel.remove(partyBagLabel);
+                	panel.remove(partyBagsBox);
+                	panel.remove(projectorLabel);
+                	panel.remove(projectorBox);
+                	panel.remove(decorationsLabel);
+                	panel.remove(partyDecorationsBox);
+                	panel.remove(mealPlanBox);
                     panel.repaint();
 
                     for (int i = 1; i <= 10; i++) {
@@ -1011,6 +1319,13 @@ public class NewReservationFrame {
                     panel.add(startTimesBox);
                     panel.add(endTimeLabel);
                     panel.add(endTimesBox);
+                    panel.add(partyBagLabel);
+                	panel.add(partyBagsBox);
+                	panel.add(projectorLabel);
+                	panel.add(projectorBox);
+                	panel.add(decorationsLabel);
+                	panel.add(partyDecorationsBox);
+                	panel.add(mealPlanBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
@@ -1078,6 +1393,13 @@ public class NewReservationFrame {
                     panel.remove(toppings2);
                     panel.remove(Pizza3);
                     panel.remove(toppings3);
+                    panel.remove(partyBagLabel);
+                	panel.remove(partyBagsBox);
+                	panel.remove(projectorLabel);
+                	panel.remove(projectorBox);
+                	panel.remove(decorationsLabel);
+                	panel.remove(partyDecorationsBox);
+                	panel.remove(mealPlanBox);
                     panel.repaint();
 
                     for (int i = 1; i <= 5; i++) {
@@ -1092,6 +1414,7 @@ public class NewReservationFrame {
                     endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 4).toArray()));
                     endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
 
+                  
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
                     panel.add(dayLabel);
@@ -1102,6 +1425,13 @@ public class NewReservationFrame {
                     panel.add(startTimesBox);
                     panel.add(endTimeLabel);
                     panel.add(endTimesBox);
+                    panel.add(partyBagLabel);
+                	panel.add(partyBagsBox);
+                	panel.add(projectorLabel);
+                	panel.add(projectorBox);
+                	panel.add(decorationsLabel);
+                	panel.add(partyDecorationsBox);
+                	panel.add(mealPlanBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
@@ -1109,6 +1439,7 @@ public class NewReservationFrame {
 
                 else {
                     aRoomType = "Aqua World";
+                    
                     panel.remove(cancelButton);
                     panel.remove(reserveButton);
                     panel.remove(roomNumberBox);
@@ -1165,6 +1496,13 @@ public class NewReservationFrame {
                     panel.remove(toppings2);
                     panel.remove(Pizza3);
                     panel.remove(toppings3);
+                    panel.remove(partyBagLabel);
+                	panel.remove(partyBagsBox);
+                	panel.remove(projectorLabel);
+                	panel.remove(projectorBox);
+                	panel.remove(decorationsLabel);
+                	panel.remove(partyDecorationsBox);
+                	panel.remove(mealPlanBox);
                     panel.repaint();
 
                     startTimesBox = new JComboBox<String>();
@@ -1186,6 +1524,13 @@ public class NewReservationFrame {
                     panel.add(startTimesBox);
                     panel.add(endTimeLabel);
                     panel.add(endTimesBox);
+                    panel.add(partyBagLabel);
+                	panel.add(partyBagsBox);
+                	panel.add(projectorLabel);
+                	panel.add(projectorBox);
+                	panel.add(decorationsLabel);
+                	panel.add(partyDecorationsBox);
+                	panel.add(mealPlanBox);
                     panel.add(cancelButton);
                     panel.add(reserveButton);
                     panel.revalidate();
@@ -1238,6 +1583,7 @@ public class NewReservationFrame {
                 panel.remove(iceCream1);
                 panel.remove(iceCream2);
                 panel.repaint(); 
+                panel.add(mealPlanBox);
                 panel.add(sodaLabel1);
                 panel.add(soda1);
                 panel.add(sodaLabel2);
@@ -1280,6 +1626,7 @@ public class NewReservationFrame {
                 panel.remove(iceCream1);
                 panel.remove(iceCream2);
                 panel.repaint(); 
+                panel.add(mealPlanBox);
                 panel.add(sosLabel);
                 panel.add(sticksOrSalad);
                 panel.add(sodaLabel1);
@@ -1321,6 +1668,7 @@ public class NewReservationFrame {
                 panel.remove(iceCream1);
                 panel.remove(iceCream2);
                 panel.repaint(); 
+                panel.add(mealPlanBox);
                 panel.add(sasLabel);
                 panel.add(sodaLabel1);
                 panel.add(soda1);
@@ -1366,6 +1714,7 @@ public class NewReservationFrame {
                 panel.remove(iceCream1);
                 panel.remove(iceCream2);
                 panel.repaint(); 
+                panel.add(mealPlanBox);
                 panel.add(sasLabel);
                 panel.add(wingsLabel);
                 panel.add(wings);
@@ -1404,6 +1753,7 @@ public class NewReservationFrame {
                 panel.remove(sodaLabel5);
                 panel.remove(soda5);
                 panel.repaint();
+                panel.add(mealPlanBox);
                 panel.add(sasLabel);
                 panel.add(wingsLabel);
                 panel.add(wings);
