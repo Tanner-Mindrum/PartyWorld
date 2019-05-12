@@ -64,7 +64,7 @@ public class CheckInFrame {
 				System.out.println("You are now checked into the room");
 			}
 			else {
-				
+				//We need to change this later
 				frame.setVisible(false);
 			}
 		}
