@@ -491,6 +491,8 @@ public class NewReservationFrame {
                 	panel.remove(decorationsLabel);
                 	panel.remove(partyDecorationsBox);
                 	panel.remove(mealPlanBox);
+                	panel.remove(towelLabel);
+                	panel.remove(towelBox);
                     panel.repaint();
 
 
@@ -600,6 +602,8 @@ public class NewReservationFrame {
                  	panel.remove(decorationsLabel);
                  	panel.remove(partyDecorationsBox);
                  	panel.remove(mealPlanBox);
+                 	panel.remove(towelLabel);
+                	panel.remove(towelBox);
                     panel.repaint();
 
 
@@ -710,6 +714,8 @@ public class NewReservationFrame {
                 	panel.remove(decorationsLabel);
                 	panel.remove(partyDecorationsBox);
                 	panel.remove(mealPlanBox);
+                	panel.remove(towelLabel);
+                	panel.remove(towelBox);
                     panel.repaint();
 
                     SpinnerListModel dayModel = new SpinnerListModel(dayInts);
@@ -1084,6 +1090,8 @@ public class NewReservationFrame {
                 	panel.remove(decorationsLabel);
                 	panel.remove(partyDecorationsBox);
                 	panel.remove(mealPlanBox);
+                	panel.remove(towelLabel);
+                	panel.remove(towelBox);
                     panel.repaint();
                     
                     for (int i = 1; i <= 10; i++) {
@@ -1189,6 +1197,8 @@ public class NewReservationFrame {
                 	panel.remove(decorationsLabel);
                 	panel.remove(partyDecorationsBox);
                 	panel.remove(mealPlanBox);
+                	panel.remove(towelLabel);
+                	panel.remove(towelBox);
                     panel.repaint();
 
                     for (int i = 1; i <= 2; i++) {
@@ -1295,6 +1305,8 @@ public class NewReservationFrame {
                 	panel.remove(decorationsLabel);
                 	panel.remove(partyDecorationsBox);
                 	panel.remove(mealPlanBox);
+                	panel.remove(towelLabel);
+                	panel.remove(towelBox);
                     panel.repaint();
 
                     for (int i = 1; i <= 10; i++) {
@@ -1400,6 +1412,8 @@ public class NewReservationFrame {
                 	panel.remove(decorationsLabel);
                 	panel.remove(partyDecorationsBox);
                 	panel.remove(mealPlanBox);
+                	panel.remove(towelLabel);
+                	panel.remove(towelBox);
                     panel.repaint();
 
                     for (int i = 1; i <= 5; i++) {
@@ -1503,6 +1517,8 @@ public class NewReservationFrame {
                 	panel.remove(decorationsLabel);
                 	panel.remove(partyDecorationsBox);
                 	panel.remove(mealPlanBox);
+                	panel.remove(towelLabel);
+                	panel.remove(towelBox);
                     panel.repaint();
 
                     startTimesBox = new JComboBox<String>();
@@ -1528,6 +1544,8 @@ public class NewReservationFrame {
                 	panel.add(partyBagsBox);
                 	panel.add(projectorLabel);
                 	panel.add(projectorBox);
+                	panel.add(towelLabel);
+                	panel.add(towelBox);
                 	panel.add(decorationsLabel);
                 	panel.add(partyDecorationsBox);
                 	panel.add(mealPlanBox);
