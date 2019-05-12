@@ -42,8 +42,8 @@ public class CheckOutFrame {
 	 */
 	public void createComponents() {
 		panelTitle.setFont(new Font(Font.SERIF, Font.BOLD, 30));
-		checkOut.addActionListener(new cancel());
-		cancel.addActionListener(new checkOut());
+		checkOut.addActionListener(new ButtonListener());
+		cancel.addActionListener(new ButtonListener());
 		guestsList = new JList<String>(); 
 		
 		panel.add(guestsList);
@@ -54,23 +54,24 @@ public class CheckOutFrame {
 		frame.add(panel);
 		
 	}
-	
-	class cancel implements ActionListener {
+	/**
+	 * This inner class dictates the behavior of the check out and the cancel button
+	 */
+	class ButtonListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			frame.setVisible(false);
-		}
-	
-	}
-	
-	class checkOut implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
 		
+
+			if (e.getSource() == checkOut) {
+				System.out.println("You checked out!");
+			}
+
+			else {
+				System.out.println("Canceled the check out");
+			}
+		}
+	
 	}
+	
 }
