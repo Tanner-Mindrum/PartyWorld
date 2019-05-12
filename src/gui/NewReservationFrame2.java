@@ -22,7 +22,7 @@ import java.util.Date;
 
 import static gui.DateTimeFrame.getMonthStrings;
 
-public class NewReservationFrame {
+public class NewReservationFrame2 {
     // Frame info
 
     // Guest Info
@@ -101,10 +101,11 @@ public class NewReservationFrame {
     private JComboBox<String> mealPlanBox; 
     private String[] MEALPLANS = {"Basic", "Bronze", "Silver", "Gold", "Platinum"};
     private String[] PIZZATOPPINGS = {"Cheese", "Pepperoni", "Ham", "Jalapeno", "Sausage", "Mushroom", "Pineapple", "Bell pepper", "Onion", "Garlic Chicken"};
+    private String[] SODA_BOTTLE_FLAVORS = {""};
     private JComboBox<String> toppings = new JComboBox<String>(PIZZATOPPINGS);
     private static int ender = 0;
 
-    public NewReservationFrame() {
+    public NewReservationFrame2() {
         frame = new JFrame();
         panel = new JPanel();
 
