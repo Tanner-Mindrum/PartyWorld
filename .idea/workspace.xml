@@ -42,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/src/gui/NewReservationFrame2.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
-              <caret line="103" column="45" selection-start-line="103" selection-start-column="45" selection-end-line="103" selection-end-column="45" />
+              <caret line="103" column="31" selection-start-line="103" selection-end-line="104" />
               <folding>
                 <element signature="e#3436#3444#0" expanded="true" />
               </folding>
@@ -183,7 +183,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -297,16 +297,15 @@
       <workItem from="1557537239388" duration="26000" />
       <workItem from="1557537591777" duration="7489000" />
       <workItem from="1557552846464" duration="1282000" />
-      <workItem from="1557603319907" duration="21004000" />
+      <workItem from="1557603319907" duration="21567000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117369000" />
+    <option name="totallyTimeSpent" value="117932000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15207878" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -317,7 +316,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2986871" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2986871" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -647,7 +646,7 @@
     <entry file="file://$PROJECT_DIR$/src/gui/NewReservationFrame2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="103" column="45" selection-start-line="103" selection-start-column="45" selection-end-line="103" selection-end-column="45" />
+          <caret line="103" column="31" selection-start-line="103" selection-end-line="104" />
           <folding>
             <element signature="e#3436#3444#0" expanded="true" />
           </folding>
