@@ -50,6 +50,7 @@ public class smallPartyRoom extends PartyRoom {
 	 * @return the PartyGoer that reserved the room
 	 */
 	public PartyGoer reserveRoom(int month, int day, int year, int startTime, int endTime) {
+		System.out.println("Reserved small party room");
 		System.out.println(month);
 		System.out.println(day);
 		System.out.println(year);

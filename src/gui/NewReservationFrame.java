@@ -39,6 +39,18 @@ public class NewReservationFrame {
     private JComboBox<Integer> year;
     private JComboBox<Integer> day;
     private JComboBox<Integer> month;
+    private JLabel contactPreferenceLabel = new JLabel("Contact preference:  Phone:");
+    //private JLabel phonePreferenceLabel;
+    private JLabel emailPreferenceLabel = new JLabel("Email:");
+    private JCheckBox phonePreferenceBox = new JCheckBox();
+    private JCheckBox emailPreferenceBox = new JCheckBox();
+    private JLabel visaLabel = new JLabel("Card type:  Visa:");
+    private JCheckBox visaCardBox = new JCheckBox();
+    private JLabel masterCardLabel = new JLabel("Master Card:");
+    private JCheckBox masterCardBox = new JCheckBox();
+    private JLabel americanExpressLabel = new JLabel("American Express:");
+    private JCheckBox americanExpressBox = new JCheckBox();
+
 
     //Spinners
     private JLabel monthLabel;
@@ -165,6 +177,8 @@ public class NewReservationFrame {
     
     private static int ender = 0;
 
+    private static ArrayList<String> monthsToAdd;
+
     public NewReservationFrame() {
         frame = new JFrame();
         panel = new JPanel();
@@ -198,7 +212,7 @@ public class NewReservationFrame {
         emailLabel = new JLabel("Email address");
         dateOfBirth = new JLabel("Date of birth");
         cardName = new JTextField(5);
-        cardNameLabel = new JLabel("Name");
+        cardNameLabel = new JLabel("Name on card: ");
 
         initialMonthIndex = dateTimeFrame.getMonthIndex();
         initialDayIndex = dateTimeFrame.getDayIndex();
@@ -206,7 +220,7 @@ public class NewReservationFrame {
         initialStartTimeIndex = dateTimeFrame.getStartTimeIndex();
         initialEndTimeIndex = dateTimeFrame.getEndTimeIndex();
 
-        ArrayList<String> monthsToAdd = new ArrayList<>();
+        monthsToAdd = new ArrayList<>();
         for (int i = 0; i < monthStrings.length; i++) {
             monthsToAdd.add(monthStrings[i]);
         }
@@ -761,7 +775,7 @@ public class NewReservationFrame {
         reserveButton.addActionListener(new guestInfoListener());
         
         creditCardInfoLabel = new JLabel("Card information");
-        cardNumberLabel = new JLabel("Credit card information");
+        cardNumberLabel = new JLabel("Card number: ");
         securityCodeLabel = new JLabel("Security code (3 digits)");
         expirationDateLabel = new JLabel("Expiration date");
 
@@ -801,7 +815,18 @@ public class NewReservationFrame {
         panel.add(month);
         panel.add(day);
         panel.add(year);
-        panel.add(creditCardInfoLabel);
+        panel.add(contactPreferenceLabel);
+        panel.add(phonePreferenceBox);
+        panel.add(emailPreferenceLabel);
+        panel.add(emailPreferenceBox);
+        //panel.add(creditCardInfoLabel);
+        panel.add(visaLabel);
+        panel.add(visaCardBox);
+        panel.add(masterCardLabel);
+        panel.add(masterCardBox);
+        panel.add(americanExpressLabel);
+        panel.add(americanExpressBox);
+        //panel.add(creditCardInfoLabel);
         panel.add(cardNameLabel);
         panel.add(cardName);
         panel.add(cardNumberLabel);
@@ -902,6 +927,8 @@ public class NewReservationFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             String roomType = (String) roomTypeBox.getSelectedItem();
+            String startTime = (String) startTimesBox.getSelectedItem();
+            String endTime = (String) endTimesBox.getSelectedItem();
 
             //Guest information to save 
             String tempName = nameField.getText();
@@ -950,6 +977,7 @@ public class NewReservationFrame {
                     panel.revalidate();
                    
                 }
+
                 smallPartyRoom smallPartyRoom = new smallPartyRoom();
                 mediumPartyRoom medPartyRoom = new mediumPartyRoom();
                 AquaWorldRoom aquaWorldRoom = AquaWorldRoom.getInstance();
@@ -969,13 +997,14 @@ public class NewReservationFrame {
                 String numString = "";
                 String numStringEnd = "";
 
-                for (int i = 0; i < timeSpinner.getValue().toString().length(); i++) {
-                    char c = timeSpinner.getValue().toString().charAt(i);
+                for (int i = 0; i < startTime.length(); i++) {
+                    char c = startTime.charAt(i);
                     if (Character.isDigit(c)) {
                         numString += c;
                     }
                 }
-                String[] startTimes = timeSpinner.getValue().toString().split("\\s+");
+
+                String[] startTimes = startTime.split("\\s+");
                 String AMPM = startTimes[1];
                 int milStartTimeInt = 0;
                 milStartTimeInt = Integer.parseInt(numString);
@@ -989,13 +1018,14 @@ public class NewReservationFrame {
                     milStartTimeInt += 1200;
                 }
 
-                for (int i = 0; i < endTimeSpinner.getValue().toString().length(); i++) {
-                    char c = endTimeSpinner.getValue().toString().charAt(i);
+                for (int i = 0; i < endTime.length(); i++) {
+                    char c = endTime.charAt(i);
                     if (Character.isDigit(c)) {
                         numStringEnd += c;
                     }
                 }
-                String[] startTimes2 = endTimeSpinner.getValue().toString().split("\\s+");
+
+                String[] startTimes2 = endTime.split("\\s+");
                 String AMPM2 = startTimes2[1];
                 int milEndTimeInt = 0;
                 milEndTimeInt = Integer.parseInt(numStringEnd);
@@ -1008,11 +1038,10 @@ public class NewReservationFrame {
                     milEndTimeInt += 1200;
                 }
 
-
                 int monthInt = 0;
-                for (int i = 0; i < monthStrings.length; i++) {
-                    if (monthStrings[i].equals(monthSpinner.getValue().toString())) {
-                        monthInt = i + 1;
+                for (int i = 1; i < 13; i++) {
+                    if (i == Integer.parseInt(monthSpinner.getValue().toString())) {
+                        monthInt = i;
                     }
                 }
                 ROOM_TYPE_OBJECTS[foundRoom].reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt);
