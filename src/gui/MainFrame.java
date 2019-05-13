@@ -287,10 +287,10 @@ public class MainFrame {
 			String item = menuItem.getText();
 		
 			basicMeal basic = new basicMeal(soda1, soda2, soda3, pizza1s, pizza2s, pizza3s);
-			bronzeMeal bronze = new bronzeMeal(breadStickOrSalads, soda1, soda2, soda3, pizza1, pizza2, pizza3);
-			silverMeal silver = new silverMeal(breadStickOrSalad, soda1, soda2, soda3, soda4, soda5, pizza1, pizza2, pizza3);
-			goldMeal gold = new goldMeal(breadStickOrSalad, soda1, soda2, soda3, soda4, soda5,  pizza1, pizza2, pizza3,wingFlavor,boneInorOut);
-			platMeal plat = new platMeal(breadStickOrSalad, soda1,  soda2, soda3,  soda4,  soda5,  pizza1,  pizza2,  pizza3, pizza4, wingFlavor,boneInorOut, iceCream1, iceCream2);
+			bronzeMeal bronze = new bronzeMeal(null, null, null, null, null, null, null);
+			silverMeal silver = new silverMeal(false, null, null, null, null, null, null, null, null);
+			goldMeal gold = new goldMeal(false, null, null, null, null, null, null, null, null, null, null);
+			platMeal plat = new platMeal(false, null, null, null, null, null, null, null, null, null, null, null, null, null);
 			//item needs to be replaced for drop down menu
 			
 			if(item.equals("All")) {
