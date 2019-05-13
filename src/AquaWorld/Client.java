@@ -36,16 +36,16 @@ public class Client {
         partyRoom2 = new Projector(partyRoom2);
         System.out.println(partyRoom2.getDescription());
         
-        PartyGoer justin = new PartyGoer();
-        justin.setName("justin q-bagel ");
-        partyRoom1.setNotification("ur reservation for the aqua room has been set");
-        justin.updateInfo(justin.getName() + partyRoom1.getNotification());
-        System.out.println(justin.getInfo());
-        PartyGoer tanner =  new PartyGoer();
-        tanner.setName("tanner m-bagel ");
-        partyRoom1.setNotification("you have been added to the aqua room waitlist");
-        tanner.updateInfo(tanner.getName() + partyRoom1.getNotification());
-        System.out.println(tanner.getInfo());
+//        PartyGoer justin = new PartyGoer();
+//        justin.setName("justin q-bagel ");
+//        partyRoom1.setNotification("ur reservation for the aqua room has been set");
+//        justin.updateInfo(justin.getName() + partyRoom1.getNotification());
+//        System.out.println(justin.getInfo());
+//        PartyGoer tanner =  new PartyGoer();
+//        tanner.setName("tanner m-bagel ");
+//        partyRoom1.setNotification("you have been added to the aqua room waitlist");
+//        tanner.updateInfo(tanner.getName() + partyRoom1.getNotification());
+//        System.out.println(tanner.getInfo());
 
         AquaWorldRoom aqua = AquaWorldRoom.getInstance();
         AquaWorldRoom newAqua = AquaWorldRoom.getInstance();

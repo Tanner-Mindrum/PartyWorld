@@ -16,13 +16,13 @@ public class goldMeal extends MealPlan {
 	private String soda3;
 	private String soda4;
 	private String soda5;
-	private ArrayList<PizzaDecorator> pizza1;
-	private ArrayList<PizzaDecorator> pizza2;
-	private ArrayList<PizzaDecorator> pizza3;
+	private Pizza pizza1;
+	private Pizza pizza2;
+	private Pizza pizza3;
 	private String wingFlavor;
 	private String boneInorOut;
 
-	public goldMeal(boolean breadStickOrSalad, String soda1, String soda2, String soda3, String soda4, String soda5, ArrayList<PizzaDecorator> pizza1, ArrayList<PizzaDecorator> pizza2, ArrayList<PizzaDecorator> pizza3, String wingFlavor, String boneInorOut) {
+	public goldMeal(boolean breadStickOrSalad, String soda1, String soda2, String soda3, String soda4, String soda5, Pizza pizza1, Pizza pizza2, Pizza pizza3, String wingFlavor, String boneInorOut) {
 		this.breadStickOrSalad = breadStickOrSalad;
 		this.soda1 = soda1;
 		this.soda2 = soda2;
@@ -60,15 +60,15 @@ public class goldMeal extends MealPlan {
 		return soda5;
 	}
 
-	public ArrayList<PizzaDecorator> getPizza1() {
+	public Pizza getPizza1() {
 		return pizza1;
 	}
 
-	public ArrayList<PizzaDecorator> getPizza2() {
+	public Pizza getPizza2() {
 		return pizza2;
 	}
 
-	public ArrayList<PizzaDecorator> getPizza3() {
+	public Pizza getPizza3() {
 		return pizza3;
 	}
 

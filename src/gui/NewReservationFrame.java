@@ -930,6 +930,77 @@ public class NewReservationFrame {
             String startTime = (String) startTimesBox.getSelectedItem();
             String endTime = (String) endTimesBox.getSelectedItem();
 
+            Pizza pizza1 = new Pizza();
+            Pizza pizza2 = new Pizza();
+            Pizza pizza3 = new Pizza();
+            Pizza pizza4 = new Pizza();
+
+            if (mealPlanBox.getSelectedItem().equals("Basic Meal Plan")) {
+                if (toppings1.getSelectedItem().equals("Cheese")) {
+                    pizza1 = new Cheese(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Pepperoni")) {
+                    pizza1 = new Pepperoni(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Ham")) {
+                    pizza1 = new Ham(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Jalapeno")) {
+                    pizza1 = new Jalapeno(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Sausage")) {
+                    pizza1 = new Sausage(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Mushroom")) {
+                    pizza1 = new Mushroom(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Pineapple")) {
+                    pizza1 = new Pineapple(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Bell pepper")) {
+                    pizza1 = new BellPepper(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Onion")) {
+                    pizza1 = new Onion(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Garlic Chicken")) {
+                    pizza1 = new GarlicChicken(pizza1);
+                }
+                if (toppings2.getSelectedItem().equals("Cheese")) {
+                    pizza1 = new Cheese(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Pepperoni")) {
+                    pizza1 = new Pepperoni(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Ham")) {
+                    pizza1 = new Ham(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Jalapeno")) {
+                    pizza1 = new Jalapeno(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Sausage")) {
+                    pizza1 = new Sausage(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Mushroom")) {
+                    pizza1 = new Mushroom(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Pineapple")) {
+                    pizza1 = new Pineapple(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Bell pepper")) {
+                    pizza1 = new BellPepper(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Onion")) {
+                    pizza1 = new Onion(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Garlic Chicken")) {
+                    pizza1 = new GarlicChicken(pizza1);
+                }
+                if (toppings3.getSelectedItem().equals("Cheese")) {
+                    pizza1 = new Cheese(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Pepperoni")) {
+                    pizza1 = new Pepperoni(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Ham")) {
+                    pizza1 = new Ham(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Jalapeno")) {
+                    pizza1 = new Jalapeno(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Sausage")) {
+                    pizza1 = new Sausage(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Mushroom")) {
+                    pizza1 = new Mushroom(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Pineapple")) {
+                    pizza1 = new Pineapple(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Bell pepper")) {
+                    pizza1 = new BellPepper(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Onion")) {
+                    pizza1 = new Onion(pizza1);
+                } else if (toppings1.getSelectedItem().equals("Garlic Chicken")) {
+                    pizza1 = new GarlicChicken(pizza1);
+                }
+            }
+
             //Guest information to save 
             String tempName = nameField.getText();
             String tempPhoneNum = phoneNumField.getText();
@@ -969,10 +1040,28 @@ public class NewReservationFrame {
 //                MealPlan gMealPlan = new goldMeal();
 //                MealPlan pMealPlan = new platMeal();
 
-//                if (mealPlanBox.equals("Basic meal plan")) {
-//                    MealPlan baMealPlan = new basicMeal();
-//                }
-//
+
+                if (mealPlanBox.getSelectedItem().equals("Basic Meal Plan")) {
+                    MealPlan baMealPlan = new basicMeal((String) soda1.getSelectedItem(), (String) soda2.getSelectedItem(), (String) soda3.getSelectedItem(), (String) toppings1.getSelectedItem(),
+                            (String) toppings2.getSelectedItem(), (String) toppings3.getSelectedItem());
+                }
+                else if (mealPlanBox.getSelectedItem().equals("Bronze Meal Plan")) {
+                    MealPlan brMealPlan = new bronzeMeal((String) sticksOrSalad.getSelectedItem(), (String) soda1.getSelectedItem(), (String) soda2.getSelectedItem(), (String) soda3.getSelectedItem(), (String) toppings1.getSelectedItem(),
+                            (String) toppings2.getSelectedItem(), (String) toppings3.getSelectedItem());
+                }
+                else if (mealPlanBox.getSelectedItem().equals("Silver Meal Plan")) {
+                    MealPlan baMealPlan = new basicMeal((String) soda1.getSelectedItem(), (String) soda2.getSelectedItem(), (String) soda3.getSelectedItem(), (String) toppings1.getSelectedItem(),
+                            (String) toppings2.getSelectedItem(), (String) toppings3.getSelectedItem());
+                }
+                else if (mealPlanBox.getSelectedItem().equals("Gold Meal Plan")) {
+                    MealPlan baMealPlan = new basicMeal((String) soda1.getSelectedItem(), (String) soda2.getSelectedItem(), (String) soda3.getSelectedItem(), (String) toppings1.getSelectedItem(),
+                            (String) toppings2.getSelectedItem(), (String) toppings3.getSelectedItem());
+                }
+                else if (mealPlanBox.getSelectedItem().equals("Platnium Meal Plan")) {
+                    MealPlan baMealPlan = new basicMeal((String) soda1.getSelectedItem(), (String) soda2.getSelectedItem(), (String) soda3.getSelectedItem(), (String) toppings1.getSelectedItem(),
+                            (String) toppings2.getSelectedItem(), (String) toppings3.getSelectedItem());
+                }
+
 //                PartyGoer guest = new PartyGoer();
 
 
