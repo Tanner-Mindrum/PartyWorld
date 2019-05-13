@@ -951,20 +951,21 @@ public class NewReservationFrame {
             calendar.get(Calendar.MONTH);
             calendar.get(Calendar.DAY_OF_MONTH);
             
-            
-            PartyGoer guest = new PartyGoer();     
-            
+
             if (e.getSource() == reserveButton) {
-                guest.setName(tempName);
-                guest.setPhoneNum(tempPhoneNum);
-                guest.setAddress(tempAddress);
-                guest.setDOB(tempMonth, tempDay, tempYear);
-                guest.setCreditCardInfo(tempCreditCardInfo);
-                guest.setRoomType(roomType);
-                guest.setEmail(tempEmail);
-                guest.setCardName(tempCardName);
-                guest.setExpirationDate(tempExpirationMonth, tempExpirationYear);
-                
+//                guest.setName(tempName);
+//                guest.setPhoneNum(tempPhoneNum);
+//                guest.setAddress(tempAddress);
+//                guest.setDOB(tempMonth, tempDay, tempYear);
+//                guest.setCreditCardInfo(tempCreditCardInfo);
+//                guest.setRoomType(roomType);
+//                guest.setEmail(tempEmail);
+//                guest.setCardName(tempCardName);
+//                guest.setExpirationDate(tempExpirationMonth, tempExpirationYear);
+
+                //PartyGoer guest = new PartyGoer();
+
+
                 LocalDate today = LocalDate.now();
                 LocalDate birthDay = LocalDate.of(1998, 5, 15);
                 int years = Period.between(birthDay, today).getYears();

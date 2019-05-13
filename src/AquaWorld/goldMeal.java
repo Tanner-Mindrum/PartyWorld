@@ -1,11 +1,40 @@
 package AquaWorld;
+
+import java.util.ArrayList;
+
 /**
  * 
  * @author steven, tymee, Justin, Tanner
  *
  * This class is the gold meal plan getting the description and the price for the plan
  */
-public class goldMeal extends MealPlan{
+public class goldMeal extends MealPlan {
+
+	private boolean breadStickOrSalad;
+	private String soda1;
+	private String soda2;
+	private String soda3;
+	private String soda4;
+	private String soda5;
+	private ArrayList<PizzaDecorator> pizza1;
+	private ArrayList<PizzaDecorator> pizza2;
+	private ArrayList<PizzaDecorator> pizza3;
+	private String wingFlavor;
+	private String boneInorOut;
+
+	public goldMeal(boolean breadStickOrSalad, String soda1, String soda2, String soda3, String soda4, String soda5, ArrayList<PizzaDecorator> pizza1, ArrayList<PizzaDecorator> pizza2, ArrayList<PizzaDecorator> pizza3, String wingFlavor, String boneInorOut) {
+		this.breadStickOrSalad = breadStickOrSalad;
+		this.soda1 = soda1;
+		this.soda2 = soda2;
+		this.soda3 = soda3;
+		this.soda4 = soda4;
+		this.soda5 = soda5;
+		this.pizza1 = pizza1;
+		this.pizza2 = pizza2;
+		this.pizza3 = pizza3;
+		this.wingFlavor = wingFlavor;
+		this.boneInorOut = boneInorOut;
+	}
 
 	@Override
 	/**
