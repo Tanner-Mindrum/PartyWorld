@@ -36,6 +36,50 @@ public class goldMeal extends MealPlan {
 		this.boneInorOut = boneInorOut;
 	}
 
+	public boolean isBreadStickOrSalad() {
+		return breadStickOrSalad;
+	}
+
+	public String getSoda1() {
+		return soda1;
+	}
+
+	public String getSoda2() {
+		return soda2;
+	}
+
+	public String getSoda3() {
+		return soda3;
+	}
+
+	public String getSoda4() {
+		return soda4;
+	}
+
+	public String getSoda5() {
+		return soda5;
+	}
+
+	public ArrayList<PizzaDecorator> getPizza1() {
+		return pizza1;
+	}
+
+	public ArrayList<PizzaDecorator> getPizza2() {
+		return pizza2;
+	}
+
+	public ArrayList<PizzaDecorator> getPizza3() {
+		return pizza3;
+	}
+
+	public String getWingFlavor() {
+		return wingFlavor;
+	}
+
+	public String getBoneInorOut() {
+		return boneInorOut;
+	}
+
 	@Override
 	/**
 	 * gets the description 

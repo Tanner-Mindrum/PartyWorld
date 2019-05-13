@@ -28,6 +28,34 @@ public class bronzeMeal extends MealPlan {
         this.pizza3 = pizza3;
     }
 
+    public String getBreadStickOrSalad() {
+        return breadStickOrSalad;
+    }
+
+    public String getSoda1() {
+        return soda1;
+    }
+
+    public String getSoda2() {
+        return soda2;
+    }
+
+    public String getSoda3() {
+        return soda3;
+    }
+
+    public ArrayList<PizzaDecorator> getPizza1() {
+        return pizza1;
+    }
+
+    public ArrayList<PizzaDecorator> getPizza2() {
+        return pizza2;
+    }
+
+    public ArrayList<PizzaDecorator> getPizza3() {
+        return pizza3;
+    }
+
     @Override
     /**
      * gets the description of the plan

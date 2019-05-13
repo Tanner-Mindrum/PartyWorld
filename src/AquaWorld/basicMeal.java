@@ -24,6 +24,30 @@ public class basicMeal extends MealPlan {
         this.pizza3 = pizza3;
     }
 
+    public String getSoda1() {
+        return soda1;
+    }
+
+    public String getSoda2() {
+        return soda2;
+    }
+
+    public String getSoda3() {
+        return soda3;
+    }
+
+    public String getPizza1() {
+        return pizza1;
+    }
+
+    public String getPizza2() {
+        return pizza2;
+    }
+
+    public String getPizza3() {
+        return pizza3;
+    }
+
     @Override
     /**
      * gets the description of the plan

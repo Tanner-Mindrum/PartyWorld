@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -40,6 +41,25 @@ public class MainFrame {
 	//border settings used in the method addARoomDescription()
  	Border raisedbevel = BorderFactory.createRaisedBevelBorder();
  	Border loweredbevel = BorderFactory.createLoweredBevelBorder();
+
+	private boolean breadStickOrSalad;
+	private String breadStickOrSalads;
+	private String soda1;
+	private String soda2;
+	private String soda3;
+	private String soda4;
+	private String soda5;
+	private String pizza1s;
+	private String pizza2s;
+	private String pizza3s;
+	private ArrayList<PizzaDecorator> pizza1;
+	private ArrayList<PizzaDecorator> pizza2;
+	private ArrayList<PizzaDecorator> pizza3;
+	private ArrayList<PizzaDecorator> pizza4;
+	private String wingFlavor;
+	private String boneInorOut;
+	private String iceCream1;
+	private String iceCream2;
 
 	public MainFrame(){
 
@@ -266,11 +286,11 @@ public class MainFrame {
 			panelTitle = new JLabel("Meal Items");
 			String item = menuItem.getText();
 		
-			basicMeal basic= new basicMeal();
-			bronzeMeal bronze = new bronzeMeal();
-			silverMeal silver = new silverMeal(); 
-			goldMeal gold = new goldMeal(); 
-			platMeal plat = new platMeal(); 
+			basicMeal basic = new basicMeal(soda1, soda2, soda3, pizza1s, pizza2s, pizza3s);
+			bronzeMeal bronze = new bronzeMeal(breadStickOrSalads, soda1, soda2, soda3, pizza1, pizza2, pizza3);
+			silverMeal silver = new silverMeal(breadStickOrSalad, soda1, soda2, soda3, soda4, soda5, pizza1, pizza2, pizza3);
+			goldMeal gold = new goldMeal(breadStickOrSalad, soda1, soda2, soda3, soda4, soda5,  pizza1, pizza2, pizza3,wingFlavor,boneInorOut);
+			platMeal plat = new platMeal(breadStickOrSalad, soda1,  soda2, soda3,  soda4,  soda5,  pizza1,  pizza2,  pizza3, pizza4, wingFlavor,boneInorOut, iceCream1, iceCream2);
 			//item needs to be replaced for drop down menu
 			
 			if(item.equals("All")) {

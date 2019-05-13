@@ -963,7 +963,17 @@ public class NewReservationFrame {
 //                guest.setCardName(tempCardName);
 //                guest.setExpirationDate(tempExpirationMonth, tempExpirationYear);
 
-                //PartyGoer guest = new PartyGoer();
+//                MealPlan baMealPlan = new basicMeal();
+//                MealPlan brMealPlan = new bronzeMeal();
+//                MealPlan sMealPlan = new silverMeal();
+//                MealPlan gMealPlan = new goldMeal();
+//                MealPlan pMealPlan = new platMeal();
+
+//                if (mealPlanBox.equals("Basic meal plan")) {
+//                    MealPlan baMealPlan = new basicMeal();
+//                }
+//
+//                PartyGoer guest = new PartyGoer();
 
 
                 LocalDate today = LocalDate.now();

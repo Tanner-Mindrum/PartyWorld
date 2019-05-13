@@ -42,6 +42,62 @@ public class platMeal extends MealPlan {
 		this.iceCream2 = iceCream2;
 	}
 
+	public boolean isBreadStickOrSalad() {
+		return breadStickOrSalad;
+	}
+
+	public String getSoda1() {
+		return soda1;
+	}
+
+	public String getSoda2() {
+		return soda2;
+	}
+
+	public String getSoda3() {
+		return soda3;
+	}
+
+	public String getSoda4() {
+		return soda4;
+	}
+
+	public String getSoda5() {
+		return soda5;
+	}
+
+	public ArrayList<PizzaDecorator> getPizza1() {
+		return pizza1;
+	}
+
+	public ArrayList<PizzaDecorator> getPizza2() {
+		return pizza2;
+	}
+
+	public ArrayList<PizzaDecorator> getPizza3() {
+		return pizza3;
+	}
+
+	public ArrayList<PizzaDecorator> getPizza4() {
+		return pizza4;
+	}
+
+	public String getWingFlavor() {
+		return wingFlavor;
+	}
+
+	public String getBoneInorOut() {
+		return boneInorOut;
+	}
+
+	public String getIceCream1() {
+		return iceCream1;
+	}
+
+	public String getIceCream2() {
+		return iceCream2;
+	}
+
 	@Override
 	/**
 	 * gets the description of the plat plan 

@@ -98,6 +98,121 @@ public class PartyGoer {
         this.mealPlan = mealPlan;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getRoomType() {
+        return roomType;
+    }
+
+    public String getDobMonth() {
+        return dobMonth;
+    }
+
+    public String getDobDay() {
+        return dobDay;
+    }
+
+    public String getDobYear() {
+        return dobYear;
+    }
+
+    public boolean isPhonePref() {
+        return phonePref;
+    }
+
+    public boolean isEmailPref() {
+        return emailPref;
+    }
+
+    public boolean isVisaCard() {
+        return visaCard;
+    }
+
+    public boolean isMasterCard() {
+        return masterCard;
+    }
+
+    public boolean isAeCard() {
+        return aeCard;
+    }
+
+    public String getNameOnCard() {
+        return nameOnCard;
+    }
+
+    public String getCardNum() {
+        return cardNum;
+    }
+
+    public String getSecCode() {
+        return secCode;
+    }
+
+    public String getExpDateMonth() {
+        return expDateMonth;
+    }
+
+    public String getExpDateYear() {
+        return expDateYear;
+    }
+
+    public int getRoomNum() {
+        return roomNum;
+    }
+
+    public int getMonthRes() {
+        return monthRes;
+    }
+
+    public int getDayRes() {
+        return dayRes;
+    }
+
+    public int getYearRes() {
+        return yearRes;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public boolean isPartyFavorBag() {
+        return partyFavorBag;
+    }
+
+    public boolean isProjector() {
+        return projector;
+    }
+
+    public String getPartyDec() {
+        return partyDec;
+    }
+
+    public String getMealPlanType() {
+        return mealPlanType;
+    }
+
+    public MealPlan getMealPlan() {
+        return mealPlan;
+    }
 
 //    public PartyGoer(String name, String phoneNum, String address, String email, String dobMonth, String dobDay, String dobYear, boolean phonePref, boolean emailPref,
 //                     boolean visaCard, boolean masterCard, boolean aeCard, String nameOnCard, String cardNum, String secCode, String expDateMonth,
