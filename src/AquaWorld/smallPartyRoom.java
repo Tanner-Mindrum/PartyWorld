@@ -18,11 +18,7 @@ public class smallPartyRoom extends PartyRoom {
 	private ArrayList<String> reservationDates;
 	private ArrayList<Integer> reservationTimes;
 	private String fullDate;
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 32cabf56c88068eb02d7ac347047ae5add619ef9
 	public smallPartyRoom() {
 		fullDate = "";
 		reservationTimes = new ArrayList<>();
@@ -78,11 +74,7 @@ public class smallPartyRoom extends PartyRoom {
 			int addCounter = 0;
 			for (int i = 0; i < reservationTimes.size(); i += 2) {
 				if (reservationTimes.get(i) <= startTime || startTime <= reservationTimes.get(i + 1)
-<<<<<<< HEAD
 						|| reservationTimes.get(i) <= endTime || endTime <= reservationTimes.get(i + 1)) {
-=======
-				|| reservationTimes.get(i) <= endTime || endTime <= reservationTimes.get(i + 1)) {
->>>>>>> 32cabf56c88068eb02d7ac347047ae5add619ef9
 					if (!justChecking && addCounter == 0) {
 						waitList.add(partyGoer);
 						addCounter +=1;
