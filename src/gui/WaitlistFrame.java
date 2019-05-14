@@ -26,6 +26,7 @@ public class WaitlistFrame {
 	private JFrame waitlistFrame;
 	private JPanel panel;
 	private PartyRoom partyRoom;
+	private boolean checkWaitList; 
 
 
 
@@ -60,6 +61,16 @@ public class WaitlistFrame {
 		panel.add(noButton);
 		waitlistFrame.add(panel);
 	}
+
+	public void setStatus(boolean check) {
+		checkWaitList = check; 
+	}
+
+	public boolean getStatus() {
+		
+		return checkWaitList; 
+	
+	}
 	
 	/**
 	 * 
@@ -73,11 +84,12 @@ public class WaitlistFrame {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == yesButton) {
 				MainFrame mainFrame = new MainFrame();
-				//frame.setVisible(false);
+				checkWaitList = false; 
 				waitlistFrame.setVisible(false);
 			}
 			else if (e.getSource() == noButton){
 				NewReservationFrame newReservationFrame = new NewReservationFrame();
+				checkWaitList = true; 
 				waitlistFrame.setVisible(false);
 			}
 			//add to waitlist &

@@ -1109,7 +1109,11 @@ public class NewReservationFrame {
 
                     if (waitlistCheck) {
                         WaitlistFrame waitlistFrame = new WaitlistFrame(ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) roomNumberBox.getSelectedItem()));
-                        frame.setVisible(false);
+                        boolean tempCheck = waitlistFrame.getStatus();
+                        if (tempCheck == false) {
+                            frame.setVisible(false);
+                        
+                        }
                     }
                     else {
                         MainFrame mainFrame = new MainFrame();
