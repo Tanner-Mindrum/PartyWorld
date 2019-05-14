@@ -67,7 +67,7 @@ public class PartyGoer {
 //        partyGoer = null;
 //    }
 
-    public PartyGoer(String name, String phoneNum, String email, String address, String roomType, String dobMonth, String dobDay, String dobYear, boolean phonePref, boolean emailPref, boolean visaCard, boolean masterCard, boolean aeCard, String nameOnCard, String cardNum, String secCode, String expDateMonth, String expDateYear, int roomNum, int monthRes, int dayRes, int yearRes, int startTime, int endTime, boolean partyFavorBag, boolean projector, String partyDec, String mealPlanType, MealPlan mealPlan, String confirmationNum) {
+    public PartyGoer(String name, String phoneNum, String email, String address, String roomType, String dobMonth, String dobDay, String dobYear, boolean phonePref, boolean emailPref, boolean visaCard, boolean masterCard, boolean aeCard, String nameOnCard, String cardNum, String secCode, String expDateMonth, String expDateYear, int roomNum, int monthRes, int dayRes, int yearRes, int startTime, int endTime, boolean partyFavorBag, boolean projector, String partyDec, String mealPlanType) {
         this.name = name;
         this.phoneNum = phoneNum;
         this.email = email;
@@ -101,6 +101,7 @@ public class PartyGoer {
     }
 
     public String getName() {
+    	//System.out.println(name);
         return name;
     }
 
@@ -188,11 +189,11 @@ public class PartyGoer {
         return yearRes;
     }
 
-    public String getStartTime() {
+    public int getStartTime() {
         return startTime;
     }
 
-    public String getEndTime() {
+    public int getEndTime() {
         return endTime;
     }
 

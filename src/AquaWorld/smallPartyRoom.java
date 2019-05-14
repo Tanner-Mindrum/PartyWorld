@@ -62,7 +62,7 @@ public class smallPartyRoom extends PartyRoom {
 
 		//Check date
 		if (!reservationDates.contains(fullDate)) {
-			reservationList.add()
+			//reservationList.add()
 		}
 		reservationDates.add(fullDate);
 		System.out.println(startTime);
