@@ -3,7 +3,7 @@ package AquaWorld;
 import java.util.ArrayList;
 
 /**
- * 
+ *
  * @author steven, tymee, Justin, Tanner
  *
  * This class is the small party room that holds the waitlist and description
@@ -18,8 +18,7 @@ public class smallPartyRoom extends PartyRoom {
 	private ArrayList<String> reservationDates;
 	private ArrayList<Integer> reservationTimes;
 	private String fullDate;
-	private boolean isWaitlistAccepted;
-	
+
 	public smallPartyRoom() {
 		fullDate = "";
 		reservationTimes = new ArrayList<>();
@@ -35,7 +34,7 @@ public class smallPartyRoom extends PartyRoom {
 	public void addWaitlist(PartyGoer partyGoer) {
 		waitList.add(partyGoer);
 	}
-	
+
 	/**
 	 * gets the description of the room
 	 * @return the description as a String
@@ -43,7 +42,7 @@ public class smallPartyRoom extends PartyRoom {
 	public String getDescription() {
 		return Description;
 	}
-	
+
 	/**
 	 * calculates the cost of the room
 	 * @return the rooms cost as a double
@@ -56,7 +55,7 @@ public class smallPartyRoom extends PartyRoom {
 	 * reserves the room
 	 * @return the PartyGoer that reserved the room
 	 */
-	public boolean reserveRoom(int month, int day, int year, int startTime, int endTime, PartyGoer partyGoer) {
+	public boolean reserveRoom(int month, int day, int year, int startTime, int endTime, PartyGoer partyGoer, boolean justChecking) {
 		boolean boolToReturn = false;
 		fullDate = Integer.toString(month) + Integer.toString(day) + Integer.toString(year);
 		System.out.println("Their room date: " + fullDate);
@@ -72,11 +71,14 @@ public class smallPartyRoom extends PartyRoom {
 		}
 		else {
 			System.out.println(reservationTimes);
-
+			int addCounter = 0;
 			for (int i = 0; i < reservationTimes.size(); i += 2) {
 				if (reservationTimes.get(i) <= startTime || startTime <= reservationTimes.get(i + 1)
-				|| reservationTimes.get(i) <= endTime || endTime <= reservationTimes.get(i + 1)) {
-					waitList.add(partyGoer);
+						|| reservationTimes.get(i) <= endTime || endTime <= reservationTimes.get(i + 1)) {
+					if (!justChecking && addCounter == 0) {
+						waitList.add(partyGoer);
+						addCounter +=1;
+					}
 					boolToReturn = true;
 				}
 				else {
