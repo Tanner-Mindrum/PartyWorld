@@ -307,7 +307,6 @@ public class NewReservationFrame {
         SpinnerModel yearModel = new SpinnerNumberModel(2019, 2019, 2021, 1);
         if (initialYearIndex != -1) {
             initialYearIndex = yearInts.get(initialYearIndex);
-            System.out.println(initialYearIndex);
             yearModel = new SpinnerNumberModel(initialYearIndex, 2019, 2021, 1);
         }
 
@@ -365,7 +364,6 @@ public class NewReservationFrame {
             
             startTimesBox = new JComboBox<String>();
             startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 9).toArray()));
-            System.out.println(initialStartTimeIndex);
             if (initialStartTimeIndex != 0) {
                 startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
             }
@@ -1106,11 +1104,11 @@ public class NewReservationFrame {
                             expirationYear.getSelectedItem().toString(), (int) roomNumberBox.getSelectedItem(), (int) monthSpinner.getValue(), (int) daySpinner.getValue(), (int) yearSpinner.getValue(),
                             milStartTimeInt, milEndTimeInt, partyBagsBox.isSelected(), projectorBox.isSelected(), partyDecorationsBox.getSelectedItem().toString(),
                             mealPlanBox.getSelectedItem().toString());
-                    waitlistCheck = ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem())).reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, partyGoer, true);
+                    waitlistCheck = ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem()) - 1).reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, partyGoer, true);
                     if (waitlistCheck) {
                         WaitlistFrame waitlistFrame = new WaitlistFrame(ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) roomNumberBox.getSelectedItem()), Integer.parseInt(daySpinner.getValue().toString()), monthInt,Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, partyGoer);
                         boolean tempCheck = waitlistFrame.getStatus();
-                        if (tempCheck == false) {
+                        if (!tempCheck) {
                             frame.setVisible(false);
                         
                         }
@@ -1549,7 +1547,6 @@ public class NewReservationFrame {
                         roomNumberBox.addItem(i);
                     }
 
-                    System.out.println(initialStartTimeIndex);
                     startTimesBox = new JComboBox<String>();
                     startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 5).toArray()));
                     if (initialStartTimeIndex != 0) {
