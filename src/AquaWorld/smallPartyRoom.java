@@ -77,7 +77,7 @@ public class smallPartyRoom extends PartyRoom {
 						|| reservationTimes.get(i) <= endTime || endTime <= reservationTimes.get(i + 1)) {
 					if (!justChecking && addCounter == 0) {
 						waitList.add(partyGoer);
-						addCounter +=1;
+						addCounter += 1;
 					}
 					boolToReturn = true;
 				}
