@@ -18,7 +18,6 @@ public class smallPartyRoom extends PartyRoom {
 	private ArrayList<String> reservationDates;
 	private ArrayList<Integer> reservationTimes;
 	private String fullDate;
-	private boolean isWaitlistAccepted;
 	
 	public smallPartyRoom() {
 		fullDate = "";
