@@ -1108,7 +1108,8 @@ public class NewReservationFrame {
                     waitlistCheck = ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem())).reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, partyGoer);
 
                     if (waitlistCheck) {
-                        WaitlistFrame waitlistFrame = new WaitlistFrame();
+                        WaitlistFrame waitlistFrame = new WaitlistFrame(ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) roomNumberBox.getSelectedItem()));
+                        frame.setVisible(false);
                     }
                     else {
                         MainFrame mainFrame = new MainFrame();

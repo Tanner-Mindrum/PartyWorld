@@ -1,5 +1,7 @@
 package gui;
 
+import AquaWorld.PartyRoom;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,6 +25,8 @@ public class WaitlistFrame {
 	private JLabel panelTitle = new JLabel("This room is currently booked at this time. Would you like to be added to the waitlist?");
 	private JFrame waitlistFrame;
 	private JPanel panel;
+	private PartyRoom partyRoom;
+
 
 
 	private static final int FRAME_WIDTH = 450;
@@ -31,14 +35,16 @@ public class WaitlistFrame {
 	/**
 	 * the constructor for the waitlist
 	 */
-	public WaitlistFrame() {
+	public WaitlistFrame(PartyRoom p) {
 		waitlistFrame = new JFrame();
         panel = new JPanel();
+        partyRoom = p;
 
 		waitlistFrame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
 		waitlistFrame.setTitle("Wait List");
         waitlistFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         waitlistFrame.setVisible(true);
+
         addComponents();
         
 	}

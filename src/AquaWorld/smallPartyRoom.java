@@ -18,6 +18,7 @@ public class smallPartyRoom extends PartyRoom {
 	private ArrayList<String> reservationDates;
 	private ArrayList<Integer> reservationTimes;
 	private String fullDate;
+	private boolean isWaitlistAccepted;
 	
 	public smallPartyRoom() {
 		fullDate = "";
@@ -71,7 +72,7 @@ public class smallPartyRoom extends PartyRoom {
 		}
 		else {
 			System.out.println(reservationTimes);
-			//[900, 915, 930, 1000]
+
 			for (int i = 0; i < reservationTimes.size(); i += 2) {
 				if (reservationTimes.get(i) <= startTime || startTime <= reservationTimes.get(i + 1)
 				|| reservationTimes.get(i) <= endTime || endTime <= reservationTimes.get(i + 1)) {
@@ -97,5 +98,4 @@ public class smallPartyRoom extends PartyRoom {
 
 		return boolToReturn;
 	}
-
 }
