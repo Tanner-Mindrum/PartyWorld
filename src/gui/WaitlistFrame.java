@@ -112,15 +112,18 @@ public class WaitlistFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == yesButton) {
-				MainFrame mainFrame = new MainFrame();
 				checkWaitList = false; 
-				waitlistFrame.setVisible(false);
 				if (partyRoom != null) {
+					MainFrame mainFrame = new MainFrame();
 					partyRoom.reserveRoom(month, day, year, startTime, endTime, partyG, false);
+					partyRoom = null;
 				}
+				waitlistFrame.setVisible(false);
 			}
 			else if (e.getSource() == noButton){
-				NewReservationFrame newReservationFrame = new NewReservationFrame();
+				if(partyRoom != null) {
+					NewReservationFrame newReservationFrame = new NewReservationFrame();
+				}
 				checkWaitList = true; 
 				waitlistFrame.setVisible(false);
 				partyRoom = null;
