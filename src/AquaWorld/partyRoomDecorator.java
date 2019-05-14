@@ -23,7 +23,7 @@ public abstract class partyRoomDecorator extends PartyRoom {
 	 * reserves the room to a partygoer
 	 * @return a PartyGoer
 	 */
-	public boolean reserveRoom(int month, int day, int year, int startTime, int endTime, PartyGoer partyGoer) {
+	public boolean reserveRoom(int month, int day, int year, int startTime, int endTime, PartyGoer partyGoer, boolean justChecking) {
 		return false;
 	}
 
