@@ -42,13 +42,14 @@ public class PartyGoer {
     private int monthRes;
     private int dayRes;
     private int yearRes;
-    private String startTime;
-    private String endTime;
+    private int startTime;
+    private int endTime;
     private boolean partyFavorBag;
     private boolean projector;
     private String partyDec;
     private String mealPlanType;
     private MealPlan mealPlan;
+    private String confirmationNum;
 
 //    /**
 //     * constructs the party goer
@@ -66,7 +67,7 @@ public class PartyGoer {
 //        partyGoer = null;
 //    }
 
-    public PartyGoer(String name, String phoneNum, String email, String address, String roomType, String dobMonth, String dobDay, String dobYear, boolean phonePref, boolean emailPref, boolean visaCard, boolean masterCard, boolean aeCard, String nameOnCard, String cardNum, String secCode, String expDateMonth, String expDateYear, int roomNum, int monthRes, int dayRes, int yearRes, String startTime, String endTime, boolean partyFavorBag, boolean projector, String partyDec, String mealPlanType, MealPlan mealPlan) {
+    public PartyGoer(String name, String phoneNum, String email, String address, String roomType, String dobMonth, String dobDay, String dobYear, boolean phonePref, boolean emailPref, boolean visaCard, boolean masterCard, boolean aeCard, String nameOnCard, String cardNum, String secCode, String expDateMonth, String expDateYear, int roomNum, int monthRes, int dayRes, int yearRes, int startTime, int endTime, boolean partyFavorBag, boolean projector, String partyDec, String mealPlanType, MealPlan mealPlan, String confirmationNum) {
         this.name = name;
         this.phoneNum = phoneNum;
         this.email = email;
@@ -96,6 +97,7 @@ public class PartyGoer {
         this.partyDec = partyDec;
         this.mealPlanType = mealPlanType;
         this.mealPlan = mealPlan;
+        this.confirmationNum = confirmationNum;
     }
 
     public String getName() {

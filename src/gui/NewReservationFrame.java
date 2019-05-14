@@ -52,6 +52,16 @@ public class NewReservationFrame {
     private JCheckBox americanExpressBox = new JCheckBox();
 
 
+    private boolean pgPhonePref;
+    private boolean pgEmailPref;
+    private boolean pgVisa;
+    private boolean pgMaster;
+    private boolean pgAE;
+
+    private PartyGoer partyGoer;
+
+
+
     //Spinners
     private JLabel monthLabel;
     private String[] monthStrings;
@@ -191,6 +201,11 @@ public class NewReservationFrame {
         guestInfo();
         upgrades();
         mealPlans();
+        setALayout();
+    }
+
+    private void setALayout() {
+
     }
 
     public void guestInfo() {
@@ -803,6 +818,8 @@ public class NewReservationFrame {
             expirationYear.addItem(i);
         }
 
+//        panel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 10));
+//        experimentLayout.setAlignment(FlowLayout.TRAILING);
         panel.add(nameLabel);
         panel.add(nameField);
         panel.add(phoneNumLabel);
@@ -1073,6 +1090,44 @@ public class NewReservationFrame {
                         monthInt = i;
                     }
                 }
+
+//                private String pgName;
+//                private String pgPhoneNum;
+//                private String pgEmail;
+//                private String pgAddress;
+//                private String pgRoomType;
+//                private String pgDOBMonth;
+//                private String pgDOBDay;
+//                private String pgDOBYear;
+//                private boolean pgPhonePref;
+//                private boolean pgEmailPref;
+//                private boolean pgVisa;
+//                private boolean pgMaster;
+//                private boolean pgAE;
+//                private String pgNameOnCard;
+//                private String pgCardNum;
+//                private String pgSECCode;
+//                private String pgEXPMonth;
+//                private String pgEXPYEAR;
+//                private int pgRoomNum;
+//                private int pgMonthRes;
+//                private int pgDayRes;
+//                private int pgYearRes;
+//                private int pgStartTime;
+//                private int pgEndTime;
+//                private boolean pgPartyFavorBag;
+//                private boolean pgProjector;
+//                private boolean pgPartyDec;
+//                private String pgMealPlanType;
+//                private MealPlan mealPlan;
+                pgPhonePref = phonePreferenceBox.isSelected();
+
+                partyGoer = new PartyGoer(nameField.getText(), phoneNumField.getText(), emailField.getText(), addressField.getText(), roomTypeBox.getSelectedItem().toString(),
+                        month.getSelectedItem().toString(), day.getSelectedItem().toString(), year.getSelectedItem().toString(), phonePreferenceBox.isSelected(), emailPreferenceBox.isSelected(), visaCardBox.isSelected(),
+                        masterCardBox.isSelected(), americanExpressBox.isSelected(), cardName.getText(), cardNumberField.getText(), securityCodeField.getText(), expirationMonth.getSelectedItem().toString(),
+                        expirationYear.getSelectedItem().toString(), (int) roomNumberBox.getSelectedItem(), (int) monthSpinner.getValue(), (int) daySpinner.getValue(), (int) yearSpinner.getValue(),
+                        milStartTimeInt, milEndTimeInt, partyBagsBox.isSelected(), projectorBox.isSelected(), partyDecorationsBox.getSelectedItem().toString(),
+                        mealPlanBox.getSelectedItem().toString(), null);
                 ROOM_TYPE_OBJECTS[foundRoom].reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt);
             }
             
