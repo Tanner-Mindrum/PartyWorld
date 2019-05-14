@@ -60,6 +60,7 @@ public class MainFrame {
 	private String boneInorOut;
 	private String iceCream1;
 	private String iceCream2;
+	private boolean hasBeenPressed = false;
 
 	public MainFrame(){
 
@@ -459,44 +460,47 @@ public class MainFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent click) {
-			if (click.getSource() == smallButton) {
-				System.out.println("SMALL ROOM");
-				DateTimeFrame dateTimeFrame = new DateTimeFrame(true, "Small Party Room");
-				//partyRoomWasClicked = true;
-				frame.setVisible(false);
-				dateTimeFrame.setVisible(true);
-				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			if(!hasBeenPressed) {
+				hasBeenPressed = true;
+				if (click.getSource() == smallButton) {
+					System.out.println("SMALL ROOM");
+					DateTimeFrame dateTimeFrame = new DateTimeFrame(true, "Small Party Room");
+					//partyRoomWasClicked = true;
+					frame.setVisible(false);
+					dateTimeFrame.setVisible(true);
+					dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				}
+				else if (click.getSource() == medButton) {
+					System.out.println("MED ROOM");
+					DateTimeFrame dateTimeFrame = new DateTimeFrame(true, "Medium Party Room");
+					frame.setVisible(false);
+					dateTimeFrame.setVisible(true);
+					dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				}
+				else if (click.getSource() == aquaButton) {
+					System.out.println("AQUA ROOM");
+					DateTimeFrame dateTimeFrame = new DateTimeFrame(true, "Aqua World");
+					frame.setVisible(false);
+					dateTimeFrame.setVisible(true);
+					dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				}
+				else if (click.getSource() == karaokeButton) {
+					System.out.println("KARAOKE ROOM");
+					DateTimeFrame dateTimeFrame = new DateTimeFrame(false, "Karaoke Lounge");
+					frame.setVisible(false);
+					dateTimeFrame.setVisible(true);
+					dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				}
+				else if (click.getSource() == billiardButton) {
+					System.out.println("BILLIARD ROOM");
+					DateTimeFrame dateTimeFrame = new DateTimeFrame(false, "Adult Billiards Lounge");
+					frame.setVisible(false);
+					dateTimeFrame.setVisible(true);
+					dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				}
+				partyRoomWasClicked = false;
+				loungeWasClicked = false;
 			}
-			else if (click.getSource() == medButton) {
-				System.out.println("MED ROOM");
-				DateTimeFrame dateTimeFrame = new DateTimeFrame(true, "Medium Party Room");
-				frame.setVisible(false);
-				dateTimeFrame.setVisible(true);
-				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			}
-			else if (click.getSource() == aquaButton) {
-				System.out.println("AQUA ROOM");
-				DateTimeFrame dateTimeFrame = new DateTimeFrame(true, "Aqua World");
-				frame.setVisible(false);
-				dateTimeFrame.setVisible(true);
-				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			}
-			else if (click.getSource() == karaokeButton) {
-				System.out.println("KARAOKE ROOM");
-				DateTimeFrame dateTimeFrame = new DateTimeFrame(false, "Karaoke Lounge");
-				frame.setVisible(false);
-				dateTimeFrame.setVisible(true);
-				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			}
-			else if (click.getSource() == billiardButton) {
-				System.out.println("BILLIARD ROOM");
-				DateTimeFrame dateTimeFrame = new DateTimeFrame(false, "Adult Billiards Lounge");
-				frame.setVisible(false);
-				dateTimeFrame.setVisible(true);
-				dateTimeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			}
-			partyRoomWasClicked = false;
-			loungeWasClicked = false;
 		}
 	}
 }

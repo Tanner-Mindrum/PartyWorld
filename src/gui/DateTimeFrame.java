@@ -25,7 +25,7 @@ public class DateTimeFrame extends JFrame {
     private JSpinner timeSpinner;
     private JSpinner endTimeSpinner;
     private JButton reserveButton;
-    private Calendar calender;
+    private Calendar calendar;
     private Date date;
     private String[] monthStrings;
     private static ArrayList<Integer> monthInts;

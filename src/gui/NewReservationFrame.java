@@ -401,6 +401,9 @@ public class NewReservationFrame {
             ender = 8;
 
             roomNumberBox = new JComboBox<Integer>();
+            
+                roomNumberBox.addItem(1);
+            
 
             startTimesBox = new JComboBox<String>();
             startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 9).toArray()));
@@ -554,6 +557,7 @@ public class NewReservationFrame {
                     dimension.width = 50;
                     daySpinner.setPreferredSize(dimension);
                     
+                    panel.add(roomNumberBox);
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
                     panel.add(dayLabel);
@@ -665,6 +669,7 @@ public class NewReservationFrame {
                     dimension.width = 50;
                     daySpinner.setPreferredSize(dimension);
                     
+                    panel.add(roomNumberBox);
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
                     panel.add(dayLabel);
@@ -776,6 +781,7 @@ public class NewReservationFrame {
                     dimension.width = 50;
                     daySpinner.setPreferredSize(dimension);
                     
+                    panel.add(roomNumberBox);
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
                     panel.add(dayLabel);
@@ -878,11 +884,6 @@ public class NewReservationFrame {
         panel.add(expirationYear);
         panel.add(roomTypeBox);
         panel.add(roomNumberBox);
-        if (initialRoomDisplay.equals("Aqua World")) {
-            panel.remove(roomNumberBox);
-            //add here
-            panel.repaint();
-        }
         panel.add(monthLabel);
         panel.add(monthSpinner);
         panel.add(dayLabel);
@@ -1105,11 +1106,14 @@ public class NewReservationFrame {
                             expirationYear.getSelectedItem().toString(), (int) roomNumberBox.getSelectedItem(), (int) monthSpinner.getValue(), (int) daySpinner.getValue(), (int) yearSpinner.getValue(),
                             milStartTimeInt, milEndTimeInt, partyBagsBox.isSelected(), projectorBox.isSelected(), partyDecorationsBox.getSelectedItem().toString(),
                             mealPlanBox.getSelectedItem().toString());
-                    waitlistCheck = ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem())).reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, partyGoer);
-
+                    waitlistCheck = ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem())).reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, partyGoer, true);
                     if (waitlistCheck) {
-                        WaitlistFrame waitlistFrame = new WaitlistFrame(ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) roomNumberBox.getSelectedItem()));
-                        frame.setVisible(false);
+                        WaitlistFrame waitlistFrame = new WaitlistFrame(ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) roomNumberBox.getSelectedItem()), Integer.parseInt(daySpinner.getValue().toString()), monthInt,Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, partyGoer);
+                        boolean tempCheck = waitlistFrame.getStatus();
+                        if (tempCheck == false) {
+                            frame.setVisible(false);
+                        
+                        }
                     }
                     else {
                         MainFrame mainFrame = new MainFrame();
@@ -1214,6 +1218,7 @@ public class NewReservationFrame {
                         endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
                     }
 
+                    panel.add(roomNumberBox);
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
                     panel.add(dayLabel);
@@ -1327,6 +1332,7 @@ public class NewReservationFrame {
                         endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
                     }
 
+                    panel.add(roomNumberBox);
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
                     panel.add(dayLabel);
@@ -1440,6 +1446,7 @@ public class NewReservationFrame {
                         endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
                     }
 
+                    panel.add(roomNumberBox);
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
                     panel.add(dayLabel);
@@ -1555,7 +1562,7 @@ public class NewReservationFrame {
                         endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
                     }
 
-                  
+                    panel.add(roomNumberBox);
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
                     panel.add(dayLabel);
@@ -1580,6 +1587,9 @@ public class NewReservationFrame {
 
                 else {
                     aRoomType = "Aqua World";
+                    
+                    roomNumberBox.removeAllItems();
+                    roomNumberBox.repaint();
 
                     panel.remove(timeNotValid);
                     panel.remove(ageCheck);
@@ -1649,6 +1659,10 @@ public class NewReservationFrame {
                 	panel.remove(towelLabel);
                 	panel.remove(towelBox);
                     panel.repaint();
+                    
+                 
+                        roomNumberBox.addItem(1);
+                    
 
                     startTimesBox = new JComboBox<String>();
                     startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 9).toArray()));
@@ -1663,6 +1677,7 @@ public class NewReservationFrame {
                         endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
                     }
 
+                    panel.add(roomNumberBox);
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
                     panel.add(dayLabel);

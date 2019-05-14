@@ -1,5 +1,6 @@
 package gui;
 
+import AquaWorld.PartyGoer;
 import AquaWorld.PartyRoom;
 
 import java.awt.Font;
@@ -26,8 +27,16 @@ public class WaitlistFrame {
 	private JFrame waitlistFrame;
 	private JPanel panel;
 	private PartyRoom partyRoom;
+	private boolean checkWaitList; 
 
-
+	private boolean instantiatedforFrame = false;
+	private int day;
+	private int month;
+	private int year;
+	private int startTime;
+	private int endTime;
+	private PartyGoer partyG;
+	
 
 	private static final int FRAME_WIDTH = 450;
 	private static final int FRAME_HEIGHT = 350;
@@ -49,6 +58,27 @@ public class WaitlistFrame {
         
 	}
 	
+	public WaitlistFrame(PartyRoom p, int day, int month, int year, int startTime, int endTime, PartyGoer partyG){
+		waitlistFrame = new JFrame();
+        panel = new JPanel();
+        partyRoom = p;
+
+		waitlistFrame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+		waitlistFrame.setTitle("Wait List");
+        waitlistFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        waitlistFrame.setVisible(true);
+        
+        instantiatedforFrame = true;
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.partyG = partyG;
+
+        addComponents();
+	}
+	
 	/**
 	 * adds the necessary components to the frame
 	 */
@@ -59,6 +89,16 @@ public class WaitlistFrame {
 		panel.add(yesButton);
 		panel.add(noButton);
 		waitlistFrame.add(panel);
+	}
+
+	public void setStatus(boolean check) {
+		checkWaitList = check; 
+	}
+
+	public boolean getStatus() {
+		
+		return checkWaitList; 
+	
 	}
 	
 	/**
@@ -72,13 +112,21 @@ public class WaitlistFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == yesButton) {
-				MainFrame mainFrame = new MainFrame();
-				//frame.setVisible(false);
+				checkWaitList = false; 
+				if (partyRoom != null) {
+					MainFrame mainFrame = new MainFrame();
+					partyRoom.reserveRoom(month, day, year, startTime, endTime, partyG, false);
+					partyRoom = null;
+				}
 				waitlistFrame.setVisible(false);
 			}
 			else if (e.getSource() == noButton){
-				NewReservationFrame newReservationFrame = new NewReservationFrame();
+				if(partyRoom != null) {
+					NewReservationFrame newReservationFrame = new NewReservationFrame();
+				}
+				checkWaitList = true; 
 				waitlistFrame.setVisible(false);
+				partyRoom = null;
 			}
 			//add to waitlist &
 			

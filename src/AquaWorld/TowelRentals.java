@@ -25,5 +25,11 @@ public class TowelRentals extends partyRoomDecorator{
 	public String getDescription() {
 		return partyRoom.getDescription() + ", towel rental for 2$ each";
 	}
+	@Override
+	public boolean reserveRoom(int month, int day, int year, int startTime, int endTime, PartyGoer partyGoer,
+			boolean checkingAvaliability) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }
