@@ -62,6 +62,19 @@ public class NewReservationFrame {
 
 
 
+    private PartyRoomFactory partyRoomFactory = new PartyRoomFactory();
+
+    //private static AquaWorldRoom aquaWorldRoom = AquaWorldRoom.getInstance();
+
+    private static ArrayList<PartyRoom> smallPartyRooms = new ArrayList<>();
+    private static ArrayList<PartyRoom> medPartyRooms = new ArrayList<>();
+    private static ArrayList<PartyRoom> karaokeLounges = new ArrayList<>();
+    private static ArrayList<PartyRoom> adultBilliardsLounges = new ArrayList<>();
+    private static ArrayList<PartyRoom> aquaWorlds = new ArrayList<>();
+
+
+
+
     //Spinners
     private JLabel monthLabel;
     private String[] monthStrings;
@@ -99,7 +112,7 @@ public class NewReservationFrame {
     
     private JButton reserveButton;
     private JButton cancelButton; 
-    private JFrame frame;
+    protected JFrame frame;
 
     private String[] roomTypes = {"Small Party Room", "Medium Party Room", "Aqua World", "Karaoke Lounge", "Adult Billiards Lounge"};
     private final ArrayList<String> roomTypesArrayList = new ArrayList<>();
@@ -201,10 +214,23 @@ public class NewReservationFrame {
         guestInfo();
         upgrades();
         mealPlans();
-        setALayout();
+        generateRooms();
     }
 
-    private void setALayout() {
+    private void generateRooms() {
+        for (int i = 0; i < 10; i++) {
+            smallPartyRooms.add(partyRoomFactory.smallFactory());
+        }
+        for (int i = 0; i < 2; i++) {
+            medPartyRooms.add(partyRoomFactory.mediumFactory());
+        }
+        for (int i = 0; i < 10; i++) {
+            karaokeLounges.add(partyRoomFactory.karaokeFactory());
+        }
+        for (int i = 5; i < 5; i++) {
+            adultBilliardsLounges.add(partyRoomFactory.loungeFactory());
+        }
+        aquaWorlds.add(partyRoomFactory.aquaFactory());
 
     }
 
@@ -239,9 +265,6 @@ public class NewReservationFrame {
         for (int i = 0; i < monthStrings.length; i++) {
             monthsToAdd.add(monthStrings[i]);
         }
-
-        System.out.println(monthsToAdd);
-        System.out.println(monthsToAdd.subList(initialMonthIndex, monthsToAdd.size()));
 
         //SpinnerListModel monthModel = new SpinnerListModel(monthStrings);
         SpinnerModel monthModel = new SpinnerNumberModel(1, 1, monthsToAdd.size(), 1);
@@ -941,6 +964,9 @@ public class NewReservationFrame {
 
     class guestInfoListener implements ActionListener {
         JLabel ageCheck = new JLabel("You are not old enough");
+        JLabel timeNotValid = new JLabel("Reservation time not valid.");
+        boolean waitlistCheck = false;
+
         @Override
         public void actionPerformed(ActionEvent e) {
             String roomType = (String) roomTypeBox.getSelectedItem();
@@ -970,22 +996,6 @@ public class NewReservationFrame {
             
 
             if (e.getSource() == reserveButton) {
-//                guest.setName(tempName);
-//                guest.setPhoneNum(tempPhoneNum);
-//                guest.setAddress(tempAddress);
-//                guest.setDOB(tempMonth, tempDay, tempYear);
-//                guest.setCreditCardInfo(tempCreditCardInfo);
-//                guest.setRoomType(roomType);
-//                guest.setEmail(tempEmail);
-//                guest.setCardName(tempCardName);
-//                guest.setExpirationDate(tempExpirationMonth, tempExpirationYear);
-
-//                MealPlan baMealPlan = new basicMeal();
-//                MealPlan brMealPlan = new bronzeMeal();
-//                MealPlan sMealPlan = new silverMeal();
-//                MealPlan gMealPlan = new goldMeal();
-//                MealPlan pMealPlan = new platMeal();
-
 
                 if (mealPlanBox.getSelectedItem().equals("Basic Meal Plan")) {
                     MealPlan baMealPlan = new basicMeal((String) soda1.getSelectedItem(), (String) soda2.getSelectedItem(), (String) soda3.getSelectedItem(), (String) toppings1.getSelectedItem(),
@@ -1008,8 +1018,6 @@ public class NewReservationFrame {
 //                            (String) toppings2.getSelectedItem(), (String) toppings3.getSelectedItem());
 //                }
 
-//                PartyGoer guest = new PartyGoer();
-
 
                 LocalDate today = LocalDate.now();
                 LocalDate birthDay = LocalDate.of(1998, 5, 15);
@@ -1024,21 +1032,13 @@ public class NewReservationFrame {
                    
                 }
 
-                smallPartyRoom smallPartyRoom = new smallPartyRoom();
-                mediumPartyRoom medPartyRoom = new mediumPartyRoom();
-                AquaWorldRoom aquaWorldRoom = AquaWorldRoom.getInstance();
-                karaokeLounge karaokeLounge = new karaokeLounge();
-                AdultBilliardsLounge adultBilliardsLounge = new AdultBilliardsLounge();
-                final PartyRoom[] ROOM_TYPE_OBJECTS = {smallPartyRoom, medPartyRoom, aquaWorldRoom, karaokeLounge, adultBilliardsLounge};
+                ArrayList<ArrayList<PartyRoom>> ROOM_TYPE_OBJECTS = new ArrayList<>();
+                ROOM_TYPE_OBJECTS.add(smallPartyRooms);
+                ROOM_TYPE_OBJECTS.add(medPartyRooms);
+                ROOM_TYPE_OBJECTS.add(aquaWorlds);
+                ROOM_TYPE_OBJECTS.add(karaokeLounges);
+                ROOM_TYPE_OBJECTS.add(adultBilliardsLounges);
                 String[] ROOM_TYPES = {"Small Party Room", "Medium Party Room", "Aqua World", "Karaoke Lounge", "Adult Billiards Lounge"};
-                foundRoom = 0;
-                for (int i = 0; i < ROOM_TYPES.length; i++) {
-                    if (ROOM_TYPES[i].equals(aRoomType)) {
-                        System.out.println(ROOM_TYPES[i]);
-                        foundRoom = i;
-                    }
-                }
-                System.out.println(foundRoom);
 
                 String numString = "";
                 String numStringEnd = "";
@@ -1091,17 +1091,31 @@ public class NewReservationFrame {
                     }
                 }
 
+                panel.remove(timeNotValid);
+                panel.repaint();
+                if (milEndTimeInt <= milStartTimeInt) {
+                    panel.add(timeNotValid);
+                    panel.revalidate();
+                }
 
-                pgPhonePref = phonePreferenceBox.isSelected();
+                else {
+                    partyGoer = new PartyGoer(nameField.getText(), phoneNumField.getText(), emailField.getText(), addressField.getText(), roomTypeBox.getSelectedItem().toString(),
+                            month.getSelectedItem().toString(), day.getSelectedItem().toString(), year.getSelectedItem().toString(), phonePreferenceBox.isSelected(), emailPreferenceBox.isSelected(), visaCardBox.isSelected(),
+                            masterCardBox.isSelected(), americanExpressBox.isSelected(), cardName.getText(), cardNumberField.getText(), securityCodeField.getText(), expirationMonth.getSelectedItem().toString(),
+                            expirationYear.getSelectedItem().toString(), (int) roomNumberBox.getSelectedItem(), (int) monthSpinner.getValue(), (int) daySpinner.getValue(), (int) yearSpinner.getValue(),
+                            milStartTimeInt, milEndTimeInt, partyBagsBox.isSelected(), projectorBox.isSelected(), partyDecorationsBox.getSelectedItem().toString(),
+                            mealPlanBox.getSelectedItem().toString());
+                    waitlistCheck = ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem())).reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, partyGoer);
 
-                partyGoer = new PartyGoer(nameField.getText(), phoneNumField.getText(), emailField.getText(), addressField.getText(), roomTypeBox.getSelectedItem().toString(),
-                        month.getSelectedItem().toString(), day.getSelectedItem().toString(), year.getSelectedItem().toString(), phonePreferenceBox.isSelected(), emailPreferenceBox.isSelected(), visaCardBox.isSelected(),
-                        masterCardBox.isSelected(), americanExpressBox.isSelected(), cardName.getText(), cardNumberField.getText(), securityCodeField.getText(), expirationMonth.getSelectedItem().toString(),
-                        expirationYear.getSelectedItem().toString(), (int) roomNumberBox.getSelectedItem(), (int) monthSpinner.getValue(), (int) daySpinner.getValue(), (int) yearSpinner.getValue(),
-                        milStartTimeInt, milEndTimeInt, partyBagsBox.isSelected(), projectorBox.isSelected(), partyDecorationsBox.getSelectedItem().toString(),
-                        mealPlanBox.getSelectedItem().toString());
-                //partyGoer.getName();
-                ROOM_TYPE_OBJECTS[foundRoom].reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt);
+                    if (waitlistCheck) {
+                        WaitlistFrame waitlistFrame = new WaitlistFrame();
+                    }
+                    else {
+                        MainFrame mainFrame = new MainFrame();
+                        frame.setVisible(false);
+                    }
+                }
+
             }
             
             else if (e.getSource() == cancelButton) {
@@ -1113,6 +1127,8 @@ public class NewReservationFrame {
                     aRoomType = "Small Party Room";
                     roomNumberBox.removeAllItems();
 
+                    panel.remove(timeNotValid);
+                    panel.remove(ageCheck);
                     panel.remove(cancelButton);
                     panel.remove(reserveButton);
                     panel.remove(roomNumberBox);
@@ -1186,12 +1202,16 @@ public class NewReservationFrame {
 
                     startTimesBox = new JComboBox<String>();
                     startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 9).toArray()));
-                    startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
+                    if (initialStartTimeIndex != 0) {
+                        startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
+                    }
 
                     //End time spinner
                     endTimesBox = new JComboBox<String>();
                     endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 8).toArray()));
-                    endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
+                    if (initialEndTimeIndex != 0) {
+                        endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
+                    }
 
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
@@ -1220,6 +1240,8 @@ public class NewReservationFrame {
                     aRoomType = "Medium Party Room";
                     roomNumberBox.removeAllItems();
 
+                    panel.remove(timeNotValid);
+                    panel.remove(ageCheck);
                     panel.remove(cancelButton);
                     panel.remove(reserveButton);
                     panel.remove(roomNumberBox);
@@ -1293,12 +1315,16 @@ public class NewReservationFrame {
 
                     startTimesBox = new JComboBox<String>();
                     startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 9).toArray()));
-                    startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
+                    if (initialStartTimeIndex != 0) {
+                        startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
+                    }
 
                     //End time spinner
                     endTimesBox = new JComboBox<String>();
                     endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 8).toArray()));
-                    endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
+                    if (initialEndTimeIndex != 0) {
+                        endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
+                    }
 
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
@@ -1328,6 +1354,8 @@ public class NewReservationFrame {
                     aRoomType = "Karaoke Lounge";
                     roomNumberBox.removeAllItems();
 
+                    panel.remove(timeNotValid);
+                    panel.remove(ageCheck);
                     panel.remove(cancelButton);
                     panel.remove(reserveButton);
                     panel.remove(roomNumberBox);
@@ -1401,11 +1429,15 @@ public class NewReservationFrame {
 
                     startTimesBox = new JComboBox<String>();
                     startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 5).toArray()));
-                    startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
+                    if (initialStartTimeIndex != 0) {
+                        startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
+                    }
 
                     endTimesBox = new JComboBox<String>();
                     endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 4).toArray()));
-                    endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
+                    if (initialEndTimeIndex != 0) {
+                        endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
+                    }
 
                     panel.add(monthLabel);
                     panel.add(monthSpinner);
@@ -1434,7 +1466,10 @@ public class NewReservationFrame {
                     aRoomType = "Adult Billiards Lounge";
 
                     roomNumberBox.removeAllItems();
+                    roomNumberBox.repaint();
 
+                    panel.remove(timeNotValid);
+                    panel.remove(ageCheck);
                     panel.remove(cancelButton);
                     panel.remove(reserveButton);
                     panel.remove(roomNumberBox);
@@ -1506,13 +1541,18 @@ public class NewReservationFrame {
                         roomNumberBox.addItem(i);
                     }
 
+                    System.out.println(initialStartTimeIndex);
                     startTimesBox = new JComboBox<String>();
                     startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 5).toArray()));
-                    startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
+                    if (initialStartTimeIndex != 0) {
+                        startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
+                    }
 
                     endTimesBox = new JComboBox<String>();
                     endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 4).toArray()));
-                    endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
+                    if (initialEndTimeIndex != 0) {
+                        endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
+                    }
 
                   
                     panel.add(monthLabel);
@@ -1539,7 +1579,9 @@ public class NewReservationFrame {
 
                 else {
                     aRoomType = "Aqua World";
-                    
+
+                    panel.remove(timeNotValid);
+                    panel.remove(ageCheck);
                     panel.remove(cancelButton);
                     panel.remove(reserveButton);
                     panel.remove(roomNumberBox);
@@ -1609,12 +1651,16 @@ public class NewReservationFrame {
 
                     startTimesBox = new JComboBox<String>();
                     startTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 9).toArray()));
-                    startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
+                    if (initialStartTimeIndex != 0) {
+                        startTimesBox.setSelectedIndex(initialStartTimeIndex - 4);
+                    }
 
                     //End time spinner
                     endTimesBox = new JComboBox<String>();
                     endTimesBox.setModel(new DefaultComboBoxModel(timeInts.subList(0, timeInts.size() - 8).toArray()));
-                    endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
+                    if (initialEndTimeIndex != 0) {
+                        endTimesBox.setSelectedIndex(initialEndTimeIndex - 4);
+                    }
 
                     panel.add(monthLabel);
                     panel.add(monthSpinner);

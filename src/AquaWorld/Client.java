@@ -53,15 +53,15 @@ public class Client {
         System.out.println(newAqua.getRestrictions());
 
         //Testing PartyRoomFactory class
-        PartyRoomFactory roomFactory = new PartyRoomFactory();
-        roomFactory.aquaFactory();
-        roomFactory.aquaFactory();
-        mediumPartyRoom medRoom1 = roomFactory.mediumFactory();
-        mediumPartyRoom medRoom2 = roomFactory.mediumFactory();
-        medRoom1.setDescription("First object");
-        medRoom2.setDescription("Second object");
-        System.out.println(medRoom1.getDescription());
-        System.out.println(medRoom2.getDescription());
+        //PartyRoomFactory roomFactory = new PartyRoomFactory();
+//        roomFactory.aquaFactory();
+//        roomFactory.aquaFactory();
+//        mediumPartyRoom medRoom1 = roomFactory.mediumFactory();
+//        mediumPartyRoom medRoom2 = roomFactory.mediumFactory();
+//        medRoom1.setDescription("First object");
+//        medRoom2.setDescription("Second object");
+//        System.out.println(medRoom1.getDescription());
+//        System.out.println(medRoom2.getDescription());
         MainFrame frame = new MainFrame();
 
         Scanner in = new Scanner(System.in);

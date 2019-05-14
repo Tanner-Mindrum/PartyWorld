@@ -99,11 +99,9 @@ public class PartyRoomFactory {
 	 */
 	public AquaWorldRoom aquaFactory() {
 		if (bookedAquaRoom == 0) {
-			System.out.println("Added to waitlist");
-			return null; 
+			return null;
 		}
 		else {
-
 			bookedAquaRoom--;
 			return aquaRoom;	
 		}

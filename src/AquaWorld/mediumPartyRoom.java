@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  * This class is the medium party room that holds the waitlist and description 
  */
-public class mediumPartyRoom extends PartyRoom{
+public class mediumPartyRoom extends PartyRoom {
 	private mediumPartyRoom partyRoom; //This could be dangerous as it is already created by the factory
 	private String Description = "Capacity: 45 people\nCost: $250/hr\nIncluded in cost:\n\t-Basic Meal Plan\n\t-Table & Chair Set-up\n\t-DJ\n"
 			+ "Upgrades Available:\n\t-Upgrade Meal Plan\tCost: $3 X (meal plan cost)\n\t-Party favor bags\t Cost: $5 per bag\n\t"
@@ -23,14 +23,13 @@ public class mediumPartyRoom extends PartyRoom{
 		return 0;
 	}
 
-	@Override
 	/**
 	 * reserves the room to a partygoer
 	 * @return a PartyGoer
 	 */
-	public PartyGoer reserveRoom(int month, int day, int year, int startTime, int endTime) {
+	public boolean reserveRoom(int month, int day, int year, int startTime, int endTime, PartyGoer partyGoer) {
 		System.out.println("Reserved med room");
-		return null;
+		return false;
 	}
 
 	/**

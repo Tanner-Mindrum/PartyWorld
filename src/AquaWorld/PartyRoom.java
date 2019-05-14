@@ -166,6 +166,6 @@ public abstract class PartyRoom {
 	 * reserves the room for the partyGoer
 	 * @return the partyGoer 
 	 */
-	public abstract PartyGoer reserveRoom(int month, int day, int year, int startTime, int endTime);
+	public abstract boolean reserveRoom(int month, int day, int year, int startTime, int endTime, PartyGoer partyGoer);
 
 }

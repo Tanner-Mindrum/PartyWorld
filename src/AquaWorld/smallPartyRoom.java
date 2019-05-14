@@ -15,12 +15,12 @@ public class smallPartyRoom extends PartyRoom {
 			+ "     Themes: Hawaiian, Sea Life, Jungle, Space, or Modern";
 	private ArrayList<PartyGoer> reservationList;
 	private ArrayList<PartyGoer> waitList;
-	private ArrayList<Integer> reservationDates;
+	private ArrayList<String> reservationDates;
 	private ArrayList<Integer> reservationTimes;
-	private Integer fullDate;
+	private String fullDate;
 	
 	public smallPartyRoom() {
-		fullDate = 0;
+		fullDate = "";
 		reservationTimes = new ArrayList<>();
 		reservationDates = new ArrayList<>();
 		waitList = new ArrayList<PartyGoer>();
@@ -51,26 +51,51 @@ public class smallPartyRoom extends PartyRoom {
 		return 0;
 	}
 
-	@Override
 	/**
 	 * reserves the room
 	 * @return the PartyGoer that reserved the room
 	 */
-	public PartyGoer reserveRoom(int month, int day, int year, int startTime, int endTime) {
-
-		fullDate = month + day + year;
+	public boolean reserveRoom(int month, int day, int year, int startTime, int endTime, PartyGoer partyGoer) {
+		boolean boolToReturn = false;
+		fullDate = Integer.toString(month) + Integer.toString(day) + Integer.toString(year);
+		System.out.println("Their room date: " + fullDate);
+		System.out.println("Their start time: " + startTime);
+		System.out.println("Their end time: " + endTime);
 
 		//Check date
 		if (!reservationDates.contains(fullDate)) {
-			//reservationList.add()
+			reservationList.add(partyGoer);
+			reservationDates.add(fullDate);
+			reservationTimes.add(startTime);
+			reservationTimes.add(endTime);
 		}
-		reservationDates.add(fullDate);
-		System.out.println(startTime);
-		System.out.println(endTime);
-		reservationTimes.add(startTime);
-		reservationTimes.add(endTime);
+		else {
+			System.out.println(reservationTimes);
+			//[900, 915, 930, 1000]
+			for (int i = 0; i < reservationTimes.size(); i += 2) {
+				if (reservationTimes.get(i) <= startTime || startTime <= reservationTimes.get(i + 1)
+				|| reservationTimes.get(i) <= endTime || endTime <= reservationTimes.get(i + 1)) {
+					waitList.add(partyGoer);
+					boolToReturn = true;
+				}
+				else {
+					reservationList.add(partyGoer);
+					boolToReturn = false;
+				}
+			}
+		}
 
-		return null;
+		System.out.println("Reservation List: ");
+		for (int i = 0; i < reservationList.size(); i++) {
+			System.out.println(reservationList.get(i).getName() + reservationList.get(i).getRoomNum());
+		}
+		System.out.println("Waitlist: ");
+		for (int i = 0; i < waitList.size(); i++) {
+			System.out.println(waitList.get(i).getName() + waitList.get(i).getRoomNum());
+		}
+
+
+		return boolToReturn;
 	}
 
 }
