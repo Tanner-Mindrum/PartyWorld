@@ -19,6 +19,14 @@ public class AdultBilliardsLounge extends PartyRoom {
 	private ArrayList<Integer> reservationTimes;
 	private String fullDate;
 
+	
+	public AdultBilliardsLounge() {
+		fullDate = "";
+		reservationTimes = new ArrayList<>();
+		reservationDates = new ArrayList<>();
+		waitList = new ArrayList<PartyGoer>();
+		reservationList = new ArrayList<>();
+	}
 
 	/**
 	 * gets the description of the room

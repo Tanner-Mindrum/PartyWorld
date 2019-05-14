@@ -19,6 +19,13 @@ public class mediumPartyRoom extends PartyRoom {
 	private ArrayList<Integer> reservationTimes;
 	private String fullDate;
 	
+	public mediumPartyRoom() {
+		fullDate = "";
+		reservationTimes = new ArrayList<>();
+		reservationDates = new ArrayList<>();
+		waitList = new ArrayList<PartyGoer>();
+		reservationList = new ArrayList<>();
+	}
 	/**
 	 * calculates the cost of the room
 	 * @return the cost as a double

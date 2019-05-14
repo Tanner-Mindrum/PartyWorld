@@ -24,6 +24,11 @@ public class AquaWorldRoom extends PartyRoom{
 	 * constructor of the aquaworldroom
 	 */
 	private AquaWorldRoom() {
+		fullDate = "";
+		reservationTimes = new ArrayList<>();
+		reservationDates = new ArrayList<>();
+		waitList = new ArrayList<PartyGoer>();
+		reservationList = new ArrayList<>();
 		restrictions = "To access water facilities, bathing suits must be worn at all times.";
 		description = "Capacity: 75 people\nCost: $700/hr\nIncluded in cost:\n\t-Basic Meal Plan\n\t-Table & Chair Set-up\n\t-access to showers/lockers\n\t"
 				+ "-life guards on duty\n\t-DJ\n"
