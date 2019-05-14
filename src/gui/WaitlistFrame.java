@@ -1,5 +1,6 @@
 package gui;
 
+import AquaWorld.PartyGoer;
 import AquaWorld.PartyRoom;
 
 import java.awt.Font;
@@ -28,7 +29,14 @@ public class WaitlistFrame {
 	private PartyRoom partyRoom;
 	private boolean checkWaitList; 
 
-
+	private boolean instantiatedforFrame = false;
+	private int day;
+	private int month;
+	private int year;
+	private int startTime;
+	private int endTime;
+	private PartyGoer partyG;
+	
 
 	private static final int FRAME_WIDTH = 450;
 	private static final int FRAME_HEIGHT = 350;
@@ -48,6 +56,27 @@ public class WaitlistFrame {
 
         addComponents();
         
+	}
+	
+	public WaitlistFrame(PartyRoom p, int day, int month, int year, int startTime, int endTime, PartyGoer partyG){
+		waitlistFrame = new JFrame();
+        panel = new JPanel();
+        partyRoom = p;
+
+		waitlistFrame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+		waitlistFrame.setTitle("Wait List");
+        waitlistFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        waitlistFrame.setVisible(true);
+        
+        instantiatedforFrame = true;
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.partyG = partyG;
+
+        addComponents();
 	}
 	
 	/**
@@ -86,11 +115,15 @@ public class WaitlistFrame {
 				MainFrame mainFrame = new MainFrame();
 				checkWaitList = false; 
 				waitlistFrame.setVisible(false);
+				if (partyRoom != null) {
+					partyRoom.reserveRoom(month, day, year, startTime, endTime, partyG, false);
+				}
 			}
 			else if (e.getSource() == noButton){
 				NewReservationFrame newReservationFrame = new NewReservationFrame();
 				checkWaitList = true; 
 				waitlistFrame.setVisible(false);
+				partyRoom = null;
 			}
 			//add to waitlist &
 			
