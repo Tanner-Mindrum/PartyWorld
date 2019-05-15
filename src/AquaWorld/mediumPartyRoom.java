@@ -110,4 +110,7 @@ public class mediumPartyRoom extends PartyRoom {
 	
 	//We need to fix this for all classes
 
+	public void removeReservation(PartyGoer p) {
+	}
+
 }

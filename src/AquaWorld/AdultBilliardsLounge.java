@@ -111,4 +111,7 @@ public class AdultBilliardsLounge extends PartyRoom {
 		return boolToReturn;
 	}
 
+	public void removeReservation(PartyGoer p) {
+	}
+
 }

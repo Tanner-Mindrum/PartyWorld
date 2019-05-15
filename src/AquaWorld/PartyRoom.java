@@ -2,7 +2,7 @@ package AquaWorld;
 
 import java.util.ArrayList;
 
-public abstract class PartyRoom {
+public class PartyRoom {
     private String description; //description of what room has e.g. party tables, chairs
     private int capacity; //capacity how much people room can fit
     private double cost; //cost per hour to rent room
@@ -11,6 +11,8 @@ public abstract class PartyRoom {
     private PartyGoer partyGoerInfo;
     private boolean reservationMade;
     private String notification;
+
+    private static ArrayList<PartyGoer> allPartyGoers = new ArrayList<>();
 
 
     /**
@@ -127,7 +129,9 @@ public abstract class PartyRoom {
      * calculates the cost
      * @return the cost as a double
      */
-    public abstract double calculateCost();
+    public double calculateCost() {
+        return 0;
+    }
 
     /**
      * gets the meal plans
@@ -161,10 +165,23 @@ public abstract class PartyRoom {
 		this.partyGoerInfo = partyGoerInfo;
 	}
 
+	public void addPartyGoer(PartyGoer p) {
+	    allPartyGoers.add(p);
+    }
+
 
 	/**
 	 * reserves the room for the partyGoer
 	 * @return the partyGoer 
 	 */
-	public abstract boolean reserveRoom(int month, int day, int year, int startTime, int endTime, PartyGoer partyGoer, boolean checkingAvaliability);
+	public boolean reserveRoom(int month, int day, int year, int startTime, int endTime, PartyGoer partyGoer, boolean checkingAvaliability) {
+	    return false;
+    };
+
+	public ArrayList<PartyGoer> getAllPartyGoers() {
+	    return allPartyGoers;
+    }
+
+    public void removeReservation(PartyGoer p) {
+    }
 }

@@ -70,6 +70,7 @@ public class smallPartyRoom extends PartyRoom {
 			confirmationNum++;
 			partyGoer.setConfirmationNum(Integer.toString(confirmationNum));
 			reservationList.add(partyGoer);
+			super.addPartyGoer(partyGoer);
 			reservationDates.add(fullDate);
 			reservationTimes.add(startTime);
 			reservationTimes.add(endTime);
@@ -78,8 +79,9 @@ public class smallPartyRoom extends PartyRoom {
 			//System.out.println(reservationTimes);
 			int addCounter = 0;
 			for (int i = 0; i < reservationTimes.size(); i += 2) {
-				if (reservationTimes.get(i) <= startTime || startTime <= reservationTimes.get(i + 1)
-						|| reservationTimes.get(i) <= endTime || endTime <= reservationTimes.get(i + 1)) {
+				//[900, 915]
+				if (reservationTimes.get(i) <= startTime && startTime <= reservationTimes.get(i + 1)
+						|| reservationTimes.get(i) <= endTime && endTime <= reservationTimes.get(i + 1)) {
 					if (!justChecking && addCounter == 0) {
 						partyGoer.setConfirmationNum(null);
 						waitList.add(partyGoer);
@@ -91,6 +93,7 @@ public class smallPartyRoom extends PartyRoom {
 					confirmationNum++;
 					partyGoer.setConfirmationNum(Integer.toString(confirmationNum));
 					reservationList.add(partyGoer);
+					super.addPartyGoer(partyGoer);
 					boolToReturn = false;
 				}
 			}
@@ -106,5 +109,29 @@ public class smallPartyRoom extends PartyRoom {
 		}
 
 		return boolToReturn;
+	}
+
+	public void removeReservation(PartyGoer p) {
+		for (int i = 0; i < reservationList.size(); i++) {
+			if (reservationList.get(i).getConfirmationNum().equals(p.getConfirmationNum())) {
+				reservationList.remove(reservationList.get(i));
+			}
+		}
+
+		for (int i = 0; i < waitList.size(); i++) {
+			if (waitList.get(i).getName().equals(p.getName())) {
+				waitList.remove(waitList.get(i));
+			}
+		}
+
+		System.out.println("JUST DELETED");
+		System.out.println("Reservation List: ");
+		for (int i = 0; i < reservationList.size(); i++) {
+			System.out.println(reservationList.get(i).getName() + " for room " + reservationList.get(i).getRoomNum() + " confirmation #: " + reservationList.get(i).getConfirmationNum());
+		}
+		System.out.println("Waitlist: ");
+		for (int i = 0; i < waitList.size(); i++) {
+			System.out.println(waitList.get(i).getName() + " for room " + waitList.get(i).getRoomNum() + " confirmation #: " + waitList.get(i).getConfirmationNum());
+		}
 	}
 }

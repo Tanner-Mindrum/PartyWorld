@@ -115,4 +115,7 @@ public class karaokeLounge extends PartyRoom {
 //				+ "-Projector\t\tCost: $10/hour\n\t-Party Decorations & set-Up       Cost: $100\n\t"
 //				+ "     Themes: Hawaiian, Sea Life, Jungle, Space, or Modern";
 	}
+
+	public void removeReservation(PartyGoer p) {
+	}
 }

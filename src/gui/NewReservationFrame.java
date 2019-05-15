@@ -198,7 +198,12 @@ public class NewReservationFrame {
     private JLabel Pizza3 = new JLabel("Pizza #3: ");
     private JLabel Pizza4 = new JLabel("Pizza #4: ");
     private JLabel boneLabel = new JLabel("Bone In or Bone Out?: ");
-    
+
+    Client client = new Client();
+
+    ArrayList<ArrayList<PartyRoom>> ROOM_TYPE_OBJECTS = client.getROOM_TYPE_OBJECTS();
+
+
     private static int ender = 0;
 
     private static ArrayList<String> monthsToAdd;
@@ -218,31 +223,32 @@ public class NewReservationFrame {
         guestInfo();
         upgrades();
         mealPlans();
-        generateRooms();
+        client.generateRooms();
         currentDate(); 
     }
 
-    private void generateRooms() {
-        for (int i = 0; i < 10; i++) {
-            smallPartyRooms.add(partyRoomFactory.smallFactory());
-        }
-        for (int i = 0; i < 2; i++) {
-            medPartyRooms.add(partyRoomFactory.mediumFactory());
-        }
-        for (int i = 0; i < 10; i++) {
-            karaokeLounges.add(partyRoomFactory.karaokeFactory());
-        }
-        for (int i = 5; i < 5; i++) {
-            adultBilliardsLounges.add(partyRoomFactory.loungeFactory());
-        }
-        aquaWorlds.add(partyRoomFactory.aquaFactory());
+//    private void generateRooms() {
+//        for (int i = 0; i < 10; i++) {
+//            smallPartyRooms.add(partyRoomFactory.smallFactory());
+//        }
+//        for (int i = 0; i < 2; i++) {
+//            medPartyRooms.add(partyRoomFactory.mediumFactory());
+//        }
+//        for (int i = 0; i < 10; i++) {
+//            karaokeLounges.add(partyRoomFactory.karaokeFactory());
+//        }
+//        for (int i = 0; i < 5; i++) {
+//            adultBilliardsLounges.add(partyRoomFactory.loungeFactory());
+//        }
+//        aquaWorlds.add(partyRoomFactory.aquaFactory());
+//
+//    }
 
-    }
-    public void edit() {
+    public void edit(int i) {
         frame.setTitle("Edit Reservation");
         deleteButton = new JButton("Delete Reservation");
-        acceptButton = new JButton("Edit Reservation");
-        panel.add(acceptButton);
+        //acceptButton = new JButton("Edit Reservation");
+        //panel.add(acceptButton);
         panel.add(deleteButton);
         panel.revalidate(); 
     }
@@ -1048,12 +1054,13 @@ public class NewReservationFrame {
                    
                 }
 
-                ArrayList<ArrayList<PartyRoom>> ROOM_TYPE_OBJECTS = new ArrayList<>();
-                ROOM_TYPE_OBJECTS.add(smallPartyRooms);
-                ROOM_TYPE_OBJECTS.add(medPartyRooms);
-                ROOM_TYPE_OBJECTS.add(aquaWorlds);
-                ROOM_TYPE_OBJECTS.add(karaokeLounges);
-                ROOM_TYPE_OBJECTS.add(adultBilliardsLounges);
+//                ArrayList<ArrayList<PartyRoom>> ROOM_TYPE_OBJECTS = new ArrayList<>();
+//                ROOM_TYPE_OBJECTS.add(smallPartyRooms);
+//                ROOM_TYPE_OBJECTS.add(medPartyRooms);
+//                ROOM_TYPE_OBJECTS.add(aquaWorlds);
+//                ROOM_TYPE_OBJECTS.add(karaokeLounges);
+//                ROOM_TYPE_OBJECTS.add(adultBilliardsLounges);
+
                 String[] ROOM_TYPES = {"Small Party Room", "Medium Party Room", "Aqua World", "Karaoke Lounge", "Adult Billiards Lounge"};
 
                 String numString = "";
@@ -1123,10 +1130,7 @@ public class NewReservationFrame {
                             mealPlanBox.getSelectedItem().toString());
                     waitlistCheck = ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem()) - 1).reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, partyGoer, true);
                     globalPartyGoerList.add(partyGoer);
-                    System.out.println("global list");
-                    for (int i = 0; i < globalPartyGoerList.size(); i++) {
-            			System.out.println(globalPartyGoerList.get(i).getName());
-            		}
+
                     if (waitlistCheck) {
                         WaitlistFrame waitlistFrame = new WaitlistFrame(ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) roomNumberBox.getSelectedItem() - 1), Integer.parseInt(daySpinner.getValue().toString()), monthInt,Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, partyGoer);
                         boolean tempCheck = waitlistFrame.getStatus();
@@ -1990,6 +1994,14 @@ public class NewReservationFrame {
             }
         }
 
+    }
+
+    public ArrayList<PartyGoer> getGlobalPartyGoerList() {
+        return globalPartyGoerList;
+    }
+
+    public ArrayList<ArrayList<PartyRoom>> getRoomTypeList() {
+        return ROOM_TYPE_OBJECTS;
     }
 }
 

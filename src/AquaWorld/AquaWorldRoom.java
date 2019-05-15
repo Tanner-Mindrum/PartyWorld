@@ -143,5 +143,8 @@ public class AquaWorldRoom extends PartyRoom{
 		return boolToReturn;
 	}
 
+	public void removeReservation(PartyGoer p) {
+	}
+
 
 }
