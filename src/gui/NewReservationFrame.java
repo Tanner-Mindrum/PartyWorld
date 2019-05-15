@@ -237,10 +237,8 @@ public class NewReservationFrame {
 
     public void currentDate() {
         
-        
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, 1);
-        
         System.out.println(calendar.get(Calendar.MONTH) + "/"  + calendar.get(Calendar.DAY_OF_MONTH)  + "/" + calendar.get(Calendar.YEAR));
         
     }
