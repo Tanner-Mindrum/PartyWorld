@@ -300,22 +300,22 @@ public class EditReservationFrame {
 //        currentDate();
 //    }
 
-    private void generateRooms() {
-        for (int i = 0; i < 10; i++) {
-            smallPartyRooms.add(partyRoomFactory.smallFactory());
-        }
-        for (int i = 0; i < 2; i++) {
-            medPartyRooms.add(partyRoomFactory.mediumFactory());
-        }
-        for (int i = 0; i < 10; i++) {
-            karaokeLounges.add(partyRoomFactory.karaokeFactory());
-        }
-        for (int i = 0; i < 5; i++) {
-            adultBilliardsLounges.add(partyRoomFactory.loungeFactory());
-        }
-        aquaWorlds.add(partyRoomFactory.aquaFactory());
-
-    }
+//    private void generateRooms() {
+//        for (int i = 0; i < 10; i++) {
+//            smallPartyRooms.add(partyRoomFactory.smallFactory());
+//        }
+//        for (int i = 0; i < 2; i++) {
+//            medPartyRooms.add(partyRoomFactory.mediumFactory());
+//        }
+//        for (int i = 0; i < 10; i++) {
+//            karaokeLounges.add(partyRoomFactory.karaokeFactory());
+//        }
+//        for (int i = 0; i < 5; i++) {
+//            adultBilliardsLounges.add(partyRoomFactory.loungeFactory());
+//        }
+//        aquaWorlds.add(partyRoomFactory.aquaFactory());
+//
+//    }
 
 //    public void edit(int i) {
 //        frame.setTitle("Edit Reservation");
@@ -1249,7 +1249,7 @@ public class EditReservationFrame {
                 System.out.println((int) (roomNumberBox.getSelectedItem()) - 1);
                 System.out.println(currentPartyGoer.getName());
                 System.out.println(ROOM_TYPE_OBJECTS);
-                ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem()) - 1).removeReservation(currentPartyGoer);
+                client.getROOM_TYPE_OBJECTS().get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem()) - 1).removeReservation(currentPartyGoer);
 
             }
 
@@ -2231,7 +2231,7 @@ public class EditReservationFrame {
                         guestInfo(currentPartyGoer);
                         upgrades();
                         mealPlans();
-                        generateRooms();
+                        //generateRooms();
                         currentDate();
 
                         panel.revalidate();

@@ -23,7 +23,7 @@ public class Client {
 
     private PartyRoomFactory partyRoomFactory = new PartyRoomFactory();
 
-    ArrayList<ArrayList<PartyRoom>> ROOM_TYPE_OBJECTS = new ArrayList<>();
+    private static ArrayList<ArrayList<PartyRoom>> ROOM_TYPE_OBJECTS = new ArrayList<>();
 
 //    public static void main(String[] args) {
 //        System.out.println("Test");
