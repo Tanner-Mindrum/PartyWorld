@@ -59,6 +59,7 @@ public class NewReservationFrame {
     private boolean pgAE;
 
     private PartyGoer partyGoer;
+    private static ArrayList<PartyGoer> globalPartyGoerList = new ArrayList<>();
 
 
 
@@ -1121,6 +1122,11 @@ public class NewReservationFrame {
                             milStartTimeInt, milEndTimeInt, partyBagsBox.isSelected(), projectorBox.isSelected(), partyDecorationsBox.getSelectedItem().toString(),
                             mealPlanBox.getSelectedItem().toString());
                     waitlistCheck = ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem()) - 1).reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, partyGoer, true);
+                    globalPartyGoerList.add(partyGoer);
+                    System.out.println("global list");
+                    for (int i = 0; i < globalPartyGoerList.size(); i++) {
+            			System.out.println(globalPartyGoerList.get(i).getName());
+            		}
                     if (waitlistCheck) {
                         WaitlistFrame waitlistFrame = new WaitlistFrame(ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) roomNumberBox.getSelectedItem() - 1), Integer.parseInt(daySpinner.getValue().toString()), monthInt,Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, partyGoer);
                         boolean tempCheck = waitlistFrame.getStatus();
