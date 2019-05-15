@@ -215,6 +215,7 @@ public class NewReservationFrame {
         upgrades();
         mealPlans();
         generateRooms();
+        currentDate(); 
     }
 
     private void generateRooms() {
@@ -233,6 +234,16 @@ public class NewReservationFrame {
         aquaWorlds.add(partyRoomFactory.aquaFactory());
 
     }
+
+    public int currentMonth() {
+        
+        Date date = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, 1);
+        
+        return calendar.get(calendar.MONTH);
+    }
+
 
     public void guestInfo() {
 
@@ -986,12 +997,6 @@ public class NewReservationFrame {
             String tempCardName = cardName.getText();
             int tempExpirationMonth = (Integer) expirationMonth.getSelectedItem();
             int tempExpirationYear = (Integer) expirationYear.getSelectedItem();
-
-            Calendar calendar = Calendar.getInstance(); 
-        
-            calendar.get(Calendar.YEAR);
-            calendar.get(Calendar.MONTH);
-            calendar.get(Calendar.DAY_OF_MONTH);
             
 
             if (e.getSource() == reserveButton) {
