@@ -85,6 +85,7 @@ public class smallPartyRoom extends PartyRoom {
 					if (!justChecking && addCounter == 0) {
 						partyGoer.setConfirmationNum(null);
 						waitList.add(partyGoer);
+						super.addWaitlistPartyGoer(partyGoer);
 						addCounter += 1;
 					}
 					boolToReturn = true;
@@ -115,12 +116,14 @@ public class smallPartyRoom extends PartyRoom {
 		for (int i = 0; i < reservationList.size(); i++) {
 			if (reservationList.get(i).getConfirmationNum().equals(p.getConfirmationNum())) {
 				reservationList.remove(reservationList.get(i));
+				super.removeReservation(p);
 			}
 		}
 
 		for (int i = 0; i < waitList.size(); i++) {
 			if (waitList.get(i).getName().equals(p.getName())) {
 				waitList.remove(waitList.get(i));
+				super.removeReservation(p);
 			}
 		}
 

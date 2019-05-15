@@ -1251,6 +1251,9 @@ public class EditReservationFrame {
                 System.out.println(currentPartyGoer.getName());
                 System.out.println(client.getROOM_TYPE_OBJECTS());
                 client.getROOM_TYPE_OBJECTS().get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem()) - 1).removeReservation(currentPartyGoer);
+                frame.setVisible(false);
+                MainFrame mainFrame = new MainFrame();
+                mainFrame.edit();
 
             }
 

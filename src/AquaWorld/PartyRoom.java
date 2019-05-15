@@ -13,7 +13,9 @@ public class PartyRoom {
     private String notification;
 
     private static ArrayList<PartyGoer> allPartyGoers = new ArrayList<>();
-
+    private static ArrayList<PartyGoer> allWaitlistPartyGoers = new ArrayList<>();
+    private static ArrayList<PartyGoer> removedPartyGoers = new ArrayList<>();
+    private static ArrayList<PartyGoer> removedPartyGoersWaitlist = new ArrayList<>();
 
     /**
      * Default constructor used to initialize instance variables
@@ -169,6 +171,10 @@ public class PartyRoom {
 	    allPartyGoers.add(p);
     }
 
+    public void addWaitlistPartyGoer(PartyGoer p) {
+	    allWaitlistPartyGoers.add(p);
+    }
+
 
 	/**
 	 * reserves the room for the partyGoer
@@ -183,5 +189,26 @@ public class PartyRoom {
     }
 
     public void removeReservation(PartyGoer p) {
+	    allPartyGoers.remove(p);
+	    removedPartyGoers.clear();
+	    removedPartyGoers.add(p);
+    }
+
+    public void removeWaitlist(PartyGoer p) {
+	    allWaitlistPartyGoers.remove(p);
+	    removedPartyGoersWaitlist.clear();
+	    removedPartyGoersWaitlist.add(p);
+    }
+
+    public PartyGoer getRemovedPartyGoer() {
+	    return removedPartyGoers.get(0);
+    }
+
+    public PartyGoer getRemovedPartyGoerWaitlist() {
+        return removedPartyGoersWaitlist.get(0);
+    }
+
+    public ArrayList<PartyGoer> getRemovedPartyGoerWaitlistList() {
+        return removedPartyGoersWaitlist;
     }
 }

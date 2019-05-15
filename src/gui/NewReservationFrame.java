@@ -244,13 +244,13 @@ public class NewReservationFrame {
 //
 //    }
 
-    public void edit(int i) {
+    public void edit() {
         frame.setTitle("Edit Reservation");
         deleteButton = new JButton("Delete Reservation");
         //acceptButton = new JButton("Edit Reservation");
         //panel.add(acceptButton);
         panel.add(deleteButton);
-        panel.revalidate(); 
+        panel.revalidate();
     }
 
     public void currentDate() {

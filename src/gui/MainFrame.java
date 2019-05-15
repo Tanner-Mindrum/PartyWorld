@@ -416,6 +416,28 @@ public class MainFrame {
 		MainFrame f = new MainFrame();
 	}
 
+	public void edit() {
+		PartyRoom p = new PartyRoom();
+	 	if (p.getRemovedPartyGoerWaitlistList().size() == 1) {
+			JLabel remover = new JLabel(p.getRemovedPartyGoer().getName() + " was removed and " + p.getRemovedPartyGoerWaitlist().getName() + " was added to the reservation list.");
+			centerPanel.remove(remover);
+	 		//panelTitle.remove(remover2);
+	 		centerPanel.repaint();
+			centerPanel.add(remover);
+			centerPanel.revalidate();
+		}
+	 	else {
+			JLabel remover2 = new JLabel(p.getRemovedPartyGoer().getName() + " was removed");
+			System.out.println("o");
+			//panelTitle.remove(remover);
+			centerPanel.remove(remover2);
+			centerPanel.repaint();
+	 		centerPanel.add(remover2);
+	 		centerPanel.revalidate();
+
+		}
+	}
+
 
 	class ReservationListener implements ActionListener {
 
