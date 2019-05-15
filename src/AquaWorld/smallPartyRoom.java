@@ -1,6 +1,7 @@
 package AquaWorld;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -18,6 +19,7 @@ public class smallPartyRoom extends PartyRoom {
 	private ArrayList<String> reservationDates;
 	private ArrayList<Integer> reservationTimes;
 	private String fullDate;
+	private int confirmationNum;
 
 	public smallPartyRoom() {
 		fullDate = "";
@@ -25,6 +27,7 @@ public class smallPartyRoom extends PartyRoom {
 		reservationDates = new ArrayList<>();
 		waitList = new ArrayList<PartyGoer>();
 		reservationList = new ArrayList<>();
+		confirmationNum = 0;
 	}
 
 	/**
@@ -64,25 +67,29 @@ public class smallPartyRoom extends PartyRoom {
 
 		//Check date
 		if (!reservationDates.contains(fullDate)) {
+			confirmationNum++;
+			partyGoer.setConfirmationNum(Integer.toString(confirmationNum));
 			reservationList.add(partyGoer);
 			reservationDates.add(fullDate);
 			reservationTimes.add(startTime);
 			reservationTimes.add(endTime);
 		}
 		else {
-			System.out.println(reservationTimes);
+			//System.out.println(reservationTimes);
 			int addCounter = 0;
 			for (int i = 0; i < reservationTimes.size(); i += 2) {
 				if (reservationTimes.get(i) <= startTime || startTime <= reservationTimes.get(i + 1)
 						|| reservationTimes.get(i) <= endTime || endTime <= reservationTimes.get(i + 1)) {
 					if (!justChecking && addCounter == 0) {
+						partyGoer.setConfirmationNum(null);
 						waitList.add(partyGoer);
 						addCounter += 1;
 					}
 					boolToReturn = true;
 				}
 				else {
-
+					confirmationNum++;
+					partyGoer.setConfirmationNum(Integer.toString(confirmationNum));
 					reservationList.add(partyGoer);
 					boolToReturn = false;
 				}
@@ -91,13 +98,12 @@ public class smallPartyRoom extends PartyRoom {
 
 		System.out.println("Reservation List: ");
 		for (int i = 0; i < reservationList.size(); i++) {
-			System.out.println(reservationList.get(i).getName() + reservationList.get(i).getRoomNum());
+			System.out.println(reservationList.get(i).getName() + " for room " + reservationList.get(i).getRoomNum() + " confirmation #: " + reservationList.get(i).getConfirmationNum());
 		}
 		System.out.println("Waitlist: ");
 		for (int i = 0; i < waitList.size(); i++) {
-			System.out.println(waitList.get(i).getName() + waitList.get(i).getRoomNum());
+			System.out.println(waitList.get(i).getName() + " for room " + waitList.get(i).getRoomNum() + " confirmation #: " + waitList.get(i).getConfirmationNum());
 		}
-
 
 		return boolToReturn;
 	}

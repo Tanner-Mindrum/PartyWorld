@@ -51,22 +51,6 @@ public class PartyGoer {
     private MealPlan mealPlan;
     private String confirmationNum;
 
-//    /**
-//     * constructs the party goer
-//     */
-//    public PartyGoer() {
-//        name = "N/A";
-//        phoneNum = "N/A";
-//        email = "N/A";
-//        address = "N/A";
-//        creditCardInfo = "N/A";
-//        roomType = "N/A";
-//        date = "N/A";
-//        Info = "";
-//        partyRoom = null;
-//        partyGoer = null;
-//    }
-
     public PartyGoer(String name, String phoneNum, String email, String address, String roomType, String dobMonth, String dobDay, String dobYear, boolean phonePref, boolean emailPref, boolean visaCard, boolean masterCard, boolean aeCard, String nameOnCard, String cardNum, String secCode, String expDateMonth, String expDateYear, int roomNum, int monthRes, int dayRes, int yearRes, int startTime, int endTime, boolean partyFavorBag, boolean projector, String partyDec, String mealPlanType) {
         this.name = name;
         this.phoneNum = phoneNum;
@@ -97,7 +81,7 @@ public class PartyGoer {
         this.partyDec = partyDec;
         this.mealPlanType = mealPlanType;
         this.mealPlan = mealPlan;
-        this.confirmationNum = confirmationNum;
+        this.confirmationNum = "";
     }
 
     public String getName() {
@@ -217,223 +201,11 @@ public class PartyGoer {
         return mealPlan;
     }
 
-//    public PartyGoer(String name, String phoneNum, String address, String email, String dobMonth, String dobDay, String dobYear, boolean phonePref, boolean emailPref,
-//                     boolean visaCard, boolean masterCard, boolean aeCard, String nameOnCard, String cardNum, String secCode, String expDateMonth,
-//                     String expDateYear, String roomType, int roomNum, int monthRes, int dayRes, int yearRes, String startTime, String endTime, boolean partyFavorBag, boolean projector,
-//                     String partyDec, String mealPlanType, MealPlan mealPlan) {
-//
-//    }
+    public String getConfirmationNum() {
+        return confirmationNum;
+    }
 
-//    /**
-//     * gets the name of the party goer
-//     * @return the name as a string
-//     */
-//    public String getName() {
-//        return name;
-//    }
-//
-//    /**
-//     * sets the name of the party goer
-//     * @param name as a string
-//     */
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    /**
-//     * gets the phone number of the party goer
-//     * @return the phone # as a string
-//     */
-//    public String getPhoneNum() {
-//        return phoneNum;
-//    }
-//
-//    /**
-//     * sets the phone number of the aprty goer
-//     * @param phoneNum as a string
-//     */
-//    public void setPhoneNum(String phoneNum) {
-//        this.phoneNum = phoneNum;
-//    }
-//
-//    /**
-//     * gets the party goers email
-//     * @return the email as a string
-//     */
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    /**
-//     * sets the party goers email as a string
-//     * @param email as a string
-//     */
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
-//
-//    /**
-//     * gets the party goers address
-//     * @return the address as a string
-//     */
-//    public String getAddress() {
-//        return address;
-//    }
-//
-//    /**
-//     * sets the address of the party goer
-//     * @param address as a string
-//     */
-//    public void setAddress(String address) {
-//        this.address = address;
-//    }
-//
-//    /**
-//     * gets the credit card info
-//     * @return the card info as a string
-//     */
-//    public String getCreditCardInfo() {
-//        return creditCardInfo;
-//    }
-//
-//    /**
-//     *  sets the credit cards info
-//     * @param creditCardInfo
-//     */
-//    public void setCreditCardInfo(String creditCardInfo) {
-//        this.creditCardInfo = creditCardInfo;
-//    }
-//
-//    /**
-//     * gets the room type
-//     * @return the room type as a string
-//     */
-//    public String getRoomType() {
-//        return roomType;
-//    }
-//
-//    /**
-//     * sets the room type that they reserved
-//     * @param roomType as a string
-//     */
-//    public void setRoomType(String roomType) {
-//        this.roomType = roomType;
-//    }
-//
-//    /**
-//     * gets the date of reservation
-//     * @return the date as a string
-//     */
-//	public String getDate() {
-//		return date;
-//	}
-//
-//	/**
-//	 * sets the date of reservation
-//	 * @param date as a string
-//	 */
-//	public void setDate(String date) {
-//		this.date = date;
-//	}
-//
-//	/**
-//	 * gets the info of the guest
-//	 * @return the info as a string
-//	 */
-//    public String getInfo() {
-//		return Info;
-//    }
-//
-//    /**
-//     * updates the information for the guest
-//     * @param info as a string
-//     */
-//    public void updateInfo(String info) {
-//        this.Info = info;
-//    }
-//
-//    /**
-//     * updates so the guest receives the info
-//     */
-//	public void Update() {
-//        partyRoom.setReservation(partyGoer);
-//    }
-//
-//	/**
-//	 * sets the date of birth for the guest
-//	 * @param month as an int
-//	 * @param day as an int
-//	 * @param year as an int
-//	 */
-//    public void setDOB(int month, int day, int year) {
-//        this.month = month;
-//        this.day = day;
-//        this.year = year;
-//    }
-//
-//    /**
-//     * gets the birthday month
-//     * @return the month as an int
-//     */
-//    public int getBirthMonth() {
-//        return month;
-//    }
-//
-//    /**
-//     * gets the birthday day
-//     * @return the day as an int
-//     */
-//    public int getBirthDay() {
-//        return day;
-//    }
-//
-//    /**
-//     * gets the birth year
-//     * @return the birth year as an int
-//     */
-//    public int getBirthYear() {
-//        return year;
-//    }
-//
-//    /**
-//     * sets the card name (brand)
-//     * @param name of the card as a string
-//     */
-//    public void setCardName(String name) {
-//        cardName = name;
-//    }
-//
-//    /**
-//     * gets the cards name
-//     * @return the cards name as a string
-//     */
-//    public String getCardName() {
-//        return cardName;
-//    }
-//
-//    /**
-//     * sets the cards expiration month and year
-//     * @param month as an int
-//     * @param year as an int
-//     */
-//    public void setExpirationDate(int month, int year) {
-//        expirationMonth = month;
-//        expirationYear = year;
-//    }
-//
-//    /**
-//     * gets the expiration month
-//     * @return the expiration month as an int
-//     */
-//    public int getExpirationMonth() {
-//        return expirationMonth;
-//    }
-//
-//    /**
-//     * gets the expiration year
-//     * @return the expiration year as an int
-//     */
-//    public int getExpirationYear() {
-//        return expirationYear;
-//    }
+    public void setConfirmationNum(String confirmationNum) {
+        this.confirmationNum = confirmationNum;
+    }
 }
