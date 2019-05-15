@@ -82,6 +82,7 @@ public class smallPartyRoom extends PartyRoom {
 					boolToReturn = true;
 				}
 				else {
+
 					reservationList.add(partyGoer);
 					boolToReturn = false;
 				}
