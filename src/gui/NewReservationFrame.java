@@ -203,6 +203,7 @@ public class NewReservationFrame {
     private static ArrayList<String> monthsToAdd;
 
     private JButton deleteButton;
+    private JButton acceptButton;
 
     public NewReservationFrame() {
         frame = new JFrame();
@@ -239,6 +240,8 @@ public class NewReservationFrame {
     public void edit() {
         frame.setTitle("Edit Reservation");
         deleteButton = new JButton("Delete Reservation");
+        acceptButton = new JButton("Edit Reservation");
+        panel.add(acceptButton);
         panel.add(deleteButton);
         panel.revalidate(); 
     }
