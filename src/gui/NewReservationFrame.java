@@ -235,15 +235,17 @@ public class NewReservationFrame {
 
     }
 
-    public int currentMonth() {
+    public void currentDate() {
         
-        Date date = new Date();
+        
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, 1);
         
-        return calendar.get(calendar.MONTH);
+        System.out.println(calendar.get(Calendar.MONTH) + "/"  + calendar.get(Calendar.DAY_OF_MONTH)  + "/" + calendar.get(Calendar.YEAR));
+        
     }
 
+ 
 
     public void guestInfo() {
 
