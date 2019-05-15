@@ -1101,7 +1101,7 @@ public class EditReservationFrame {
             int tempExpirationMonth = (Integer) expirationMonth.getSelectedItem();
             int tempExpirationYear = (Integer) expirationYear.getSelectedItem();
 
-            ArrayList<ArrayList<PartyRoom>> ROOM_TYPE_OBJECTS = new ArrayList<>();
+           // ArrayList<ArrayList<PartyRoom>> ROOM_TYPE_OBJECTS = new ArrayList<>();
 //            ROOM_TYPE_OBJECTS.add(smallPartyRooms);
 //            ROOM_TYPE_OBJECTS.add(medPartyRooms);
 //            ROOM_TYPE_OBJECTS.add(aquaWorlds);
@@ -1152,7 +1152,7 @@ public class EditReservationFrame {
 //                ROOM_TYPE_OBJECTS.add(aquaWorlds);
 //                ROOM_TYPE_OBJECTS.add(karaokeLounges);
 //                ROOM_TYPE_OBJECTS.add(adultBilliardsLounges);
-                String[] ROOM_TYPES = {"Small Party Room", "Medium Party Room", "Aqua World", "Karaoke Lounge", "Adult Billiards Lounge"};
+                //String[] ROOM_TYPES = {"Small Party Room", "Medium Party Room", "Aqua World", "Karaoke Lounge", "Adult Billiards Lounge"};
 
                 String numString = "";
                 String numStringEnd = "";
@@ -1219,11 +1219,12 @@ public class EditReservationFrame {
 //                            expirationYear.getSelectedItem().toString(), (int) roomNumberBox.getSelectedItem(), (int) monthSpinner.getValue(), (int) daySpinner.getValue(), (int) yearSpinner.getValue(),
 //                            milStartTimeInt, milEndTimeInt, partyBagsBox.isSelected(), projectorBox.isSelected(), partyDecorationsBox.getSelectedItem().toString(),
 //                            mealPlanBox.getSelectedItem().toString());
-                    waitlistCheck = ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem()) - 1).reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, currentPartyGoer, true);
+                	System.out.println("HEY THERE");
+                    waitlistCheck = client.getROOM_TYPE_OBJECTS().get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem()) - 1).reserveRoom(monthInt, Integer.parseInt(daySpinner.getValue().toString()), Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, currentPartyGoer, true);
                     //globalPartyGoerList.add(partyGoer);
 
                     if (waitlistCheck) {
-                        WaitlistFrame waitlistFrame = new WaitlistFrame(ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) roomNumberBox.getSelectedItem() - 1), Integer.parseInt(daySpinner.getValue().toString()), monthInt,Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, currentPartyGoer);
+                        WaitlistFrame waitlistFrame = new WaitlistFrame(client.getROOM_TYPE_OBJECTS().get((int) roomTypeBox.getSelectedIndex()).get((int) roomNumberBox.getSelectedItem() - 1), Integer.parseInt(daySpinner.getValue().toString()), monthInt,Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, currentPartyGoer);
                         boolean tempCheck = waitlistFrame.getStatus();
                         if (!tempCheck) {
                             frame.setVisible(false);
@@ -1248,7 +1249,7 @@ public class EditReservationFrame {
                 System.out.println((int)roomTypeBox.getSelectedIndex());
                 System.out.println((int) (roomNumberBox.getSelectedItem()) - 1);
                 System.out.println(currentPartyGoer.getName());
-                System.out.println(ROOM_TYPE_OBJECTS);
+                System.out.println(client.getROOM_TYPE_OBJECTS());
                 client.getROOM_TYPE_OBJECTS().get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem()) - 1).removeReservation(currentPartyGoer);
 
             }
@@ -2219,7 +2220,7 @@ public class EditReservationFrame {
 
                 for (int i = 0; i < partyRoom.getAllPartyGoers().size(); i++) {
                     if (partyRoom.getAllPartyGoers().get(i).getConfirmationNum().equals(confirmNumberField.getText())) {
-                        System.out.println(partyRoom.getAllPartyGoers().get(i).getName());
+                        //System.out.println(partyRoom.getAllPartyGoers().get(i).getName());
                         //reservationFrame.edit();
                         panel.removeAll();
                         panel.repaint();
