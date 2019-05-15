@@ -19,6 +19,8 @@ public class smallPartyRoom extends PartyRoom {
 	private ArrayList<String> reservationDates;
 	private ArrayList<Integer> reservationTimes;
 	private String fullDate;
+	private int startTime;
+	private int endTime;
 	private int confirmationNum;
 
 	public smallPartyRoom() {
@@ -60,6 +62,8 @@ public class smallPartyRoom extends PartyRoom {
 	 */
 	public boolean reserveRoom(int month, int day, int year, int startTime, int endTime, PartyGoer partyGoer, boolean justChecking) {
 		boolean boolToReturn = false;
+		this.startTime = startTime;
+		this.endTime = endTime;
 		fullDate = Integer.toString(month) + Integer.toString(day) + Integer.toString(year);
 		System.out.println("Their room date: " + fullDate);
 		System.out.println("Their start time: " + startTime);
@@ -94,6 +98,9 @@ public class smallPartyRoom extends PartyRoom {
 					confirmationNum++;
 					partyGoer.setConfirmationNum(Integer.toString(confirmationNum));
 					reservationList.add(partyGoer);
+					reservationDates.add(fullDate);
+					reservationTimes.add(startTime);
+					reservationTimes.add(endTime);
 					super.addPartyGoer(partyGoer);
 					boolToReturn = false;
 				}
@@ -116,6 +123,9 @@ public class smallPartyRoom extends PartyRoom {
 		for (int i = 0; i < reservationList.size(); i++) {
 			if (reservationList.get(i).getConfirmationNum().equals(p.getConfirmationNum())) {
 				reservationList.remove(reservationList.get(i));
+				reservationDates.remove(i);
+				reservationTimes.remove(i);
+				reservationTimes.remove(i);
 				super.removeReservation(p);
 			}
 		}
