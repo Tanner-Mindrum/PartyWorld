@@ -202,6 +202,8 @@ public class NewReservationFrame {
 
     private static ArrayList<String> monthsToAdd;
 
+    private JButton deleteButton;
+
     public NewReservationFrame() {
         frame = new JFrame();
         panel = new JPanel();
@@ -233,6 +235,12 @@ public class NewReservationFrame {
         }
         aquaWorlds.add(partyRoomFactory.aquaFactory());
 
+    }
+    public void edit() {
+        frame.setTitle("Edit Reservation");
+        deleteButton = new JButton("Delete Reservation");
+        panel.add(deleteButton);
+        panel.revalidate(); 
     }
 
     public void currentDate() {
@@ -1127,7 +1135,13 @@ public class NewReservationFrame {
             }
             
             else if (e.getSource() == cancelButton) {
-                System.out.println("The cancel button was pressed");
+                MainFrame mainFrame = new MainFrame(); 
+                frame.setVisible(false);
+            }
+
+            else if (e.getSource() == deleteButton) {
+                //Delete a guest from a room; 
+                
             }
 
             else if (e.getSource() == roomTypeBox) {

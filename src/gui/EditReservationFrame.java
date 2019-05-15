@@ -10,32 +10,33 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 /**
- * This class opens a frame with a jtextfield where a guest 
+ * This class opens a editFrame with a jtextfield where a guest 
  * can put their confirmation number to make edits to their existing reservations  
  */
 public class EditReservationFrame {
 
-    private JFrame frame = new JFrame();
-    private JPanel panel = new JPanel();
+    private JFrame editFrame = new JFrame();
+    private JPanel editPanel = new JPanel();
     private JTextField confirmNumberField;
     private JLabel confirmLabel;
     private JButton checkButton;
     private JButton cancelButton;
+    
     /**
-     * The constructor that initializes the frame 
+     * The constructor that initializes the editFrame 
      */
     public EditReservationFrame() {
 
-        frame.setTitle("Edit reservation");
-        frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+        editFrame.setTitle("Edit reservation");
+        editFrame.setSize(800, 600);
+        editFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        editFrame.setVisible(true);
         panelComponents();
     }
-    //Only use this method to add components to the frame
+    //Only use this method to add components to the editFrame
     /**
-     * This method adds the jlabel, jtextfield, jbuttons to the panel and adds
-     * it to the frame
+     * This method adds the jlabel, jtextfield, jbuttons to the editPanel and adds
+     * it to the editFrame
      */
     public void panelComponents() {
 
@@ -47,12 +48,12 @@ public class EditReservationFrame {
         checkButton.addActionListener(new buttonListener());
         cancelButton.addActionListener(new buttonListener());
 
-        panel.add(confirmLabel);
-        panel.add(confirmNumberField);
-        panel.add(checkButton);
-        panel.add(cancelButton);
+        editPanel.add(confirmLabel);
+        editPanel.add(confirmNumberField);
+        editPanel.add(checkButton);
+        editPanel.add(cancelButton);
 
-        frame.add(panel);
+        editFrame.add(editPanel);
 
     }
     /**
@@ -61,17 +62,22 @@ public class EditReservationFrame {
     class buttonListener implements ActionListener {
         /**
          * checks which button is pressed, if the checked in button is pressed 
-         * it will go the newreservationframe, the cancel button will exit the frame
+         * it will go the newreservationframe, the cancel button will exit the editFrame
          */
         @Override
         public void actionPerformed(ActionEvent e) {
 
             if (e.getSource() == checkButton) {
-                System.out.println("This should open the new reservation frame with guest information that was filled out ");
+               
+                NewReservationFrame reservationFrame = new NewReservationFrame();
+                reservationFrame.edit(); 
+                editFrame.setVisible(false);
             }
 
             else {
-                System.out.println("You are cancelling your edit");
+                
+                MainFrame mainFrame = new MainFrame(); 
+                editFrame.setVisible(false);
             }
             
         }
