@@ -92,7 +92,7 @@ public class AquaWorldRoom extends PartyRoom{
 	 * @return the cost as a double
 	 */
 	public double calculateCost() {
-		return 0;
+		return 700;
 	}
 
 	/**

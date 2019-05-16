@@ -489,8 +489,7 @@ public class MainFrame {
 			}
 
 			else if (item.getText().equals("Check-in")) {
-				System.out.println("The program is going in the check in frame");
-				CheckInFrame checkIn = new CheckInFrame(); 
+				CheckInFrame checkIn = new CheckInFrame();
 				frame.setVisible(false);
 			}
 

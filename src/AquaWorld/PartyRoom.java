@@ -16,6 +16,7 @@ public class PartyRoom {
     private static ArrayList<PartyGoer> allWaitlistPartyGoers = new ArrayList<>();
     private static ArrayList<PartyGoer> removedPartyGoers = new ArrayList<>();
     private static ArrayList<PartyGoer> removedPartyGoersWaitlist = new ArrayList<>();
+    private static ArrayList<PartyGoer> currentCheckInPartyGoers = new ArrayList<>();
 
     /**
      * Default constructor used to initialize instance variables
@@ -216,5 +217,13 @@ public class PartyRoom {
 
     public ArrayList<PartyGoer> getRemovedPartyGoerWaitlistList() {
         return removedPartyGoersWaitlist;
+    }
+
+    public void addToCheckedInList(PartyGoer p) {
+	    currentCheckInPartyGoers.add(p);
+    }
+
+    public ArrayList<PartyGoer> getCurrentCheckInPartyGoers() {
+	    return currentCheckInPartyGoers;
     }
 }

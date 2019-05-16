@@ -208,4 +208,14 @@ public class PartyGoer {
     public void setConfirmationNum(String confirmationNum) {
         this.confirmationNum = confirmationNum;
     }
+
+    public String toString() {
+        String partialCard = getCardNum().substring(getCardNum().length() - 4, getCardNum().length());
+        String timeThingStart = Integer.toString(getStartTime()).substring(0) + ":" + Integer.toString(getStartTime()).substring(1, Integer.toString(getStartTime()).length());
+        String timeThingEnd = Integer.toString(getEndTime()).substring(0) + ":" + Integer.toString(getEndTime()).substring(1, Integer.toString(getEndTime()).length());
+        return getName() + "\n" + getPhoneNum() + "\n" + getEmail() + "\n" + getAddress() + "\n" + getRoomType() + "\n" + getDobMonth() + "/" +
+                getDobDay() + "/" + getDobYear() + "\n" + getNameOnCard() + "\n" + partialCard + "\n" + getRoomNum() + "\n" + getMonthRes() + "/" +
+                getDayRes() + "/" + getYearRes() + "\n" + timeThingStart + "-" + timeThingEnd + "\n" + getMealPlanType() + "\n" + getConfirmationNum();
+
+    }
 }

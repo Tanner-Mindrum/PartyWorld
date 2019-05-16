@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee306aef-c2d3-4018-922a-08c8d2610ea8" name="Default Changelist" comment="" />
+    <list default="true" id="ee306aef-c2d3-4018-922a-08c8d2610ea8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/AquaWorld/AdultBilliardsLounge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AquaWorld/AdultBilliardsLounge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AquaWorld/AquaWorldRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AquaWorld/AquaWorldRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AquaWorld/PartyGoer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AquaWorld/PartyGoer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AquaWorld/PartyRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AquaWorld/PartyRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AquaWorld/karaokeLounge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AquaWorld/karaokeLounge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AquaWorld/mediumPartyRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AquaWorld/mediumPartyRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AquaWorld/smallPartyRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AquaWorld/smallPartyRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/CheckInFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CheckInFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/CheckOutFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/CheckOutFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/EditReservationFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EditReservationFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,17 +43,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/NewReservationFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="246" column="22" selection-start-line="246" selection-start-column="16" selection-end-line="246" selection-end-column="22" />
+            <state relative-caret-position="311">
+              <caret line="305" column="40" selection-start-line="305" selection-start-column="40" selection-end-line="305" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/EditReservationFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2209">
-              <caret line="83" column="67" selection-start-line="83" selection-start-column="67" selection-end-line="83" selection-end-column="67" />
+            <state relative-caret-position="211">
+              <caret line="979" column="10" selection-start-line="979" selection-start-column="10" selection-end-line="987" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AquaWorld/smallPartyRoom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-406">
-              <caret line="26" column="22" lean-forward="true" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+            <state relative-caret-position="474">
+              <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,16 +76,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AquaWorld/AquaWorldRoom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="97" column="4" selection-start-line="97" selection-start-column="4" selection-end-line="213" selection-end-column="5" />
+            <state relative-caret-position="100">
+              <caret line="94" column="18" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2050#2051#0" expanded="true" />
-                <element signature="e#2075#2076#0" expanded="true" />
-                <element signature="e#2387#2388#0" expanded="true" />
-                <element signature="e#2413#2414#0" expanded="true" />
-                <element signature="e#2527#2528#0" expanded="true" />
-                <element signature="e#2542#2543#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,39 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AquaWorld/AdultBilliardsLounge.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="75" column="59" lean-forward="true" selection-start-line="75" selection-start-column="59" selection-end-line="75" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gui/CheckInFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AquaWorld/karaokeLounge.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3001">
-              <caret line="154" column="5" lean-forward="true" selection-start-line="38" selection-start-column="4" selection-end-line="154" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AquaWorld/mediumPartyRoom.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="155" selection-end-column="5" />
-              <folding>
-                <element signature="e#1275#1276#0" expanded="true" />
-                <element signature="e#1290#1291#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="380">
+              <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -122,26 +97,55 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AquaWorld/PartyRoom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="169" column="24" selection-start-line="169" selection-start-column="24" selection-end-line="169" selection-end-column="24" />
+            <state relative-caret-position="2101">
+              <caret line="226" column="40" selection-start-line="226" selection-start-column="40" selection-end-line="226" selection-end-column="40" />
               <folding>
                 <element signature="e#4257#4258#0" expanded="true" />
                 <element signature="e#4298#4299#0" expanded="true" />
-                <element signature="e#5258#5259#0" expanded="true" />
-                <element signature="e#5313#5314#0" expanded="true" />
+                <element signature="e#5734#5735#0" expanded="true" />
+                <element signature="e#5770#5771#0" expanded="true" />
+                <element signature="e#5847#5848#0" expanded="true" />
+                <element signature="e#5890#5891#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
+        <entry file="file://$PROJECT_DIR$/src/AquaWorld/karaokeLounge.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="429" column="205" selection-start-line="429" selection-start-column="205" selection-end-line="429" selection-end-column="205" />
+            <state relative-caret-position="200">
+              <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AquaWorld/mediumPartyRoom.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/CheckOutFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="110" column="94" lean-forward="true" selection-start-line="110" selection-start-column="94" selection-end-line="110" selection-end-column="94" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AquaWorld/PartyGoer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2241">
+              <caret line="217" column="129" selection-start-line="217" selection-start-column="129" selection-end-line="217" selection-end-column="129" />
               <folding>
-                <element signature="e#16021#16022#0" expanded="true" />
-                <element signature="e#16057#16058#0" expanded="true" />
+                <element signature="e#3871#3872#0" expanded="true" />
+                <element signature="e#3904#3905#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -158,11 +162,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>frame</find>
-      <find>mealplanbox</find>
-      <find>mealplanbox.addac</find>
-      <find>editframe</find>
-      <find>getglobal</find>
       <find>global</find>
       <find>editpanel</find>
       <find>reserve</find>
@@ -188,6 +187,11 @@
       <find>deletebutton</find>
       <find>edit()</find>
       <find>notfoundlabel</find>
+      <find>cur</find>
+      <find>5/15/2019</find>
+      <find>year</find>
+      <find>dateofbirth</find>
+      <find>security</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -210,18 +214,20 @@
         <option value="$PROJECT_DIR$/src/AquaWorld/platMeal.java" />
         <option value="$PROJECT_DIR$/src/AquaWorld/PartyRoomFactory.java" />
         <option value="$PROJECT_DIR$/src/AquaWorld/partyRoomDecorator.java" />
-        <option value="$PROJECT_DIR$/src/AquaWorld/PartyGoer.java" />
         <option value="$PROJECT_DIR$/src/AquaWorld/Client.java" />
         <option value="$PROJECT_DIR$/src/gui/NewReservationFrame.java" />
         <option value="$PROJECT_DIR$/src/gui/WaitlistFrame.java" />
         <option value="$PROJECT_DIR$/src/AquaWorld/PartyRoom.java" />
+        <option value="$PROJECT_DIR$/src/gui/CheckInFrame.java" />
         <option value="$PROJECT_DIR$/src/gui/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/AquaWorld/PartyGoer.java" />
         <option value="$PROJECT_DIR$/src/AquaWorld/smallPartyRoom.java" />
-        <option value="$PROJECT_DIR$/src/gui/EditReservationFrame.java" />
         <option value="$PROJECT_DIR$/src/AquaWorld/mediumPartyRoom.java" />
-        <option value="$PROJECT_DIR$/src/AquaWorld/karaokeLounge.java" />
         <option value="$PROJECT_DIR$/src/AquaWorld/AquaWorldRoom.java" />
+        <option value="$PROJECT_DIR$/src/AquaWorld/karaokeLounge.java" />
         <option value="$PROJECT_DIR$/src/AquaWorld/AdultBilliardsLounge.java" />
+        <option value="$PROJECT_DIR$/src/gui/CheckOutFrame.java" />
+        <option value="$PROJECT_DIR$/src/gui/EditReservationFrame.java" />
       </list>
     </option>
   </component>
@@ -362,17 +368,48 @@
       <workItem from="1557865544943" duration="417000" />
       <workItem from="1557894948869" duration="14332000" />
       <workItem from="1557942576319" duration="5416000" />
-      <workItem from="1557973213181" duration="9267000" />
+      <workItem from="1557973213181" duration="15715000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178736000" />
+    <option name="totallyTimeSpent" value="185184000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12633263" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2936078" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3261105" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" weight="0.32995737" />
+    </layout>
+    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12633263" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
@@ -402,37 +439,6 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" weight="0.32995737" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11886994" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2979415" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3261105" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -690,73 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/DateTimeFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="430" column="41" selection-start-line="430" selection-end-line="431" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AquaWorld/PartyGoer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-173">
-          <caret line="83" column="28" selection-start-line="83" selection-end-line="84" />
-          <folding>
-            <element signature="e#3458#3459#0" expanded="true" />
-            <element signature="e#3489#3490#0" expanded="true" />
-            <element signature="e#3521#3522#0" expanded="true" />
-            <element signature="e#3549#3550#0" expanded="true" />
-            <element signature="e#3583#3584#0" expanded="true" />
-            <element signature="e#3613#3614#0" expanded="true" />
-            <element signature="e#3648#3649#0" expanded="true" />
-            <element signature="e#3679#3680#0" expanded="true" />
-            <element signature="e#3714#3715#0" expanded="true" />
-            <element signature="e#3745#3746#0" expanded="true" />
-            <element signature="e#3778#3779#0" expanded="true" />
-            <element signature="e#3807#3808#0" expanded="true" />
-            <element signature="e#3841#3842#0" expanded="true" />
-            <element signature="e#3871#3872#0" expanded="true" />
-            <element signature="e#3907#3908#0" expanded="true" />
-            <element signature="e#3939#3940#0" expanded="true" />
-            <element signature="e#3975#3976#0" expanded="true" />
-            <element signature="e#4007#4008#0" expanded="true" />
-            <element signature="e#4042#4043#0" expanded="true" />
-            <element signature="e#4073#4074#0" expanded="true" />
-            <element signature="e#4110#4111#0" expanded="true" />
-            <element signature="e#4143#4144#0" expanded="true" />
-            <element signature="e#4176#4177#0" expanded="true" />
-            <element signature="e#4205#4206#0" expanded="true" />
-            <element signature="e#4242#4243#0" expanded="true" />
-            <element signature="e#4275#4276#0" expanded="true" />
-            <element signature="e#4309#4310#0" expanded="true" />
-            <element signature="e#4339#4340#0" expanded="true" />
-            <element signature="e#4373#4374#0" expanded="true" />
-            <element signature="e#4403#4404#0" expanded="true" />
-            <element signature="e#4442#4443#0" expanded="true" />
-            <element signature="e#4477#4478#0" expanded="true" />
-            <element signature="e#4515#4516#0" expanded="true" />
-            <element signature="e#4549#4550#0" expanded="true" />
-            <element signature="e#4580#4581#0" expanded="true" />
-            <element signature="e#4610#4611#0" expanded="true" />
-            <element signature="e#4642#4643#0" expanded="true" />
-            <element signature="e#4673#4674#0" expanded="true" />
-            <element signature="e#4703#4704#0" expanded="true" />
-            <element signature="e#4732#4733#0" expanded="true" />
-            <element signature="e#4763#4764#0" expanded="true" />
-            <element signature="e#4793#4794#0" expanded="true" />
-            <element signature="e#4826#4827#0" expanded="true" />
-            <element signature="e#4858#4859#0" expanded="true" />
-            <element signature="e#5313#5314#0" expanded="true" />
-            <element signature="e#5351#5352#0" expanded="true" />
-            <element signature="e#5413#5414#0" expanded="true" />
-            <element signature="e#5467#5468#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AquaWorld/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="541">
@@ -769,97 +708,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/WaitlistFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="118" column="38" selection-start-line="118" selection-start-column="38" selection-end-line="118" selection-end-column="38" />
+        <state relative-caret-position="204">
+          <caret line="120" column="17" lean-forward="true" selection-start-line="120" selection-start-column="17" selection-end-line="120" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AquaWorld/PartyRoom.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/DateTimeFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="169" column="24" selection-start-line="169" selection-start-column="24" selection-end-line="169" selection-end-column="24" />
-          <folding>
-            <element signature="e#4257#4258#0" expanded="true" />
-            <element signature="e#4298#4299#0" expanded="true" />
-            <element signature="e#5258#5259#0" expanded="true" />
-            <element signature="e#5313#5314#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="429" column="205" selection-start-line="429" selection-start-column="205" selection-end-line="429" selection-end-column="205" />
-          <folding>
-            <element signature="e#16021#16022#0" expanded="true" />
-            <element signature="e#16057#16058#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/NewReservationFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="246" column="22" selection-start-line="246" selection-start-column="16" selection-end-line="246" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/EditReservationFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2209">
-          <caret line="83" column="67" selection-start-line="83" selection-start-column="67" selection-end-line="83" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AquaWorld/mediumPartyRoom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="155" selection-end-column="5" />
-          <folding>
-            <element signature="e#1275#1276#0" expanded="true" />
-            <element signature="e#1290#1291#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AquaWorld/karaokeLounge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3001">
-          <caret line="154" column="5" lean-forward="true" selection-start-line="38" selection-start-column="4" selection-end-line="154" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AquaWorld/AquaWorldRoom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="97" column="4" selection-start-line="97" selection-start-column="4" selection-end-line="213" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2050#2051#0" expanded="true" />
-            <element signature="e#2075#2076#0" expanded="true" />
-            <element signature="e#2387#2388#0" expanded="true" />
-            <element signature="e#2413#2414#0" expanded="true" />
-            <element signature="e#2527#2528#0" expanded="true" />
-            <element signature="e#2542#2543#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AquaWorld/AdultBilliardsLounge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="75" column="59" lean-forward="true" selection-start-line="75" selection-start-column="59" selection-end-line="75" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AquaWorld/smallPartyRoom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-406">
-          <caret line="26" column="22" lean-forward="true" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+        <state relative-caret-position="54">
+          <caret line="414" column="12" lean-forward="true" selection-start-line="414" selection-start-column="12" selection-end-line="414" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -868,8 +725,110 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/CheckInFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        <state relative-caret-position="460">
+          <caret line="67" column="17" selection-start-line="67" selection-end-line="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="491" selection-start-line="491" selection-end-line="491" />
+          <folding>
+            <element signature="e#16021#16022#0" expanded="true" />
+            <element signature="e#16057#16058#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AquaWorld/PartyRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2101">
+          <caret line="226" column="40" selection-start-line="226" selection-start-column="40" selection-end-line="226" selection-end-column="40" />
+          <folding>
+            <element signature="e#4257#4258#0" expanded="true" />
+            <element signature="e#4298#4299#0" expanded="true" />
+            <element signature="e#5734#5735#0" expanded="true" />
+            <element signature="e#5770#5771#0" expanded="true" />
+            <element signature="e#5847#5848#0" expanded="true" />
+            <element signature="e#5890#5891#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AquaWorld/smallPartyRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="55" column="18" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AquaWorld/mediumPartyRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AquaWorld/AdultBilliardsLounge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AquaWorld/karaokeLounge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AquaWorld/AquaWorldRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="94" column="18" selection-start-line="94" selection-start-column="18" selection-end-line="94" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AquaWorld/PartyGoer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2241">
+          <caret line="217" column="129" selection-start-line="217" selection-start-column="129" selection-end-line="217" selection-end-column="129" />
+          <folding>
+            <element signature="e#3871#3872#0" expanded="true" />
+            <element signature="e#3904#3905#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/CheckOutFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="110" column="94" lean-forward="true" selection-start-line="110" selection-start-column="94" selection-end-line="110" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/NewReservationFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="305" column="40" selection-start-line="305" selection-start-column="40" selection-end-line="305" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/EditReservationFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="979" column="10" selection-start-line="979" selection-start-column="10" selection-end-line="987" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

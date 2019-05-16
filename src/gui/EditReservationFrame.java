@@ -954,8 +954,8 @@ public class EditReservationFrame {
         // Settings years for date of birth
         for (int i = 2019; i >= 1900; i--) {
             year.addItem(i);
-
         }
+
         // Setting years for expiration date for credit card
         for (int i = 2019; i <= 2030; i++) {
             expirationYear.addItem(i);
@@ -963,6 +963,31 @@ public class EditReservationFrame {
 
 //        panel.setLayout(new FlowLayout(FlowLayout.LEFT, 20, 10));
 //        experimentLayout.setAlignment(FlowLayout.TRAILING);
+        month.setSelectedIndex(Integer.parseInt(p.getDobMonth()) - 1);
+        day.setSelectedIndex(Integer.parseInt(p.getDobDay()) - 1);
+        year.setSelectedItem(p.getDobYear());
+
+        phonePreferenceBox.setSelected(p.isPhonePref());
+        emailPreferenceBox.setSelected(p.isEmailPref());
+
+        visaCardBox.setSelected(p.isVisaCard());
+        masterCardBox.setSelected(p.isMasterCard());
+        americanExpressBox.setSelected(p.isAeCard());
+
+        expirationMonth.setSelectedIndex(Integer.parseInt(p.getExpDateMonth()) - 1);
+
+        //expirationYear.setSelectedIndex(Integer.parseInt(p.getExpDateYear()) - 1);
+
+//        String[] m = {"Small Party Room", "Medium Party Room", "Aqua World", "Karaoke Lounge", "Adult Billiards Lounge"};
+//        int index = 0;
+//        for (int i = 0; i < m.length; i++) {
+//            if (m[i].equals(p.getRoomType())) {
+//                index = i;
+//            }
+//        }
+//        roomTypeBox.setSelectedIndex(index);
+//        roomNumberBox.setSelectedIndex(p.getRoomNum() - 1);
+
         panel.add(nameLabel);
         panel.add(nameField);
         panel.add(phoneNumLabel);
@@ -2226,24 +2251,13 @@ public class EditReservationFrame {
                 PartyRoom partyRoom = new PartyRoom();
 
                 for (int i = 0; i < partyRoom.getAllPartyGoers().size(); i++) {
-                    if (partyRoom.getAllPartyGoers().get(i).getConfirmationNum().equals(confirmNumberField.getText())
-                    || partyRoom.getAllWaitlistPartyGoers().get(i).getName().equals(confirmNumberField.getText())) {
-                        //System.out.println(partyRoom.getAllPartyGoers().get(i).getName());
-                        //reservationFrame.edit();
+                    if (partyRoom.getAllPartyGoers().get(i).getConfirmationNum().equals(confirmNumberField.getText())) {
+                        currentPartyGoer = partyRoom.getAllPartyGoers().get(i);
+
                         panel.removeAll();
                         panel.repaint();
 
                         frame.setTitle("Edit Reservation");
-
-                        currentPartyGoer = partyRoom.getAllWaitlistPartyGoers().get(i);
-                        for (int j = 0; i < confirmNumberField.getText().length(); i++) {
-                            char c = confirmNumberField.getText().charAt(i);
-                            if (Character.isDigit(c)) {
-                                currentPartyGoer = partyRoom.getAllPartyGoers().get(i);
-                            }
-                        }
-
-                        //currentPartyGoer = partyRoom.getAllPartyGoers().get(i);
 
                         guestInfo(currentPartyGoer);
                         upgrades();
@@ -2252,8 +2266,24 @@ public class EditReservationFrame {
                         currentDate();
 
                         panel.revalidate();
-
                     }
+                    else if (partyRoom.getAllWaitlistPartyGoers().get(i).getName().equals(confirmNumberField.getText())) {
+                        currentPartyGoer = partyRoom.getAllWaitlistPartyGoers().get(i);
+
+                        panel.removeAll();
+                        panel.repaint();
+
+                        frame.setTitle("Edit Reservation");
+
+                        guestInfo(currentPartyGoer);
+                        upgrades();
+                        mealPlans();
+                        //generateRooms();
+                        currentDate();
+
+                        panel.revalidate();
+                    }
+
                     else {
                         panel.add(notFoundLabel);
                         panel.revalidate();

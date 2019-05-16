@@ -53,7 +53,7 @@ public class smallPartyRoom extends PartyRoom {
 	 * @return the rooms cost as a double
 	 */
 	public double calculateCost() {
-		return 0;
+		return 150;
 	}
 
 	/**
