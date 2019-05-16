@@ -1133,18 +1133,21 @@ public class NewReservationFrame {
                     globalPartyGoerList.add(partyGoer);
                     
                     if (waitlistCheck) {
+                        System.out.println("in new res " + waitlistCheck);
                         WaitlistFrame waitlistFrame = new WaitlistFrame(ROOM_TYPE_OBJECTS.get((int) roomTypeBox.getSelectedIndex()).get((int) roomNumberBox.getSelectedItem() - 1), Integer.parseInt(daySpinner.getValue().toString()), monthInt,Integer.parseInt(yearSpinner.getValue().toString()), milStartTimeInt, milEndTimeInt, partyGoer);
                         boolean tempCheck = waitlistFrame.getStatus();
+                        waitlistCheck = false;
                         if (!tempCheck) {
                             frame.setVisible(false);
-                        
                         }
                     }
                     else {
                         MainFrame mainFrame = new MainFrame();
+                        mainFrame.edit2();
                         frame.setVisible(false);
                     }
                 }
+                //waitlistCheck = false;
 
             }
             

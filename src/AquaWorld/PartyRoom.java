@@ -172,6 +172,7 @@ public class PartyRoom {
     }
 
     public void addWaitlistPartyGoer(PartyGoer p) {
+        System.out.println("hey");
 	    allWaitlistPartyGoers.add(p);
     }
 
@@ -188,10 +189,15 @@ public class PartyRoom {
 	    return allPartyGoers;
     }
 
-    public void removeReservation(PartyGoer p) {
+    public ArrayList<PartyGoer> getAllWaitlistPartyGoers() {
+        return allWaitlistPartyGoers;
+    }
+
+    public boolean removeReservation(PartyGoer p) {
 	    allPartyGoers.remove(p);
 	    removedPartyGoers.clear();
 	    removedPartyGoers.add(p);
+	    return false;
     }
 
     public void removeWaitlist(PartyGoer p) {

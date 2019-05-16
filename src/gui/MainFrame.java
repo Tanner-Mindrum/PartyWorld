@@ -416,7 +416,7 @@ public class MainFrame {
 		MainFrame f = new MainFrame();
 	}
 
-	public void edit() {
+	public void edit(boolean w) {
 		PartyRoom p = new PartyRoom();
 	 	if (p.getRemovedPartyGoerWaitlistList().size() == 1) {
 			JLabel remover = new JLabel(p.getRemovedPartyGoer().getName() + " was removed and " + p.getRemovedPartyGoerWaitlist().getName() + " was added to the reservation list.");
@@ -426,16 +426,45 @@ public class MainFrame {
 			centerPanel.add(remover);
 			centerPanel.revalidate();
 		}
-	 	else {
+	 	else if (w) {
+			JLabel remover3 = new JLabel(p.getRemovedPartyGoer().getName() + " was removed and " + p.getAllPartyGoers().get(p.getAllPartyGoers().size() - 1).getName() + " was added to the reservation list.");
+			//panelTitle.remove(remover);
+			centerPanel.remove(remover3);
+			centerPanel.repaint();
+			centerPanel.add(remover3);
+			centerPanel.revalidate();
+		}
+		else {
 			JLabel remover2 = new JLabel(p.getRemovedPartyGoer().getName() + " was removed");
-			System.out.println("o");
 			//panelTitle.remove(remover);
 			centerPanel.remove(remover2);
 			centerPanel.repaint();
-	 		centerPanel.add(remover2);
-	 		centerPanel.revalidate();
-
+			centerPanel.add(remover2);
+			centerPanel.revalidate();
 		}
+	}
+
+	public void edit2() {
+		PartyRoom p = new PartyRoom();
+
+		JLabel confirmer = new JLabel(p.getAllPartyGoers().get(p.getAllPartyGoers().size() - 1).getName() + "'s confirmation number is: " +
+				p.getAllPartyGoers().get(p.getAllPartyGoers().size() - 1).getConfirmationNum());
+		centerPanel.remove(confirmer);
+		//panelTitle.remove(remover2);
+		centerPanel.repaint();
+		centerPanel.add(confirmer);
+		centerPanel.revalidate();
+	}
+
+	public void edit3() {
+		PartyRoom p = new PartyRoom();
+
+		JLabel confirmer = new JLabel(p.getAllWaitlistPartyGoers().get(p.getAllWaitlistPartyGoers().size() - 1).getName() + " has been added to the waitlist.");
+		centerPanel.remove(confirmer);
+		//panelTitle.remove(remover2);
+		centerPanel.repaint();
+		centerPanel.add(confirmer);
+		centerPanel.revalidate();
 	}
 
 

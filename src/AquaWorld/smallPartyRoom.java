@@ -21,7 +21,7 @@ public class smallPartyRoom extends PartyRoom {
 	private String fullDate;
 	private int startTime;
 	private int endTime;
-	private int confirmationNum;
+	private static int confirmationNum;
 
 	public smallPartyRoom() {
 		fullDate = "";
@@ -61,6 +61,7 @@ public class smallPartyRoom extends PartyRoom {
 	 * @return the PartyGoer that reserved the room
 	 */
 	public boolean reserveRoom(int month, int day, int year, int startTime, int endTime, PartyGoer partyGoer, boolean justChecking) {
+		//OPEN BUG: RES DONT WORK IN SPACED TIMES
 		boolean boolToReturn = false;
 		this.startTime = startTime;
 		this.endTime = endTime;
@@ -78,15 +79,19 @@ public class smallPartyRoom extends PartyRoom {
 			reservationDates.add(fullDate);
 			reservationTimes.add(startTime);
 			reservationTimes.add(endTime);
+			boolToReturn = false;
 		}
 		else {
-			//System.out.println(reservationTimes);
+			System.out.println(reservationTimes);
 			int addCounter = 0;
 			for (int i = 0; i < reservationTimes.size(); i += 2) {
-				//[900, 915]
+				//If start time or end time are inclusively in between two prior times
 				if (reservationTimes.get(i) <= startTime && startTime <= reservationTimes.get(i + 1)
 						|| reservationTimes.get(i) <= endTime && endTime <= reservationTimes.get(i + 1)) {
-					if (!justChecking && addCounter == 0) {
+
+					if (!justChecking) {
+						//boolToReturn = true;
+						//boolToReturn = true; //steven
 						partyGoer.setConfirmationNum(null);
 						waitList.add(partyGoer);
 						super.addWaitlistPartyGoer(partyGoer);
@@ -94,8 +99,10 @@ public class smallPartyRoom extends PartyRoom {
 					}
 					boolToReturn = true;
 				}
-				else {
+				else if (addCounter == 0) {
 					confirmationNum++;
+					addCounter++;
+					System.out.println("yooo");
 					partyGoer.setConfirmationNum(Integer.toString(confirmationNum));
 					reservationList.add(partyGoer);
 					reservationDates.add(fullDate);
@@ -103,9 +110,13 @@ public class smallPartyRoom extends PartyRoom {
 					reservationTimes.add(endTime);
 					super.addPartyGoer(partyGoer);
 					boolToReturn = false;
+					break;
 				}
+				System.out.println(boolToReturn);
 			}
 		}
+
+		System.out.println("current conf num" + confirmationNum);
 
 		System.out.println("Reservation List: ");
 		for (int i = 0; i < reservationList.size(); i++) {
@@ -119,7 +130,8 @@ public class smallPartyRoom extends PartyRoom {
 		return boolToReturn;
 	}
 
-	public void removeReservation(PartyGoer p) {
+	public boolean removeReservation(PartyGoer p) {
+		boolean wasDeletedThenAdded = false;
 		for (int i = 0; i < reservationList.size(); i++) {
 			if (reservationList.get(i).getConfirmationNum().equals(p.getConfirmationNum())) {
 				reservationList.remove(reservationList.get(i));
@@ -127,6 +139,19 @@ public class smallPartyRoom extends PartyRoom {
 				reservationTimes.remove(i);
 				reservationTimes.remove(i);
 				super.removeReservation(p);
+
+				for (int j = 0; i < waitList.size(); i++) {
+					if (waitList.get(i).getMonthRes() == p.getMonthRes() && waitList.get(i).getDayRes() == p.getDayRes()
+						&& waitList.get(i).getYearRes() == p.getYearRes() && waitList.get(i).getStartTime() == p.getStartTime()
+					&& waitList.get(i).getEndTime() == p.getEndTime()) {
+						PartyGoer p2 = waitList.remove(i);
+						reservationList.add(p2);
+						super.addPartyGoer(p2);
+						p.setConfirmationNum(Integer.toString(confirmationNum));
+						confirmationNum++;
+						wasDeletedThenAdded = true;
+					}
+				}
 			}
 		}
 
@@ -146,5 +171,6 @@ public class smallPartyRoom extends PartyRoom {
 		for (int i = 0; i < waitList.size(); i++) {
 			System.out.println(waitList.get(i).getName() + " for room " + waitList.get(i).getRoomNum() + " confirmation #: " + waitList.get(i).getConfirmationNum());
 		}
+		return wasDeletedThenAdded;
 	}
 }

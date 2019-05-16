@@ -81,7 +81,7 @@ public class EditReservationFrame {
         confirmNumberField = new JTextField(5);
         confirmLabel = new JLabel("Please enter your confirmation number");
         checkButton = new JButton("Find reservation");
-        notFoundLabel = new JLabel("That confirmation number does not exist.");
+        notFoundLabel = new JLabel("That reservation does not exist.");
         cancelButton = new JButton("Cancel");
 
         checkButton.addActionListener(new buttonListener());
@@ -1245,15 +1245,19 @@ public class EditReservationFrame {
             }
 
             else if (e.getSource() == deleteButton) {
+                boolean wasDeletedThenMoved = false;
                 System.out.println("made it");
                 System.out.println((int)roomTypeBox.getSelectedIndex());
                 System.out.println((int) (roomNumberBox.getSelectedItem()) - 1);
+                for (int i = 0; i < client.getROOM_TYPE_OBJECTS().size(); i++) {
+                    System.out.println(client.getROOM_TYPE_OBJECTS().get(i));
+                }
                 System.out.println(currentPartyGoer.getName());
-                System.out.println(client.getROOM_TYPE_OBJECTS());
-                client.getROOM_TYPE_OBJECTS().get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem()) - 1).removeReservation(currentPartyGoer);
+                //System.out.println(client.getROOM_TYPE_OBJECTS());
+                wasDeletedThenMoved = client.getROOM_TYPE_OBJECTS().get((int) roomTypeBox.getSelectedIndex()).get((int) (roomNumberBox.getSelectedItem()) - 1).removeReservation(currentPartyGoer);
                 frame.setVisible(false);
                 MainFrame mainFrame = new MainFrame();
-                mainFrame.edit();
+                mainFrame.edit(wasDeletedThenMoved);
 
             }
 
@@ -2222,7 +2226,8 @@ public class EditReservationFrame {
                 PartyRoom partyRoom = new PartyRoom();
 
                 for (int i = 0; i < partyRoom.getAllPartyGoers().size(); i++) {
-                    if (partyRoom.getAllPartyGoers().get(i).getConfirmationNum().equals(confirmNumberField.getText())) {
+                    if (partyRoom.getAllPartyGoers().get(i).getConfirmationNum().equals(confirmNumberField.getText())
+                    || partyRoom.getAllWaitlistPartyGoers().get(i).getName().equals(confirmNumberField.getText())) {
                         //System.out.println(partyRoom.getAllPartyGoers().get(i).getName());
                         //reservationFrame.edit();
                         panel.removeAll();
@@ -2230,7 +2235,15 @@ public class EditReservationFrame {
 
                         frame.setTitle("Edit Reservation");
 
-                        currentPartyGoer = partyRoom.getAllPartyGoers().get(i);
+                        currentPartyGoer = partyRoom.getAllWaitlistPartyGoers().get(i);
+                        for (int j = 0; i < confirmNumberField.getText().length(); i++) {
+                            char c = confirmNumberField.getText().charAt(i);
+                            if (Character.isDigit(c)) {
+                                currentPartyGoer = partyRoom.getAllPartyGoers().get(i);
+                            }
+                        }
+
+                        //currentPartyGoer = partyRoom.getAllPartyGoers().get(i);
 
                         guestInfo(currentPartyGoer);
                         upgrades();

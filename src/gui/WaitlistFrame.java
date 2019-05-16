@@ -38,8 +38,8 @@ public class WaitlistFrame {
 	private PartyGoer partyG;
 	
 
-	private static final int FRAME_WIDTH = 450;
-	private static final int FRAME_HEIGHT = 350;
+	private static final int FRAME_WIDTH = 500;
+	private static final int FRAME_HEIGHT = 400;
 	
 	/**
 	 * the constructor for the waitlist
@@ -116,6 +116,7 @@ public class WaitlistFrame {
 				if (partyRoom != null) {
 					MainFrame mainFrame = new MainFrame();
 					partyRoom.reserveRoom(month, day, year, startTime, endTime, partyG, false);
+					mainFrame.edit3();
 					partyRoom = null;
 				}
 				waitlistFrame.setVisible(false);
