@@ -28,6 +28,7 @@ public class CheckOutFrame {
 	private JLabel damageDescriptionLabel = new JLabel("Damage description: ");
 	private JTextArea finalInvoice;
 	private int totalCost = 0;
+	private double totalCost2 = 0;
 
 
 
@@ -91,19 +92,19 @@ public class CheckOutFrame {
 
 			if (e.getSource() == checkOut) {
 				if (partyGoer.getRoomType().equals("Small Party Room")) {
-					totalCost = Integer.parseInt(damageCharges.getText().toString()) + 150;
+					totalCost = Integer.parseInt(damageCharges.getText().toString()) + 575;
 				}
 				else if (partyGoer.getRoomType().equals("Medium Party Room")) {
-					totalCost = Integer.parseInt(damageCharges.getText().toString()) + 250;
+					totalCost = Integer.parseInt(damageCharges.getText().toString()) + 1875;
 				}
 				if (partyGoer.getRoomType().equals("Aqua World")) {
-					totalCost = Integer.parseInt(damageCharges.getText().toString()) + 700;
+					totalCost2 = Integer.parseInt(damageCharges.getText().toString()) + 2330;
 				}
 				if (partyGoer.getRoomType().equals("Karaoke Lounge")) {
-					totalCost = Integer.parseInt(damageCharges.getText().toString()) + 30;
+					totalCost = Integer.parseInt(damageCharges.getText().toString()) + 60 + 120 + 45;
 				}
 				if (partyGoer.getRoomType().equals("Adult Billiards Lounge")) {
-					totalCost = Integer.parseInt(damageCharges.getText().toString()) + 25;
+					totalCost2 = Integer.parseInt(damageCharges.getText().toString()) + 50 + 65 + 28.75;
 				}
 				panel.remove(finalInvoice);
 				panel.repaint();
